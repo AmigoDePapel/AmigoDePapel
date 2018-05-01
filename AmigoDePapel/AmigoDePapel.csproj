@@ -31,7 +31,7 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
-    <Optimize>true</Optimize>
+    <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
@@ -51,6 +51,11 @@
     <ApplicationIcon>Resources\ico.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+      <HintPath>C:\Users\FENIX\Downloads\Microsoft.Office.Interop.Excel\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -68,6 +73,7 @@
     <Compile Include="CLASS\DeletaInformacao.cs" />
     <Compile Include="CLASS\DoaLivro.cs" />
     <Compile Include="CLASS\EmprestaLivro.cs" />
+    <Compile Include="CLASS\load\LoadGDLivros.cs" />
     <Compile Include="CLASS\ValidaInicializacao.cs" />
     <Compile Include="FORMS\CadastraLivro.cs">
       <SubType>Form</SubType>
@@ -114,7 +120,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DLL\" />
-    <Folder Include="FORMS\NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\wallpaper.png" />

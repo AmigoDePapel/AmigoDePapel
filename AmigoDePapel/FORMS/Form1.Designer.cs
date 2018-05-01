@@ -29,160 +29,183 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Index));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tsb_reflesh = new System.Windows.Forms.ToolStripButton();
+            this.tsb_add_livro = new System.Windows.Forms.ToolStripButton();
+            this.tsb_add_userr = new System.Windows.Forms.ToolStripButton();
+            this.tsb_report = new System.Windows.Forms.ToolStripButton();
+            this.tsb_help = new System.Windows.Forms.ToolStripButton();
+            this.tc_main = new System.Windows.Forms.TabControl();
             this.tp_book = new System.Windows.Forms.TabPage();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.pb_pesquisa_user = new System.Windows.Forms.PictureBox();
+            this.tb_pesquisaLivro = new System.Windows.Forms.TextBox();
+            this.dg_livro = new System.Windows.Forms.DataGridView();
             this.tp_user = new System.Windows.Forms.TabPage();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.ts_status = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tss_adp = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tss_status = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tss_img = new System.Windows.Forms.ToolStripStatusLabel();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.pc_pesquisa_user = new System.Windows.Forms.PictureBox();
+            this.tb_pesquisa_user = new System.Windows.Forms.TextBox();
+            this.dg_user = new System.Windows.Forms.DataGridView();
             this.toolStrip1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.tc_main.SuspendLayout();
             this.tp_book.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_pesquisa_user)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_livro)).BeginInit();
             this.tp_user.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pc_pesquisa_user)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_user)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1,
-            this.toolStripButton2,
-            this.toolStripButton3,
-            this.toolStripButton4,
-            this.toolStripButton5});
+            this.tsb_reflesh,
+            this.tsb_add_livro,
+            this.tsb_add_userr,
+            this.tsb_report,
+            this.tsb_help});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(884, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(887, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
-            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
-            // toolStripButton1
+            // tsb_reflesh
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::AmigoDePapel.Properties.Resources.arrow_refresh;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "toolStripButton1";
+            this.tsb_reflesh.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsb_reflesh.Image = global::AmigoDePapel.Properties.Resources.arrow_refresh;
+            this.tsb_reflesh.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_reflesh.Name = "tsb_reflesh";
+            this.tsb_reflesh.Size = new System.Drawing.Size(23, 22);
+            this.tsb_reflesh.Text = "toolStripButton1";
             // 
-            // toolStripButton2
+            // tsb_add_livro
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = global::AmigoDePapel.Properties.Resources.book_add;
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "toolStripButton2";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            this.tsb_add_livro.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsb_add_livro.Image = global::AmigoDePapel.Properties.Resources.book_add;
+            this.tsb_add_livro.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_add_livro.Name = "tsb_add_livro";
+            this.tsb_add_livro.Size = new System.Drawing.Size(23, 22);
+            this.tsb_add_livro.Text = "toolStripButton2";
+            this.tsb_add_livro.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
-            // toolStripButton3
+            // tsb_add_userr
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = global::AmigoDePapel.Properties.Resources.user_add;
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton3.Text = "toolStripButton3";
+            this.tsb_add_userr.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsb_add_userr.Image = global::AmigoDePapel.Properties.Resources.user_add;
+            this.tsb_add_userr.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_add_userr.Name = "tsb_add_userr";
+            this.tsb_add_userr.Size = new System.Drawing.Size(23, 22);
+            this.tsb_add_userr.Text = "toolStripButton3";
             // 
-            // toolStripButton4
+            // tsb_report
             // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = global::AmigoDePapel.Properties.Resources.chart_bar;
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton4.Text = "toolStripButton4";
+            this.tsb_report.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsb_report.Image = global::AmigoDePapel.Properties.Resources.chart_bar;
+            this.tsb_report.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_report.Name = "tsb_report";
+            this.tsb_report.Size = new System.Drawing.Size(23, 22);
+            this.tsb_report.Text = "toolStripButton4";
             // 
-            // toolStripButton5
+            // tsb_help
             // 
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton5.Image = global::AmigoDePapel.Properties.Resources.help;
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton5.Text = "toolStripButton5";
+            this.tsb_help.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsb_help.Image = global::AmigoDePapel.Properties.Resources.help;
+            this.tsb_help.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_help.Name = "tsb_help";
+            this.tsb_help.Size = new System.Drawing.Size(23, 22);
+            this.tsb_help.Text = "toolStripButton5";
             // 
-            // tabControl1
+            // tc_main
             // 
-            this.tabControl1.Controls.Add(this.tp_book);
-            this.tabControl1.Controls.Add(this.tp_user);
-            this.tabControl1.Location = new System.Drawing.Point(0, 28);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(884, 508);
-            this.tabControl1.TabIndex = 2;
+            this.tc_main.Controls.Add(this.tp_book);
+            this.tc_main.Controls.Add(this.tp_user);
+            this.tc_main.Location = new System.Drawing.Point(0, 28);
+            this.tc_main.Name = "tc_main";
+            this.tc_main.SelectedIndex = 0;
+            this.tc_main.Size = new System.Drawing.Size(884, 508);
+            this.tc_main.TabIndex = 2;
             // 
             // tp_book
             // 
             this.tp_book.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.tp_book.Controls.Add(this.pictureBox1);
-            this.tp_book.Controls.Add(this.textBox1);
-            this.tp_book.Controls.Add(this.dataGridView1);
+            this.tp_book.Controls.Add(this.pb_pesquisa_user);
+            this.tp_book.Controls.Add(this.tb_pesquisaLivro);
+            this.tp_book.Controls.Add(this.dg_livro);
             this.tp_book.Location = new System.Drawing.Point(4, 22);
             this.tp_book.Name = "tp_book";
             this.tp_book.Padding = new System.Windows.Forms.Padding(3);
             this.tp_book.Size = new System.Drawing.Size(876, 482);
             this.tp_book.TabIndex = 0;
             this.tp_book.Text = "Livros";
-            this.tp_book.Click += new System.EventHandler(this.tp_book_Click);
             // 
-            // pictureBox1
+            // pb_pesquisa_user
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.Image = global::AmigoDePapel.Properties.Resources.zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(847, 8);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(16, 16);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.pb_pesquisa_user.BackColor = System.Drawing.Color.White;
+            this.pb_pesquisa_user.Image = global::AmigoDePapel.Properties.Resources.zoom;
+            this.pb_pesquisa_user.Location = new System.Drawing.Point(847, 8);
+            this.pb_pesquisa_user.Name = "pb_pesquisa_user";
+            this.pb_pesquisa_user.Size = new System.Drawing.Size(16, 16);
+            this.pb_pesquisa_user.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pb_pesquisa_user.TabIndex = 5;
+            this.pb_pesquisa_user.TabStop = false;
             // 
-            // textBox1
+            // tb_pesquisaLivro
             // 
-            this.textBox1.Location = new System.Drawing.Point(8, 6);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(860, 20);
-            this.textBox1.TabIndex = 4;
+            this.tb_pesquisaLivro.Location = new System.Drawing.Point(8, 6);
+            this.tb_pesquisaLivro.Name = "tb_pesquisaLivro";
+            this.tb_pesquisaLivro.Size = new System.Drawing.Size(860, 20);
+            this.tb_pesquisaLivro.TabIndex = 4;
             // 
-            // dataGridView1
+            // dg_livro
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(6, 32);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(862, 444);
-            this.dataGridView1.TabIndex = 3;
+            this.dg_livro.AllowUserToAddRows = false;
+            this.dg_livro.AllowUserToDeleteRows = false;
+            this.dg_livro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.dg_livro.BackgroundColor = System.Drawing.Color.White;
+            this.dg_livro.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dg_livro.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dg_livro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dg_livro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dg_livro.GridColor = System.Drawing.Color.DarkGray;
+            this.dg_livro.Location = new System.Drawing.Point(6, 32);
+            this.dg_livro.MultiSelect = false;
+            this.dg_livro.Name = "dg_livro";
+            this.dg_livro.ReadOnly = true;
+            this.dg_livro.RowHeadersVisible = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Maroon;
+            this.dg_livro.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dg_livro.ShowCellErrors = false;
+            this.dg_livro.ShowCellToolTips = false;
+            this.dg_livro.ShowEditingIcon = false;
+            this.dg_livro.Size = new System.Drawing.Size(862, 444);
+            this.dg_livro.TabIndex = 3;
             // 
             // tp_user
             // 
             this.tp_user.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.tp_user.Controls.Add(this.pictureBox2);
-            this.tp_user.Controls.Add(this.textBox2);
-            this.tp_user.Controls.Add(this.dataGridView2);
+            this.tp_user.Controls.Add(this.pc_pesquisa_user);
+            this.tp_user.Controls.Add(this.tb_pesquisa_user);
+            this.tp_user.Controls.Add(this.dg_user);
             this.tp_user.Location = new System.Drawing.Point(4, 22);
             this.tp_user.Name = "tp_user";
             this.tp_user.Padding = new System.Windows.Forms.Padding(3);
@@ -190,100 +213,99 @@
             this.tp_user.TabIndex = 1;
             this.tp_user.Text = "Usúarios";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.White;
-            this.pictureBox2.Image = global::AmigoDePapel.Properties.Resources.zoom;
-            this.pictureBox2.Location = new System.Drawing.Point(846, 8);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(16, 16);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox2.TabIndex = 8;
-            this.pictureBox2.TabStop = false;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(8, 6);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(859, 20);
-            this.textBox2.TabIndex = 7;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(6, 32);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(862, 444);
-            this.dataGridView2.TabIndex = 6;
-            // 
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel2,
-            this.ts_status,
-            this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 539);
+            this.tss_adp,
+            this.tss_status,
+            this.tss_img});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 541);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(884, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(887, 22);
             this.statusStrip1.TabIndex = 3;
             this.statusStrip1.Text = "statusStrip1";
             // 
-            // toolStripStatusLabel2
+            // tss_adp
             // 
-            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(125, 17);
-            this.toolStripStatusLabel2.Text = "Amigo de papel  V0.01";
-            this.toolStripStatusLabel2.Click += new System.EventHandler(this.toolStripStatusLabel2_Click);
+            this.tss_adp.Name = "tss_adp";
+            this.tss_adp.Size = new System.Drawing.Size(125, 17);
+            this.tss_adp.Text = "Amigo de papel  V0.01";
             // 
-            // ts_status
+            // tss_status
             // 
-            this.ts_status.Name = "ts_status";
-            this.ts_status.Size = new System.Drawing.Size(91, 17);
-            this.ts_status.Text = "Status da Base:  ";
+            this.tss_status.Name = "tss_status";
+            this.tss_status.Size = new System.Drawing.Size(91, 17);
+            this.tss_status.Text = "Status da Base:  ";
             // 
-            // toolStripStatusLabel1
+            // tss_img
             // 
-            this.toolStripStatusLabel1.Image = global::AmigoDePapel.Properties.Resources.tick;
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(16, 17);
-            this.toolStripStatusLabel1.Click += new System.EventHandler(this.toolStripStatusLabel1_Click);
+            this.tss_img.Image = global::AmigoDePapel.Properties.Resources.tick;
+            this.tss_img.Name = "tss_img";
+            this.tss_img.Size = new System.Drawing.Size(16, 17);
             // 
             // notifyIcon1
             // 
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             // 
+            // pc_pesquisa_user
+            // 
+            this.pc_pesquisa_user.BackColor = System.Drawing.Color.White;
+            this.pc_pesquisa_user.Image = global::AmigoDePapel.Properties.Resources.zoom;
+            this.pc_pesquisa_user.Location = new System.Drawing.Point(848, 8);
+            this.pc_pesquisa_user.Name = "pc_pesquisa_user";
+            this.pc_pesquisa_user.Size = new System.Drawing.Size(16, 16);
+            this.pc_pesquisa_user.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pc_pesquisa_user.TabIndex = 8;
+            this.pc_pesquisa_user.TabStop = false;
+            // 
+            // tb_pesquisa_user
+            // 
+            this.tb_pesquisa_user.Location = new System.Drawing.Point(9, 6);
+            this.tb_pesquisa_user.Name = "tb_pesquisa_user";
+            this.tb_pesquisa_user.Size = new System.Drawing.Size(860, 20);
+            this.tb_pesquisa_user.TabIndex = 7;
+            // 
+            // dg_user
+            // 
+            this.dg_user.AllowUserToAddRows = false;
+            this.dg_user.AllowUserToDeleteRows = false;
+            this.dg_user.BackgroundColor = System.Drawing.Color.White;
+            this.dg_user.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dg_user.Location = new System.Drawing.Point(7, 32);
+            this.dg_user.Name = "dg_user";
+            this.dg_user.ReadOnly = true;
+            this.dg_user.Size = new System.Drawing.Size(862, 444);
+            this.dg_user.TabIndex = 6;
+            // 
             // Index
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(884, 561);
+            this.ClientSize = new System.Drawing.Size(887, 563);
             this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tc_main);
             this.Controls.Add(this.toolStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Index";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Amigo de Papel - Controle";
+            this.Load += new System.EventHandler(this.Index_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
-            this.tabControl1.ResumeLayout(false);
+            this.tc_main.ResumeLayout(false);
             this.tp_book.ResumeLayout(false);
             this.tp_book.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_pesquisa_user)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_livro)).EndInit();
             this.tp_user.ResumeLayout(false);
             this.tp_user.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pc_pesquisa_user)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_user)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -291,26 +313,26 @@
 
         #endregion
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.ToolStripButton tsb_reflesh;
+        private System.Windows.Forms.ToolStripButton tsb_add_livro;
+        private System.Windows.Forms.ToolStripButton tsb_add_userr;
+        private System.Windows.Forms.TabControl tc_main;
         private System.Windows.Forms.TabPage tp_book;
         private System.Windows.Forms.TabPage tp_user;
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel ts_status;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripStatusLabel tss_status;
+        private System.Windows.Forms.ToolStripStatusLabel tss_img;
+        private System.Windows.Forms.DataGridView dg_livro;
+        private System.Windows.Forms.TextBox tb_pesquisaLivro;
+        private System.Windows.Forms.PictureBox pb_pesquisa_user;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel2;
+        private System.Windows.Forms.ToolStripButton tsb_report;
+        private System.Windows.Forms.ToolStripButton tsb_help;
+        private System.Windows.Forms.ToolStripStatusLabel tss_adp;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.PictureBox pc_pesquisa_user;
+        private System.Windows.Forms.TextBox tb_pesquisa_user;
+        private System.Windows.Forms.DataGridView dg_user;
     }
 }
 

@@ -1,37 +1,65 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 
 namespace AmigoDePapel.CLASS
 {
     class ValidaInicializacao
     {
-        public void VerifinicaInicializacao()
+        public string[] VerifinicaInicializacao()
         {
             //verifica se o arquivo esta apontando para a planilha correta;
+            //variaveis que serão utitilizadas na validação;
+            string url = System.Environment.CurrentDirectory.ToString();
+            string txt = url + "\\config.adpc";
+            string[] conteudoTXT; 
+
+            ValidaTXT(url, txt);
+            conteudoTXT = getConteudoTXT(txt);
+            ValidaDB(conteudoTXT[0]);
+
+            return conteudoTXT;
+        }
+        //manipula o arquivo de configuração
+        private void CriaAruivoTXT(string url)
+        {
+            string arquivo = "config.adpc";
+            StreamWriter writer = new StreamWriter(url + "/" + arquivo);
+
+            writer.WriteLine("DB=" + url+ "\\amigoDePapel.xls");
+            writer.WriteLine("PASS=");
+            writer.WriteLine("LOG=FALSE");
+            writer.Close();
         }
 
-        private void CriaAruivoTXT()
+        public void AtualizaTXT(string db, string pass, bool log)
         {
 
         }
 
-        private void CriaPlanilhaNova()
+        private string[] getConteudoTXT(string txt)
         {
-
+            string[] conteudoBruto = System.IO.File.ReadAllLines(txt);
+            string[] conteudo = new string[3];
+            int i = 0;
+            foreach (string line in conteudoBruto)
+            {
+                conteudo[i] = line.Replace("DB=", "").Replace("PASS=", "").Replace("LOG=", "");
+                i++;
+            }
+            return conteudo;
         }
 
-        private String PegaCaminhoRaiz()
+        private void ValidaTXT(string url, string txt)
         {
-            //retorna caminho raiz da planilha
-            return "";
+            if (!File.Exists(txt))
+                CriaAruivoTXT(url);
         }
 
-        private void AtualizaTXT()
+        private bool ValidaDB(string db)
         {
-
+            if (!File.Exists(db))
+                return true;
+            else
+                return false;
         }
     }
 }
