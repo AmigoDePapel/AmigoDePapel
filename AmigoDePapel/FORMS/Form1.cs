@@ -21,5 +21,20 @@ namespace AmigoDePapel
         {
 
         }
+
+        private void tp_book_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripStatusLabel2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

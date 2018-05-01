@@ -48,7 +48,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>ico.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\ico.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -64,6 +64,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CLASS\AdicionaInformacao.cs" />
+    <Compile Include="CLASS\DeletaInformacao.cs" />
+    <Compile Include="CLASS\DoaLivro.cs" />
+    <Compile Include="CLASS\EmprestaLivro.cs" />
+    <Compile Include="CLASS\ValidaInicializacao.cs" />
     <Compile Include="FORMS\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,11 +104,16 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CLASS\" />
     <Folder Include="DLL\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ico.ico" />
+    <None Include="Resources\zoom.png" />
+    <None Include="Resources\find.png" />
+    <None Include="Resources\bin_closed1.png" />
+    <None Include="Resources\chart_bar.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\help.png" />
+    <Content Include="Resources\ico.ico" />
     <Content Include="LIB\ICO\ico.ico" />
     <None Include="Resources\user_edit.png" />
     <None Include="Resources\user_delete.png" />

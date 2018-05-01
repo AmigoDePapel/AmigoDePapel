@@ -8,3 +8,13 @@ D:\SITES E PROJETOS\C#\02 PROJETOS\Amigo de Papel\AmigoDePapel\AmigoDePapel\obj\
 D:\SITES E PROJETOS\C#\02 PROJETOS\Amigo de Papel\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.exe
 D:\SITES E PROJETOS\C#\02 PROJETOS\Amigo de Papel\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.pdb
 D:\SITES E PROJETOS\C#\02 PROJETOS\Amigo de Papel\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.Index.resources
+D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\bin\Debug\AmigoDePapel.exe.config
+D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\bin\Debug\AmigoDePapel.exe
+D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\bin\Debug\AmigoDePapel.pdb
+D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.csprojResolveAssemblyReference.cache
+D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.Index.resources
+D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.Properties.Resources.resources
+D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.csproj.GenerateResource.cache
+D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.csproj.CoreCompileInputs.cache
+D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.exe
+D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.pdb
