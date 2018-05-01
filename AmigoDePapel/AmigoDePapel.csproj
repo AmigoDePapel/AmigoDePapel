@@ -69,6 +69,12 @@
     <Compile Include="CLASS\DoaLivro.cs" />
     <Compile Include="CLASS\EmprestaLivro.cs" />
     <Compile Include="CLASS\ValidaInicializacao.cs" />
+    <Compile Include="FORMS\CadastraLivro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMS\CadastraLivro.Designer.cs">
+      <DependentUpon>CadastraLivro.cs</DependentUpon>
+    </Compile>
     <Compile Include="FORMS\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +83,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FORMS\CadastraLivro.resx">
+      <DependentUpon>CadastraLivro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FORMS\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -105,8 +114,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DLL\" />
+    <Folder Include="FORMS\NewFolder1\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\wallpaper.png" />
     <None Include="Resources\zoom.png" />
     <None Include="Resources\find.png" />
     <None Include="Resources\bin_closed1.png" />

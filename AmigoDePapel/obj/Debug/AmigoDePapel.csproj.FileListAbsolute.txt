@@ -18,3 +18,4 @@ D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\obj\Debug\A
 D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.csproj.CoreCompileInputs.cache
 D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.exe
 D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.pdb
+D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.FORMS.CadastraLivro.resources

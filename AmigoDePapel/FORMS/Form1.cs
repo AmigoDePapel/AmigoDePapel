@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AmigoDePapel.FORMS;
 
 namespace AmigoDePapel
 {
@@ -35,6 +36,17 @@ namespace AmigoDePapel
         private void toolStripStatusLabel2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            CadastraLivro cadastralivro = new CadastraLivro();
+            cadastralivro.Show();
         }
     }
 }
