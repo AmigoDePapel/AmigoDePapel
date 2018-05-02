@@ -47,28 +47,6 @@ namespace AmigoDePapel.CLASS.load
                 dt.Columns.Add("GENERO", typeof(string));
                 dt.Columns.Add("SUBGENERO", typeof(string));
 
-                /*
-                DataRow dr = dt.NewRow();
-                dr["Codigo"] = 1;
-                dr["Nome"] = "Macoratti";
-                dr["Admissao"] = DateTime.Now;
-                dr["Setor"] = 20;
-                dr["Salario"] = 15000;
-                dt.Rows.Add(dr);
-                dr = dt.NewRow();
-                dr["Codigo"] = 2;
-                dr["Nome"] = "Miriam";
-                dr["Admissao"] = DateTime.Now;
-                dr["Setor"] = 30;
-                dr["Salario"] = 25000;
-                dt.Rows.Add(dr);
-                dr = dt.NewRow();
-                dr["Codigo"] = 3;
-                dr["Nome"] = "Jefferson";
-                dr["Admissao"] = DateTime.Now;
-                dr["Setor"] = 40;
-                dr["Salario"] = 18000;
-                dt.Rows.Add(dr);*/
                 return dt; 
             }
             catch (Exception ex)
@@ -76,5 +54,7 @@ namespace AmigoDePapel.CLASS.load
                 return null;
             }
         }
+
+        
     }
 }

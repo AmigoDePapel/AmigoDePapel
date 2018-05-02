@@ -3,7 +3,6 @@ using System.Windows.Forms;
 using AmigoDePapel.FORMS;
 using AmigoDePapel.CLASS;
 using AmigoDePapel.CLASS.load;
-using Microsoft.Office.Interop.Excel;
 
 namespace AmigoDePapel
 {
@@ -25,7 +24,6 @@ namespace AmigoDePapel
         {
             ValidaInicializacao validacao = new ValidaInicializacao();
             validacao.VerifinicaInicializacao();
-            Microsoft.Office.Interop.Excel.Application XcelApp = new Microsoft.Office.Interop.Excel.Application();
             //ALIMENTA OS GRIDS
             LoadGDLivros gdLivros = new LoadGDLivros();
             dg_livro.DataSource = gdLivros.CarregaGridLivro();
