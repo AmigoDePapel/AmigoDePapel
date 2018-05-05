@@ -35,17 +35,16 @@ namespace AmigoDePapel.CLASS.load
                 DataTable dt = new DataTable();
 
                 dt.Columns.Add("ID", typeof(int));
+                dt.Columns.Add("ISBN ou EAN", typeof(string));
                 dt.Columns.Add("TITULO", typeof(string));
                 dt.Columns.Add("SUBTITULO", typeof(string));
-                dt.Columns.Add("AUTOR", typeof(string));
-                dt.Columns.Add("EAN", typeof(string));
-                dt.Columns.Add("ISBN", typeof(string));
-                dt.Columns.Add("EDITORA", typeof(string));
-                dt.Columns.Add("EDIÇÃO", typeof(string));
-                dt.Columns.Add("ANO", typeof(DateTime));
-                dt.Columns.Add("PAGINAS", typeof(int));
                 dt.Columns.Add("GENERO", typeof(string));
                 dt.Columns.Add("SUBGENERO", typeof(string));
+                dt.Columns.Add("AUTOR", typeof(string));
+                dt.Columns.Add("EDITORA", typeof(string));
+                dt.Columns.Add("EDIÇÃO", typeof(string));
+                dt.Columns.Add("PAGINAS", typeof(int));
+                dt.Columns.Add("ANO", typeof(string));
 
                 return dt; 
             }

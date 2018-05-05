@@ -129,6 +129,8 @@
     <None Include="Resources\chart_bar.png" />
     <None Include="Resources\delete.png" />
     <None Include="Resources\help.png" />
+    <None Include="Resources\cancel.png" />
+    <None Include="Resources\cog.png" />
     <Content Include="Resources\ico.ico" />
     <Content Include="LIB\ICO\ico.ico" />
     <None Include="Resources\user_edit.png" />

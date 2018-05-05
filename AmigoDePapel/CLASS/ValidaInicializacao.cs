@@ -14,7 +14,11 @@ namespace AmigoDePapel.CLASS
 
             ValidaTXT(url, txt);
             conteudoTXT = getConteudoTXT(txt);
-            ValidaDB(conteudoTXT[0]);
+            //verifica se a planilha existe, caso contrario pede o local
+            if (ValidaDB(conteudoTXT[0]))
+            {
+
+            }
 
             return conteudoTXT;
         }

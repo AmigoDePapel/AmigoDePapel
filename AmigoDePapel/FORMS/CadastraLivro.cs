@@ -16,5 +16,29 @@ namespace AmigoDePapel.FORMS
         {
             InitializeComponent();
         }
+
+        public CadastraLivro(string[] livro)
+        {
+
+            InitializeComponent();
+        }
+
+        private void tsb_retirar_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Deseja remover do sistema esse livro?","ATENÇÃO",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+        }
+
+        private void CadastraLivro_Load(object sender, EventArgs e)
+        {
+            ValidacoesBasicas();
+        }
+
+        private void ValidacoesBasicas()
+        {
+            //VALIDAÇÕES BÁSICAS
+            //se o código do itemm for 00 (cadastro novo) - desativar botão de retirada do sistema. 
+            if (lb_codigo.Text.Equals("00"))
+                tsb_retirar.Enabled = false;
+        }
     }
 }
