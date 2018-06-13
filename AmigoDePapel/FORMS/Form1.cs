@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using AmigoDePapel.FORMS;
 using AmigoDePapel.CLASS;
+using AmigoDePapel.CLASS.conSql;
 using AmigoDePapel.CLASS.load;
 using System.IO;
 
@@ -36,6 +37,17 @@ namespace AmigoDePapel
             if (!File.Exists(txt[0]))
              tss_img.Image = global::AmigoDePapel.Properties.Resources.cancel;
 
+        }
+
+        private void tsb_reflesh_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Connection sqlCon = new Connection();
+            sqlCon.CreateDB();
         }
     }
 }

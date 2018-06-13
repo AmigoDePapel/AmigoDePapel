@@ -11,7 +11,6 @@ D:\SITES E PROJETOS\C#\02 PROJETOS\Amigo de Papel\AmigoDePapel\AmigoDePapel\obj\
 D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\bin\Debug\AmigoDePapel.exe.config
 D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\bin\Debug\AmigoDePapel.exe
 D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\bin\Debug\AmigoDePapel.pdb
-D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.csprojResolveAssemblyReference.cache
 D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.Index.resources
 D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.Properties.Resources.resources
 D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.csproj.GenerateResource.cache
@@ -30,3 +29,12 @@ C:\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.pdb
 C:\AmigoDePapel\AmigoDePapel\bin\Debug\AmigoDePapel.exe.config
 C:\AmigoDePapel\AmigoDePapel\bin\Debug\AmigoDePapel.exe
 C:\AmigoDePapel\AmigoDePapel\bin\Debug\AmigoDePapel.pdb
+D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\bin\Debug\EntityFramework.dll
+D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\bin\Debug\EntityFramework.SqlServer.dll
+D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\bin\Debug\EntityFramework.SqlServerCompact.dll
+D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\bin\Debug\System.Data.SqlServerCe.dll
+D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\bin\Debug\EntityFramework.xml
+D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\bin\Debug\EntityFramework.SqlServer.xml
+D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\bin\Debug\EntityFramework.SqlServerCompact.xml
+D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.csprojAssemblyReference.cache
+D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.csproj.CopyComplete
