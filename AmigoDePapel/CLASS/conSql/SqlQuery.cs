@@ -19,9 +19,9 @@
 	                                                SUBTEMA NVARCHAR(200),
 	                                                PAGINAS INTEGER,
 	                                                OBSERVACAO NVARCHAR(900),
-	                                                CONSTRAINT SYS_PK_10093 PRIMARY KEY (ID))";
+	                                                CONSTRAINT ITEM_LIVRO_PK_0001 PRIMARY KEY (ID))";
 
-        public string sql_create_unique_stk_item_livro = "CREATE UNIQUE INDEX SYS_IDX_SYS_PK_10093_10094 ON STK_ITEM_LIVRO(ID)";
+        public string sql_create_unique_stk_item_livro = "CREATE UNIQUE INDEX STK_ITEM_LIVRO_ID_UNIQUE_001 ON STK_ITEM_LIVRO(ID)";
 
         //crm_cliente
         public string sql_create_crm_cliente = @"CREATE TABLE CRM_CLIENTE (
@@ -32,8 +32,22 @@
 	                                                ENDERECO NVARCHAR(900),
 	                                                DOCUMENTO NVARCHAR(200),
 	                                                OBSERVACAO NVARCHAR(900),
-	                                                CONSTRAINT SYS_PK_10093 PRIMARY KEY (ID))";
+	                                                CONSTRAINT CLIENTE_PK_0001 PRIMARY KEY (ID))";
 
+        public string sql_create_unique_crm_cliente = "CREATE UNIQUE INDEX CRM_CLIENTE_ID_UNIQUE_001 ON STK_ITEM_LIVRO(ID)";
+
+        //emprestimos
+
+        public string sql_create_pvd_emprestimos = @"CREATE TABLE PVD_EMPRESTIMOS (
+	                                                ISDELETED BIT DEFAULT '0' NOT NULL,
+	                                                ID INTEGER NOT NULL IDENTITY,
+	                                                ID_ITEM_LIVRO INTEGER NOT NULL,
+	                                                ID_CLIENTE INTEGER NOT NULL,
+	                                                DATE_INICIO DATETIME NOT NULL,
+	                                                DATE_FIM DATETIME NOT NULL,
+	                                                STATUS NVARCHAR(100),
+	                                                STATUS NVARCHAR(100)
+	                                                CONSTRAINT EMPRESTIMOS_PK_0001 PRIMARY KEY (ID))";
     }
 
 }
