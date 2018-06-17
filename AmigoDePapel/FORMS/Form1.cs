@@ -46,8 +46,13 @@ namespace AmigoDePapel
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
-            Connection sqlCon = new Connection();
-            sqlCon.CreateDB();
+            Configuracao conf = new Configuracao();
+            conf.Show();
+        }
+
+        private void tp_book_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

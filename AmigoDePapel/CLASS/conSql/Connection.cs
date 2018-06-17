@@ -20,7 +20,11 @@ namespace AmigoDePapel.CLASS.conSql
                     SqlCeEngine eng = new SqlCeEngine(urlCon);
                     eng.CreateDatabase();
                     CreateTables();
-                    MessageBox.Show("Nova base de dados criada com sucesso.", "OBA!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Nova base de dados criada com sucesso. \n LOCAL:"+ Application.StartupPath, "OBA!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Já existe uma base criada na pasta raiz. \n LOCAL:" + Application.StartupPath, "CALMA!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch(Exception err)

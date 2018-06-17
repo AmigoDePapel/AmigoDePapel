@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Windows.Forms;
 
 namespace AmigoDePapel.CLASS.load
 {
@@ -23,6 +24,7 @@ namespace AmigoDePapel.CLASS.load
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 return null;
             }
 
@@ -50,6 +52,7 @@ namespace AmigoDePapel.CLASS.load
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message);
                 return null;
             }
         }

@@ -164,6 +164,7 @@
             this.tp_book.Size = new System.Drawing.Size(876, 482);
             this.tp_book.TabIndex = 0;
             this.tp_book.Text = "Livros";
+            this.tp_book.Click += new System.EventHandler(this.tp_book_Click);
             // 
             // pb_pesquisa_user
             // 

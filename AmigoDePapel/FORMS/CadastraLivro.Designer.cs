@@ -56,8 +56,8 @@
             this.tb_obs = new System.Windows.Forms.TextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsb_save = new System.Windows.Forms.ToolStripButton();
-            this.tsb_ajuda = new System.Windows.Forms.ToolStripButton();
             this.tsb_retirar = new System.Windows.Forms.ToolStripButton();
+            this.tsb_ajuda = new System.Windows.Forms.ToolStripButton();
             this.gb_cadastroLivro.SuspendLayout();
             this.gb_observacao.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -425,15 +425,6 @@
             this.tsb_save.Size = new System.Drawing.Size(23, 22);
             this.tsb_save.Text = "Salva";
             // 
-            // tsb_ajuda
-            // 
-            this.tsb_ajuda.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_ajuda.Image = global::AmigoDePapel.Properties.Resources.help;
-            this.tsb_ajuda.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_ajuda.Name = "tsb_ajuda";
-            this.tsb_ajuda.Size = new System.Drawing.Size(23, 22);
-            this.tsb_ajuda.Text = "Ajuda";
-            // 
             // tsb_retirar
             // 
             this.tsb_retirar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -443,6 +434,15 @@
             this.tsb_retirar.Size = new System.Drawing.Size(23, 22);
             this.tsb_retirar.Text = "Descarta Livro";
             this.tsb_retirar.Click += new System.EventHandler(this.tsb_retirar_Click);
+            // 
+            // tsb_ajuda
+            // 
+            this.tsb_ajuda.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsb_ajuda.Image = global::AmigoDePapel.Properties.Resources.help;
+            this.tsb_ajuda.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_ajuda.Name = "tsb_ajuda";
+            this.tsb_ajuda.Size = new System.Drawing.Size(23, 22);
+            this.tsb_ajuda.Text = "Ajuda";
             // 
             // CadastraLivro
             // 

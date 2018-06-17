@@ -38,3 +38,4 @@ D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\bin\Debug\E
 D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\bin\Debug\EntityFramework.SqlServerCompact.xml
 D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.csprojAssemblyReference.cache
 D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.csproj.CopyComplete
+D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.FORMS.configuracao.resources

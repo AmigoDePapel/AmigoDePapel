@@ -11,6 +11,7 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -23,7 +24,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -96,6 +96,12 @@
     <Compile Include="FORMS\CadastraLivro.Designer.cs">
       <DependentUpon>CadastraLivro.cs</DependentUpon>
     </Compile>
+    <Compile Include="FORMS\Configuracao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMS\Configuracao.Designer.cs">
+      <DependentUpon>Configuracao.cs</DependentUpon>
+    </Compile>
     <Compile Include="FORMS\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FORMS\CadastraLivro.resx">
       <DependentUpon>CadastraLivro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORMS\Configuracao.resx">
+      <DependentUpon>Configuracao.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORMS\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

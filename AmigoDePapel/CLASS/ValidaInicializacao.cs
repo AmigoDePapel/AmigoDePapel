@@ -1,20 +1,22 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
+using System.Windows.Forms;
 
 namespace AmigoDePapel.CLASS
 {
     class ValidaInicializacao
     {
+        public string url = System.Environment.CurrentDirectory.ToString();
+        public string txt = "\\config.adpc";
+
         public string[] VerifinicaInicializacao()
         {
-            //verifica se o arquivo esta apontando para a planilha correta;
+            //verifica se o arquivo esta apontando para uma base correta;
             //variaveis que serão utitilizadas na validação;
-            string url = System.Environment.CurrentDirectory.ToString();
-            string txt = url + "\\config.adpc";
-            string[] conteudoTXT; 
+            ValidaTXT();
+            string[] conteudoTXT = GetConteudoTXT();
 
-            ValidaTXT(url, txt);
-            conteudoTXT = getConteudoTXT(txt);
-            //verifica se a planilha existe, caso contrario pede o local
+            //verifica se a base existe, caso contrario pede o local
             if (ValidaDB(conteudoTXT[0]))
             {
 
@@ -22,40 +24,48 @@ namespace AmigoDePapel.CLASS
 
             return conteudoTXT;
         }
+
         //manipula o arquivo de configuração
-        private void CriaAruivoTXT(string url)
+        private void CriaAruivoTXT()
         {
-            string arquivo = "config.adpc";
-            StreamWriter writer = new StreamWriter(url + "/" + arquivo);
+            try
+            {
+                StreamWriter writer = new StreamWriter(url + txt);
 
-            writer.WriteLine("DB=" + url+ "\\amigoDePapel.xls");
-            writer.WriteLine("PASS=");
-            writer.WriteLine("LOG=FALSE");
-            writer.Close();
+                writer.WriteLine("DB=");
+                writer.WriteLine("DATE=05");
+                writer.Close();
+            }
+            catch(Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
         }
 
-        public void AtualizaTXT(string db, string pass, bool log)
+        public void AtualizaTXT(string db, string date)
         {
-
+            string[] lines = { "DB="+db, "DATE="+date };
+            System.IO.File.WriteAllLines(url+txt, lines);
         }
 
-        private string[] getConteudoTXT(string txt)
+        public string[] GetConteudoTXT()
         {
-            string[] conteudoBruto = System.IO.File.ReadAllLines(txt);
-            string[] conteudo = new string[3];
+            string[] conteudoBruto = System.IO.File.ReadAllLines(url+txt), 
+                     conteudo = new string[3];
             int i = 0;
             foreach (string line in conteudoBruto)
             {
-                conteudo[i] = line.Replace("DB=", "").Replace("PASS=", "").Replace("LOG=", "");
+                conteudo[i] = line.Replace("DB=", "").Replace("DATE=", "");
                 i++;
             }
             return conteudo;
         }
 
-        private void ValidaTXT(string url, string txt)
+        //validações
+        private void ValidaTXT()
         {
-            if (!File.Exists(txt))
-                CriaAruivoTXT(url);
+            if (!File.Exists(url+txt))
+                CriaAruivoTXT();
         }
 
         private bool ValidaDB(string db)
