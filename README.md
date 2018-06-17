@@ -11,11 +11,15 @@ Todo o desenvolvimento do projeto pode ser acompanhado nas seguintes midias:
 
 # Status
 Desenvolvimento geral.
+
 0%[###--------]100% Loading...
 
 Base SQL [Em andamento]
+
 Documentação geral [Em andamento]
+
 Estrutura básica [OK]
+
 Desenvolvimento lógico [Em Andamento]
 
 # O projeto amigo de papel é feito por
