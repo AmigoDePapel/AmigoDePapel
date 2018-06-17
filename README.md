@@ -6,6 +6,7 @@ O software aqui desenvolvimento tem como foco a administração de uma bibliotec
 
 Todo o desenvolvimento do projeto pode ser acompanhado nas seguintes midias.
 
-FACEBOOK: https://www.facebook.com/amigodepapelprojeto/
-YOUTUBE: https://www.youtube.com/playlist?list=PLmXV0C9jcHjaDXG_s42vZHFMcRVDNJqvO
-SITE: www.amigodepapel.com.br
+
+[FACEBOOK] (https://www.facebook.com/amigodepapelprojeto/)
+[YOUTUBE] (https://www.youtube.com/playlist?list=PLmXV0C9jcHjaDXG_s42vZHFMcRVDNJqvO)
+[SITE] (www.amigodepapel.com.br)
