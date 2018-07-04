@@ -39,3 +39,23 @@ D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\bin\Debug\E
 D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.csprojAssemblyReference.cache
 D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.csproj.CopyComplete
 D:\PROJETOS\DESENVOLVIMENTO\C#\02 PROJETOS\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.FORMS.configuracao.resources
+C:\git\AmigoDePapel\AmigoDePapel\bin\Debug\AmigoDePapel.exe.config
+C:\git\AmigoDePapel\AmigoDePapel\bin\Debug\AmigoDePapel.exe
+C:\git\AmigoDePapel\AmigoDePapel\bin\Debug\AmigoDePapel.pdb
+C:\git\AmigoDePapel\AmigoDePapel\bin\Debug\EntityFramework.dll
+C:\git\AmigoDePapel\AmigoDePapel\bin\Debug\EntityFramework.SqlServer.dll
+C:\git\AmigoDePapel\AmigoDePapel\bin\Debug\EntityFramework.SqlServerCompact.dll
+C:\git\AmigoDePapel\AmigoDePapel\bin\Debug\System.Data.SqlServerCe.dll
+C:\git\AmigoDePapel\AmigoDePapel\bin\Debug\EntityFramework.xml
+C:\git\AmigoDePapel\AmigoDePapel\bin\Debug\EntityFramework.SqlServer.xml
+C:\git\AmigoDePapel\AmigoDePapel\bin\Debug\EntityFramework.SqlServerCompact.xml
+C:\git\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.csprojAssemblyReference.cache
+C:\git\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.FORMS.CadastraLivro.resources
+C:\git\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.FORMS.Configuracao.resources
+C:\git\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.Index.resources
+C:\git\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.Properties.Resources.resources
+C:\git\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.csproj.GenerateResource.cache
+C:\git\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.csproj.CoreCompileInputs.cache
+C:\git\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.csproj.CopyComplete
+C:\git\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.exe
+C:\git\AmigoDePapel\AmigoDePapel\obj\Debug\AmigoDePapel.pdb
