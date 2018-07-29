@@ -33,18 +33,35 @@ namespace AmigoDePapel.CLASS.conSql
             }
         }
 
+        public SqlCeConnection OpenCon()
+        {
+
+            SqlCeConnection con = new SqlCeConnection(urlCon);
+            con.Open();
+            return con;
+        }
+
         private void CreateTables()
         {
             try
             {
                 SqlQuery query = new SqlQuery();
-                SqlCeConnection con = new SqlCeConnection(urlCon);
-                con.Open();
+                SqlCeConnection con = OpenCon();
 
                 //create stk_item_livro
                 SqlCeCommand sql = new SqlCeCommand(query.sql_create_stk_item_livro, con);
                 sql.ExecuteNonQuery();
                 sql = new SqlCeCommand(query.sql_create_unique_stk_item_livro, con);
+                sql.ExecuteNonQuery();
+
+                //create crm_cliente
+                sql = new SqlCeCommand(query.sql_create_crm_cliente, con);
+                sql.ExecuteNonQuery();
+                sql = new SqlCeCommand(query.sql_create_unique_crm_cliente, con);
+                sql.ExecuteNonQuery();
+
+                //create pvd_emprestimos
+                sql = new SqlCeCommand(query.sql_create_pvd_emprestimos, con);
                 sql.ExecuteNonQuery();
 
                 con.Close();
@@ -53,6 +70,45 @@ namespace AmigoDePapel.CLASS.conSql
             {
                 MessageBox.Show(err.Message);
             }
+        }
+
+        public void LoadQuery(string sqlExecut)
+        {
+            try
+            {
+                SqlCeConnection con = OpenCon();
+                SqlCeCommand sql = new SqlCeCommand(sqlExecut, con);
+                sql.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err.Message);
+            }
+        }
+
+        public string ReturnQuery(string sqlExecut)
+        {
+            try
+            {
+                SqlCeConnection con = OpenCon();
+
+                SqlCeCommand sql = new SqlCeCommand(sqlExecut, con);
+                SqlCeDataReader dr = sql.ExecuteReader();
+                while (dr.Read())
+                {
+
+
+                }
+
+                con.Close();
+                return "";
+            }
+            catch (Exception err)
+            {
+                return "error: "+ err;
+            }
+
         }
     }
 }

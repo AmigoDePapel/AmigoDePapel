@@ -3,7 +3,8 @@
     class SqlQuery
     {
         //public sql querys
-
+ 
+        //CREATE TABLES;
         //STK_ITEM_LIVRO
         public string sql_create_stk_item_livro = @"CREATE TABLE STK_ITEM_LIVRO (
 	                                                ISDELETED BIT DEFAULT '0' NOT NULL,
@@ -23,7 +24,7 @@
 
         public string sql_create_unique_stk_item_livro = "CREATE UNIQUE INDEX STK_ITEM_LIVRO_ID_UNIQUE_001 ON STK_ITEM_LIVRO(ID)";
 
-        //crm_cliente
+        //CRM_CLIENTE
         public string sql_create_crm_cliente = @"CREATE TABLE CRM_CLIENTE (
 	                                                ISDELETED BIT DEFAULT '0' NOT NULL,
 	                                                ID INTEGER NOT NULL IDENTITY,
@@ -36,8 +37,7 @@
 
         public string sql_create_unique_crm_cliente = "CREATE UNIQUE INDEX CRM_CLIENTE_ID_UNIQUE_001 ON STK_ITEM_LIVRO(ID)";
 
-        //emprestimos
-
+        //PVD_EMPRESTIMOS
         public string sql_create_pvd_emprestimos = @"CREATE TABLE PVD_EMPRESTIMOS (
 	                                                ISDELETED BIT DEFAULT '0' NOT NULL,
 	                                                ID INTEGER NOT NULL IDENTITY,
@@ -45,9 +45,30 @@
 	                                                ID_CLIENTE INTEGER NOT NULL,
 	                                                DATE_INICIO DATETIME NOT NULL,
 	                                                DATE_FIM DATETIME NOT NULL,
-	                                                STATUS NVARCHAR(100),
 	                                                STATUS NVARCHAR(100)
 	                                                CONSTRAINT EMPRESTIMOS_PK_0001 PRIMARY KEY (ID))";
+
+        //GRID SELECT 
+        //stk_item_livro
+        public string sql_select_stk_item_livro = @"SELECT ID, TITULO, SUBTITULO, ISBN, EDITORA, VERSAO, ANO, AUTOR, TEMA, SUBTEMA, PAGINAS, OBSERVACAO FROM STK_ITEM_LIVRO WHERE ISDELETED = 0";
+
+        //crm_cliente
+        public string sql_select_crm_cliente = @"SELECT ID, NOME, NASCIMENTO, ENDERECO, DOCUMENTO, OBSERVACAO FROM CRM_CLIENTE WHERE ISDELETED = 0";
+
+        //pvd_emprestimos 
+        public string sql_select_pvd_emprestimos = @"SELECT 
+	                                                    EMP.STATUS
+	                                                    EMP.ID,
+	                                                    LIV.TITULO,
+	                                                    CLI.NOME,
+	                                                    EMP.DATE_INICIO,
+	                                                    EMP.DATE_FIM
+	
+                                                    FROM PVD_EMPRESTIMOS EMP 
+	                                                    LEFT JOIN STK_ITEM_LIVRO LIV ON LIV.ID = EMP.ID_ITEM_LIVRO 
+	                                                    LEFT JOIN CRM_CLIENTE CLI ON CLI.ID = EMP.ID_CLIENTE 
+                                                    WHERE EMP.ISDELETED = 0 ";
+
     }
 
 }

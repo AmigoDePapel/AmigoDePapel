@@ -20,6 +20,7 @@ namespace AmigoDePapel.FORMS
         private void pb_lupa_Click(object sender, EventArgs e)
         {
             DialogResult dr = new DialogResult();
+            ofd_openDB.InitialDirectory = System.Environment.CurrentDirectory.ToString(); 
             dr = ofd_openDB.ShowDialog();
             if(DialogResult.OK == dr)
             {

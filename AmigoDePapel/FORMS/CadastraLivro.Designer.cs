@@ -41,16 +41,16 @@
             this.llb_subtema = new System.Windows.Forms.Label();
             this.lb_tema = new System.Windows.Forms.Label();
             this.lb_autor = new System.Windows.Forms.Label();
-            this.tx_autor = new System.Windows.Forms.TextBox();
+            this.tb_autor = new System.Windows.Forms.TextBox();
             this.lb_versao = new System.Windows.Forms.Label();
             this.tb_versao = new System.Windows.Forms.TextBox();
             this.lb_editora = new System.Windows.Forms.Label();
-            this.tx_editora = new System.Windows.Forms.TextBox();
+            this.tb_editora = new System.Windows.Forms.TextBox();
             this.lb_ISBN = new System.Windows.Forms.Label();
-            this.tx_isbn = new System.Windows.Forms.TextBox();
+            this.tb_isbn = new System.Windows.Forms.TextBox();
             this.tb_subtitulo = new System.Windows.Forms.TextBox();
             this.lb_titulo = new System.Windows.Forms.Label();
-            this.tx_titulo = new System.Windows.Forms.TextBox();
+            this.tb_titulo = new System.Windows.Forms.TextBox();
             this.gb_observacao = new System.Windows.Forms.GroupBox();
             this.lb_oservacao = new System.Windows.Forms.Label();
             this.tb_obs = new System.Windows.Forms.TextBox();
@@ -78,16 +78,16 @@
             this.gb_cadastroLivro.Controls.Add(this.llb_subtema);
             this.gb_cadastroLivro.Controls.Add(this.lb_tema);
             this.gb_cadastroLivro.Controls.Add(this.lb_autor);
-            this.gb_cadastroLivro.Controls.Add(this.tx_autor);
+            this.gb_cadastroLivro.Controls.Add(this.tb_autor);
             this.gb_cadastroLivro.Controls.Add(this.lb_versao);
             this.gb_cadastroLivro.Controls.Add(this.tb_versao);
             this.gb_cadastroLivro.Controls.Add(this.lb_editora);
-            this.gb_cadastroLivro.Controls.Add(this.tx_editora);
+            this.gb_cadastroLivro.Controls.Add(this.tb_editora);
             this.gb_cadastroLivro.Controls.Add(this.lb_ISBN);
-            this.gb_cadastroLivro.Controls.Add(this.tx_isbn);
+            this.gb_cadastroLivro.Controls.Add(this.tb_isbn);
             this.gb_cadastroLivro.Controls.Add(this.tb_subtitulo);
             this.gb_cadastroLivro.Controls.Add(this.lb_titulo);
-            this.gb_cadastroLivro.Controls.Add(this.tx_titulo);
+            this.gb_cadastroLivro.Controls.Add(this.tb_titulo);
             this.gb_cadastroLivro.Location = new System.Drawing.Point(13, 28);
             this.gb_cadastroLivro.Name = "gb_cadastroLivro";
             this.gb_cadastroLivro.Size = new System.Drawing.Size(801, 230);
@@ -106,9 +106,12 @@
             // 
             // tb_ano
             // 
+            this.tb_ano.AllowDrop = true;
+            this.tb_ano.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tb_ano.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_ano.Location = new System.Drawing.Point(620, 144);
             this.tb_ano.Name = "tb_ano";
-            this.tb_ano.Size = new System.Drawing.Size(170, 20);
+            this.tb_ano.Size = new System.Drawing.Size(170, 21);
             this.tb_ano.TabIndex = 23;
             // 
             // lb_subtitulo
@@ -143,6 +146,8 @@
             // 
             // cb_subtema
             // 
+            this.cb_subtema.AllowDrop = true;
+            this.cb_subtema.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_subtema.FormattingEnabled = true;
             this.cb_subtema.Items.AddRange(new object[] {
             "Agendas",
@@ -158,21 +163,22 @@
             "Desenvolvimento pessoal",
             "Dicionários e referência",
             "Economia",
-            "Educação de filhos",
+            "Educação",
             "Esoterismo",
-            "Estilo de vida",
             "Estilo de vida",
             "Fantasia",
             "Feminino",
-            "Ficção científica",
+            "Ficção",
+            "Física",
             "Filosofia",
             "Gastronomia",
             "História",
             "Humor",
             "Infantil",
-            "Infantil & Juvenil",
             "Juvenil",
-            "Literatura",
+            "Matemática",
+            "Literatura Nacional",
+            "Literatura Estrangeira",
             "Negócios",
             "Negócios",
             "Poesia",
@@ -180,22 +186,21 @@
             "Psicologia",
             "Quadrinhos",
             "Religião",
-            "Religião e espiritualidade",
-            "Romance contemporâneo",
-            "Romance histórico",
-            "Romance literário",
-            "Romance literário",
-            "Romance policial",
-            "Romances",
+            "Espiritualidade",
+            "Romance",
             "Saude",
-            "Teatro"});
+            "Teatro",
+            "Terror",
+            "Outros"});
             this.cb_subtema.Location = new System.Drawing.Point(422, 192);
             this.cb_subtema.Name = "cb_subtema";
-            this.cb_subtema.Size = new System.Drawing.Size(190, 21);
+            this.cb_subtema.Size = new System.Drawing.Size(190, 23);
             this.cb_subtema.TabIndex = 19;
             // 
             // cb_tema
             // 
+            this.cb_tema.AllowDrop = true;
+            this.cb_tema.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_tema.FormattingEnabled = true;
             this.cb_tema.Items.AddRange(new object[] {
             "Agendas",
@@ -211,21 +216,22 @@
             "Desenvolvimento pessoal",
             "Dicionários e referência",
             "Economia",
-            "Educação de filhos",
+            "Educação",
             "Esoterismo",
-            "Estilo de vida",
             "Estilo de vida",
             "Fantasia",
             "Feminino",
-            "Ficção científica",
+            "Ficção",
+            "Física",
             "Filosofia",
             "Gastronomia",
             "História",
             "Humor",
             "Infantil",
-            "Infantil & Juvenil",
             "Juvenil",
-            "Literatura",
+            "Matemática",
+            "Literatura Nacional",
+            "Literatura Estrangeira",
             "Negócios",
             "Negócios",
             "Poesia",
@@ -233,18 +239,15 @@
             "Psicologia",
             "Quadrinhos",
             "Religião",
-            "Religião e espiritualidade",
-            "Romance contemporâneo",
-            "Romance histórico",
-            "Romance literário",
-            "Romance literário",
-            "Romance policial",
-            "Romances",
+            "Espiritualidade",
+            "Romance",
             "Saude",
-            "Teatro"});
+            "Teatro",
+            "Terror",
+            "Outros"});
             this.cb_tema.Location = new System.Drawing.Point(213, 192);
             this.cb_tema.Name = "cb_tema";
-            this.cb_tema.Size = new System.Drawing.Size(193, 21);
+            this.cb_tema.Size = new System.Drawing.Size(193, 23);
             this.cb_tema.TabIndex = 18;
             // 
             // label6
@@ -258,9 +261,12 @@
             // 
             // tb_pagina
             // 
+            this.tb_pagina.AllowDrop = true;
+            this.tb_pagina.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tb_pagina.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_pagina.Location = new System.Drawing.Point(620, 192);
             this.tb_pagina.Name = "tb_pagina";
-            this.tb_pagina.Size = new System.Drawing.Size(170, 20);
+            this.tb_pagina.Size = new System.Drawing.Size(170, 21);
             this.tb_pagina.TabIndex = 16;
             // 
             // llb_subtema
@@ -293,12 +299,15 @@
             this.lb_autor.TabIndex = 11;
             this.lb_autor.Text = "AUTOR";
             // 
-            // tx_autor
+            // tb_autor
             // 
-            this.tx_autor.Location = new System.Drawing.Point(8, 192);
-            this.tx_autor.Name = "tx_autor";
-            this.tx_autor.Size = new System.Drawing.Size(193, 20);
-            this.tx_autor.TabIndex = 10;
+            this.tb_autor.AllowDrop = true;
+            this.tb_autor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tb_autor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_autor.Location = new System.Drawing.Point(8, 192);
+            this.tb_autor.Name = "tb_autor";
+            this.tb_autor.Size = new System.Drawing.Size(193, 21);
+            this.tb_autor.TabIndex = 10;
             // 
             // lb_versao
             // 
@@ -312,9 +321,12 @@
             // 
             // tb_versao
             // 
+            this.tb_versao.AllowDrop = true;
+            this.tb_versao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tb_versao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_versao.Location = new System.Drawing.Point(422, 144);
             this.tb_versao.Name = "tb_versao";
-            this.tb_versao.Size = new System.Drawing.Size(190, 20);
+            this.tb_versao.Size = new System.Drawing.Size(190, 21);
             this.tb_versao.TabIndex = 8;
             // 
             // lb_editora
@@ -327,12 +339,15 @@
             this.lb_editora.TabIndex = 7;
             this.lb_editora.Text = "EDITORA";
             // 
-            // tx_editora
+            // tb_editora
             // 
-            this.tx_editora.Location = new System.Drawing.Point(213, 144);
-            this.tx_editora.Name = "tx_editora";
-            this.tx_editora.Size = new System.Drawing.Size(193, 20);
-            this.tx_editora.TabIndex = 6;
+            this.tb_editora.AllowDrop = true;
+            this.tb_editora.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tb_editora.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_editora.Location = new System.Drawing.Point(213, 144);
+            this.tb_editora.Name = "tb_editora";
+            this.tb_editora.Size = new System.Drawing.Size(193, 21);
+            this.tb_editora.TabIndex = 6;
             // 
             // lb_ISBN
             // 
@@ -344,18 +359,24 @@
             this.lb_ISBN.TabIndex = 5;
             this.lb_ISBN.Text = "ISBN ou EAN";
             // 
-            // tx_isbn
+            // tb_isbn
             // 
-            this.tx_isbn.Location = new System.Drawing.Point(11, 144);
-            this.tx_isbn.Name = "tx_isbn";
-            this.tx_isbn.Size = new System.Drawing.Size(193, 20);
-            this.tx_isbn.TabIndex = 4;
+            this.tb_isbn.AllowDrop = true;
+            this.tb_isbn.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tb_isbn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_isbn.Location = new System.Drawing.Point(11, 144);
+            this.tb_isbn.Name = "tb_isbn";
+            this.tb_isbn.Size = new System.Drawing.Size(193, 21);
+            this.tb_isbn.TabIndex = 4;
             // 
             // tb_subtitulo
             // 
+            this.tb_subtitulo.AllowDrop = true;
+            this.tb_subtitulo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tb_subtitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_subtitulo.Location = new System.Drawing.Point(8, 92);
             this.tb_subtitulo.Name = "tb_subtitulo";
-            this.tb_subtitulo.Size = new System.Drawing.Size(779, 20);
+            this.tb_subtitulo.Size = new System.Drawing.Size(779, 21);
             this.tb_subtitulo.TabIndex = 2;
             // 
             // lb_titulo
@@ -368,12 +389,15 @@
             this.lb_titulo.TabIndex = 1;
             this.lb_titulo.Text = "TÍTULO";
             // 
-            // tx_titulo
+            // tb_titulo
             // 
-            this.tx_titulo.Location = new System.Drawing.Point(8, 53);
-            this.tx_titulo.Name = "tx_titulo";
-            this.tx_titulo.Size = new System.Drawing.Size(780, 20);
-            this.tx_titulo.TabIndex = 0;
+            this.tb_titulo.AllowDrop = true;
+            this.tb_titulo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tb_titulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_titulo.Location = new System.Drawing.Point(8, 53);
+            this.tb_titulo.Name = "tb_titulo";
+            this.tb_titulo.Size = new System.Drawing.Size(780, 21);
+            this.tb_titulo.TabIndex = 0;
             // 
             // gb_observacao
             // 
@@ -398,6 +422,9 @@
             // 
             // tb_obs
             // 
+            this.tb_obs.AllowDrop = true;
+            this.tb_obs.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tb_obs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_obs.Location = new System.Drawing.Point(8, 32);
             this.tb_obs.Multiline = true;
             this.tb_obs.Name = "tb_obs";
@@ -424,6 +451,7 @@
             this.tsb_save.Name = "tsb_save";
             this.tsb_save.Size = new System.Drawing.Size(23, 22);
             this.tsb_save.Text = "Salva";
+            this.tsb_save.Click += new System.EventHandler(this.tsb_save_Click);
             // 
             // tsb_retirar
             // 
@@ -448,7 +476,6 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::AmigoDePapel.Properties.Resources.wallpaper;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
@@ -480,16 +507,16 @@
         private System.Windows.Forms.Label llb_subtema;
         private System.Windows.Forms.Label lb_tema;
         private System.Windows.Forms.Label lb_autor;
-        private System.Windows.Forms.TextBox tx_autor;
+        private System.Windows.Forms.TextBox tb_autor;
         private System.Windows.Forms.Label lb_versao;
         private System.Windows.Forms.TextBox tb_versao;
         private System.Windows.Forms.Label lb_editora;
-        private System.Windows.Forms.TextBox tx_editora;
+        private System.Windows.Forms.TextBox tb_editora;
         private System.Windows.Forms.Label lb_ISBN;
-        private System.Windows.Forms.TextBox tx_isbn;
+        private System.Windows.Forms.TextBox tb_isbn;
         private System.Windows.Forms.TextBox tb_subtitulo;
         private System.Windows.Forms.Label lb_titulo;
-        private System.Windows.Forms.TextBox tx_titulo;
+        private System.Windows.Forms.TextBox tb_titulo;
         private System.Windows.Forms.GroupBox gb_observacao;
         private System.Windows.Forms.Label lb_oservacao;
         private System.Windows.Forms.TextBox tb_obs;

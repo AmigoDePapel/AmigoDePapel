@@ -96,6 +96,12 @@
     <Compile Include="FORMS\CadastraLivro.Designer.cs">
       <DependentUpon>CadastraLivro.cs</DependentUpon>
     </Compile>
+    <Compile Include="FORMS\CadastraUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMS\CadastraUser.Designer.cs">
+      <DependentUpon>CadastraUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="FORMS\Configuracao.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FORMS\CadastraLivro.resx">
       <DependentUpon>CadastraLivro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FORMS\CadastraUser.resx">
+      <DependentUpon>CadastraUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FORMS\Configuracao.resx">
       <DependentUpon>Configuracao.cs</DependentUpon>

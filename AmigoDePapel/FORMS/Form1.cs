@@ -54,5 +54,11 @@ namespace AmigoDePapel
         {
 
         }
+
+        private void tsb_add_userr_Click(object sender, EventArgs e)
+        {
+            CadastraUser newUser = new CadastraUser();
+            newUser.Show();
+        }
     }
 }

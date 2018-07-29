@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AmigoDePapel.CLASS.conSql;
 using System.Windows.Forms;
+
 
 namespace AmigoDePapel.FORMS
 {
@@ -39,6 +34,37 @@ namespace AmigoDePapel.FORMS
             //se o código do itemm for 00 (cadastro novo) - desativar botão de retirada do sistema. 
             if (lb_codigo.Text.Equals("00"))
                 tsb_retirar.Enabled = false;
+        }
+
+        private void tsb_save_Click(object sender, EventArgs e)
+        {
+            //INICIA O SALVAMENTO DAS INFORMAÇÕES
+            //SE O ID FOR 00 É UM NOVO REGISTRO, SE NÃO, É UMA ALTERAÇÃO
+            string sql;
+            if(lb_codigo.Text == "00")
+            {
+                sql = @"INSERT INTO STK_ITEM_LIVRO (ISDELETED,TITULO,SUBTITULO,ISBN,EDITORA,VERSAO,ANO,AUTOR,TEMA,SUBTEMA,PAGINAS,OBSERVACAO)
+                                   VALUES (0,'" + tb_titulo.Text + "','" + tb_subtitulo.Text + "','" + tb_isbn.Text + "','" + tb_editora.Text + "','" + tb_versao + "'," + tb_ano.Text + ",'" + tb_autor + "','" + cb_tema.Text + "','" + cb_subtema.Text + "'," + tb_pagina.Text + ",'" + tb_obs.Text + "')";
+            }
+            else
+            {
+                //ID EXISTE, ENTÃO... UPDATE.
+                sql = @"UPDATE STK_ITEM_LIVRO SET TITULO = '" + tb_titulo.Text + "', SUBTITULO = '"+tb_subtitulo.Text+ "', ISBN = '"+tb_isbn.Text+ "', EDITORA = '"+tb_editora.Text+ "', VERSAO = '"+tb_versao.Text+ "', ANO = '"+tb_ano.Text+ "', AUTOR = '"+tb_autor.Text+ "', TEMA = '"+cb_tema.Text+ "', SUBTEMA = '"+cb_subtema.Text+ "', PAGINAS = '"+tb_ano.Text+ "', OBSERVACAO = '"+tb_obs.Text+"' WHERE ID = '" + lb_codigo.Text + "' and isdeleted = 0";
+
+            }
+            try
+            {
+
+
+            Connection sqlExecut = new Connection();
+            sqlExecut.LoadQuery(sql);
+                this.Close();
+            }
+
+            catch(Exception err)
+            {
+                MessageBox.Show(err.Message,"PUTS!!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
     }
 }

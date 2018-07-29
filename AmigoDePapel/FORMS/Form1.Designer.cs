@@ -110,6 +110,7 @@
             this.tsb_add_userr.Name = "tsb_add_userr";
             this.tsb_add_userr.Size = new System.Drawing.Size(23, 22);
             this.tsb_add_userr.Text = "Cadastra novo usuário";
+            this.tsb_add_userr.Click += new System.EventHandler(this.tsb_add_userr_Click);
             // 
             // tsb_report
             // 
