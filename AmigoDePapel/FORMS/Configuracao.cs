@@ -51,13 +51,13 @@ namespace AmigoDePapel.FORMS
         {
             DialogResult dr = new DialogResult();
             dr = MessageBox.Show("Você está prestes a criar uma nova base \n deseja continuar?","ATENÇÃO.", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
             if(dr == DialogResult.Yes)
             {
                 Connection con = new Connection();
                 con.CreateDB();
             }
             this.Focus();
-
         }
     }
 }

@@ -20,7 +20,9 @@ namespace AmigoDePapel.CLASS.conSql
                     SqlCeEngine eng = new SqlCeEngine(urlCon);
                     eng.CreateDatabase();
                     CreateTables();
-                    MessageBox.Show("Nova base de dados criada com sucesso. \n LOCAL:"+ Application.StartupPath, "OBA!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Nova base de dados criada com sucesso.  Seu aplicativo irá reinicializar. \n LOCAL:"+ Application.StartupPath, "OBA!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    System.Diagnostics.Process.Start(Application.StartupPath+ @"\AmigoDePapel.exe");
+                    Application.Exit();
                 }
                 else
                 {
@@ -35,7 +37,6 @@ namespace AmigoDePapel.CLASS.conSql
 
         public SqlCeConnection OpenCon()
         {
-
             SqlCeConnection con = new SqlCeConnection(urlCon);
             con.Open();
             return con;
@@ -89,13 +90,10 @@ namespace AmigoDePapel.CLASS.conSql
 
         public SqlCeDataReader ReturnQuery(string sqlExecut)
         {
-
                 SqlCeConnection con = OpenCon();
                 SqlCeCommand sql = new SqlCeCommand(sqlExecut, con);
                 SqlCeDataReader dr = sql.ExecuteReader();
-
             return dr; 
-
         }
     }
 }

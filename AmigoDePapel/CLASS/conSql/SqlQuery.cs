@@ -29,9 +29,10 @@
 	                                                ISDELETED BIT DEFAULT '0' NOT NULL,
 	                                                ID INTEGER NOT NULL IDENTITY,
 	                                                NOME NVARCHAR(200),
-	                                                NASCIMENTO DATETIME NULL,
+	                                                NASCIMENTO NVARCHAR(11) NULL,
 	                                                ENDERECO NVARCHAR(900),
                                                     TELEFONE NVARCHAR(200),
+                                                    EMAIL NVARCHAR(200),
                                                     DOCUMENTO_TIPO NVARCHAR(200),
 	                                                DOCUMENTO NVARCHAR(200),
 	                                                OBSERVACAO NVARCHAR(900),
@@ -55,7 +56,7 @@
         public string sql_select_stk_item_livro = @"SELECT ID, TITULO, SUBTITULO, ISBN, EDITORA, VERSAO, ANO, AUTOR, TEMA, SUBTEMA, PAGINAS, OBSERVACAO FROM STK_ITEM_LIVRO WHERE ISDELETED = 0";
 
         //crm_cliente
-        public string sql_select_crm_cliente = @"SELECT ID, NOME, NASCIMENTO, ENDERECO, DOCUMENTO, OBSERVACAO FROM CRM_CLIENTE WHERE ISDELETED = 0";
+        public string sql_select_crm_cliente = @"SELECT ID, NOME, ENDERECO, DOCUMENTO, NASCIMENTO, EMAIL, TELEFONE FROM CRM_CLIENTE WHERE ISDELETED = 0";
 
         //pvd_emprestimos 
         public string sql_select_pvd_emprestimos = @"SELECT 

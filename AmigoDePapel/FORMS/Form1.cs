@@ -2,11 +2,9 @@
 using System.Windows.Forms;
 using AmigoDePapel.FORMS;
 using AmigoDePapel.CLASS;
-using AmigoDePapel.CLASS.conSql;
 using AmigoDePapel.CLASS.load;
 using System.IO;
 using System.Data;
-using System.Data.SqlServerCe;
 
 namespace AmigoDePapel
 {
@@ -48,11 +46,6 @@ namespace AmigoDePapel
         {
             Configuracao conf = new Configuracao();
             conf.Show();
-        }
-
-        private void tp_book_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void tsb_add_userr_Click(object sender, EventArgs e)

@@ -82,6 +82,7 @@ namespace AmigoDePapel.CLASS.load
                 newLine["PÁGINAS"] = dr["PAGINAS"];
                 dtLivros.Rows.Add(newLine);
             }
+            dr.Close();
             return dtLivros;
         }
 
@@ -98,14 +99,14 @@ namespace AmigoDePapel.CLASS.load
 
                 newLine["ID"] = dr["ID"];
                 newLine["NOME"] = dr["NOME"];
-                newLine["NASCIMENTO"] = dr["NASCIMENTO"];
                 newLine["ENDEREÇO"] = dr["ENDERECO"];
                 newLine["DOCUMENTO"] = dr["DOCUMENTO"];
+                newLine["NASCIMENTO"] = dr["NASCIMENTO"];
                 newLine["EMAIL"] = dr["EMAIL"];
                 newLine["TELEFONE"] = dr["TELEFONE"];
-
                 dtUsers.Rows.Add(newLine);
             }
+            dr.Close();
             return dtUsers;
         }
     }

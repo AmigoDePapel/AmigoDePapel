@@ -165,7 +165,6 @@
             this.tp_book.Size = new System.Drawing.Size(876, 482);
             this.tp_book.TabIndex = 0;
             this.tp_book.Text = "Livros";
-            this.tp_book.Click += new System.EventHandler(this.tp_book_Click);
             // 
             // pb_pesquisa_user
             // 
@@ -315,8 +314,8 @@
             // tss_adp
             // 
             this.tss_adp.Name = "tss_adp";
-            this.tss_adp.Size = new System.Drawing.Size(125, 17);
-            this.tss_adp.Text = "Amigo de papel  V0.01";
+            this.tss_adp.Size = new System.Drawing.Size(133, 17);
+            this.tss_adp.Text = "Amigo de papel  0.06.2v";
             // 
             // tss_status
             // 
