@@ -44,7 +44,7 @@ namespace AmigoDePapel.FORMS
             if(lb_codigo.Text == "00")
             {
                 sql = @"INSERT INTO STK_ITEM_LIVRO (ISDELETED,TITULO,SUBTITULO,ISBN,EDITORA,VERSAO,ANO,AUTOR,TEMA,SUBTEMA,PAGINAS,OBSERVACAO)
-                                   VALUES (0,'" + tb_titulo.Text + "','" + tb_subtitulo.Text + "','" + tb_isbn.Text + "','" + tb_editora.Text + "','" + tb_versao + "'," + tb_ano.Text + ",'" + tb_autor + "','" + cb_tema.Text + "','" + cb_subtema.Text + "'," + tb_pagina.Text + ",'" + tb_obs.Text + "')";
+                                   VALUES (0,'" + tb_titulo.Text + "','" + tb_subtitulo.Text + "','" + tb_isbn.Text + "','" + tb_editora.Text + "','" + tb_versao.Text + "'," + tb_ano.Text + ",'" + tb_autor.Text + "','" + cb_tema.Text + "','" + cb_subtema.Text + "'," + tb_pagina.Text + ",'" + tb_obs.Text + "')";
             }
             else
             {

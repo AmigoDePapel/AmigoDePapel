@@ -29,8 +29,10 @@
 	                                                ISDELETED BIT DEFAULT '0' NOT NULL,
 	                                                ID INTEGER NOT NULL IDENTITY,
 	                                                NOME NVARCHAR(200),
-	                                                NASCIMENTO DATE,
+	                                                NASCIMENTO DATETIME NULL,
 	                                                ENDERECO NVARCHAR(900),
+                                                    TELEFONE NVARCHAR(200),
+                                                    DOCUMENTO_TIPO NVARCHAR(200),
 	                                                DOCUMENTO NVARCHAR(200),
 	                                                OBSERVACAO NVARCHAR(900),
 	                                                CONSTRAINT CLIENTE_PK_0001 PRIMARY KEY (ID))";
@@ -45,7 +47,7 @@
 	                                                ID_CLIENTE INTEGER NOT NULL,
 	                                                DATE_INICIO DATETIME NOT NULL,
 	                                                DATE_FIM DATETIME NOT NULL,
-	                                                STATUS NVARCHAR(100)
+	                                                STATUS NVARCHAR(100),
 	                                                CONSTRAINT EMPRESTIMOS_PK_0001 PRIMARY KEY (ID))";
 
         //GRID SELECT 

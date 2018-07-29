@@ -87,27 +87,14 @@ namespace AmigoDePapel.CLASS.conSql
             }
         }
 
-        public string ReturnQuery(string sqlExecut)
+        public SqlCeDataReader ReturnQuery(string sqlExecut)
         {
-            try
-            {
-                SqlCeConnection con = OpenCon();
 
+                SqlCeConnection con = OpenCon();
                 SqlCeCommand sql = new SqlCeCommand(sqlExecut, con);
                 SqlCeDataReader dr = sql.ExecuteReader();
-                while (dr.Read())
-                {
 
-
-                }
-
-                con.Close();
-                return "";
-            }
-            catch (Exception err)
-            {
-                return "error: "+ err;
-            }
+            return dr; 
 
         }
     }
