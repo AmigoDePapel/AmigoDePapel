@@ -5,6 +5,7 @@ using AmigoDePapel.CLASS;
 using AmigoDePapel.CLASS.load;
 using System.IO;
 using System.Data;
+using System.Drawing;
 
 namespace AmigoDePapel
 {
@@ -84,6 +85,28 @@ namespace AmigoDePapel
         private void atualiza_FormClosing(object sender, FormClosingEventArgs e)
         {
             LoadGrids();
+        }
+
+        private void dg_livro_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            Point p = this.PointToClient(Cursor.Position);
+
+            capa.Size = new Size(96, 139);
+            capa.Location = new Point(p.X - 20, p.Y - 45);
+            capa.Image = Image.FromFile(GetURLImg(dg_livro.Rows[e.RowIndex].Cells[0].Value.ToString()));
+            capa.BorderStyle = BorderStyle.FixedSingle;
+            capa.Visible = true;
+        }
+
+        private void capa_Click(object sender, EventArgs e)
+        {
+            capa.Visible = false;
+        }
+
+        private string GetURLImg(string id)
+        {
+            return "";
         }
     }
 }

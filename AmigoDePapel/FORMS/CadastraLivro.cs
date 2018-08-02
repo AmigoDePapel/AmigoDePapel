@@ -32,8 +32,8 @@ namespace AmigoDePapel.FORMS
         {
             //VALIDAÇÕES BÁSICAS
             //se o código do itemm for 00 (cadastro novo) - desativar botão de retirada do sistema. 
-            if (lb_codigo.Text.Equals("00"))
-                tsb_retirar.Enabled = false;
+            if (!lb_codigo.Text.Equals("00"))
+                tsb_retirar.Enabled = true;
         }
 
         private void tsb_save_Click(object sender, EventArgs e)

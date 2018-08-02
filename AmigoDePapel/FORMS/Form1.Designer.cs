@@ -35,36 +35,41 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Index));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.tc_main = new System.Windows.Forms.TabControl();
+            this.tp_book = new System.Windows.Forms.TabPage();
+            this.tb_pesquisaLivro = new System.Windows.Forms.TextBox();
+            this.dg_livro = new System.Windows.Forms.DataGridView();
+            this.tp_user = new System.Windows.Forms.TabPage();
+            this.tb_pesquisa_user = new System.Windows.Forms.TextBox();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.tss_adp = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tss_status = new System.Windows.Forms.ToolStripStatusLabel();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.tss_img = new System.Windows.Forms.ToolStripStatusLabel();
+            this.capa = new System.Windows.Forms.PictureBox();
+            this.pb_pesquisa_user = new System.Windows.Forms.PictureBox();
+            this.pc_pesquisa_user = new System.Windows.Forms.PictureBox();
             this.tsb_reflesh = new System.Windows.Forms.ToolStripButton();
             this.tsb_add_livro = new System.Windows.Forms.ToolStripButton();
             this.tsb_add_userr = new System.Windows.Forms.ToolStripButton();
             this.tsb_report = new System.Windows.Forms.ToolStripButton();
             this.tsb_help = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.tc_main = new System.Windows.Forms.TabControl();
-            this.tp_book = new System.Windows.Forms.TabPage();
-            this.pb_pesquisa_user = new System.Windows.Forms.PictureBox();
-            this.tb_pesquisaLivro = new System.Windows.Forms.TextBox();
-            this.dg_livro = new System.Windows.Forms.DataGridView();
-            this.tp_user = new System.Windows.Forms.TabPage();
+            this.tb_loan = new System.Windows.Forms.TabPage();
             this.dg_user = new System.Windows.Forms.DataGridView();
-            this.pc_pesquisa_user = new System.Windows.Forms.PictureBox();
-            this.tb_pesquisa_user = new System.Windows.Forms.TextBox();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.tss_adp = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tss_status = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tss_img = new System.Windows.Forms.ToolStripStatusLabel();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.tb_pesquisaUser = new System.Windows.Forms.PictureBox();
             this.toolStrip1.SuspendLayout();
             this.tc_main.SuspendLayout();
             this.tp_book.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_pesquisa_user)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_livro)).BeginInit();
             this.tp_user.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dg_user)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pc_pesquisa_user)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.capa)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_pesquisa_user)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pc_pesquisa_user)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_user)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tb_pesquisaUser)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -81,6 +86,177 @@
             this.toolStrip1.Size = new System.Drawing.Size(887, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // tc_main
+            // 
+            this.tc_main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tc_main.Controls.Add(this.tp_book);
+            this.tc_main.Controls.Add(this.tp_user);
+            this.tc_main.Controls.Add(this.tb_loan);
+            this.tc_main.Location = new System.Drawing.Point(0, 28);
+            this.tc_main.Name = "tc_main";
+            this.tc_main.SelectedIndex = 0;
+            this.tc_main.Size = new System.Drawing.Size(887, 510);
+            this.tc_main.TabIndex = 2;
+            // 
+            // tp_book
+            // 
+            this.tp_book.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.tp_book.Controls.Add(this.capa);
+            this.tp_book.Controls.Add(this.pb_pesquisa_user);
+            this.tp_book.Controls.Add(this.tb_pesquisaLivro);
+            this.tp_book.Controls.Add(this.dg_livro);
+            this.tp_book.Location = new System.Drawing.Point(4, 22);
+            this.tp_book.Name = "tp_book";
+            this.tp_book.Padding = new System.Windows.Forms.Padding(3);
+            this.tp_book.Size = new System.Drawing.Size(879, 484);
+            this.tp_book.TabIndex = 0;
+            this.tp_book.Text = "Livros";
+            // 
+            // tb_pesquisaLivro
+            // 
+            this.tb_pesquisaLivro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_pesquisaLivro.Location = new System.Drawing.Point(8, 6);
+            this.tb_pesquisaLivro.Name = "tb_pesquisaLivro";
+            this.tb_pesquisaLivro.Size = new System.Drawing.Size(863, 20);
+            this.tb_pesquisaLivro.TabIndex = 4;
+            // 
+            // dg_livro
+            // 
+            this.dg_livro.AllowUserToAddRows = false;
+            this.dg_livro.AllowUserToDeleteRows = false;
+            this.dg_livro.AllowUserToResizeRows = false;
+            this.dg_livro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dg_livro.BackgroundColor = System.Drawing.Color.White;
+            this.dg_livro.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dg_livro.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dg_livro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dg_livro.GridColor = System.Drawing.Color.DarkGray;
+            this.dg_livro.Location = new System.Drawing.Point(6, 32);
+            this.dg_livro.Name = "dg_livro";
+            this.dg_livro.ReadOnly = true;
+            this.dg_livro.RowHeadersVisible = false;
+            this.dg_livro.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Maroon;
+            this.dg_livro.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dg_livro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dg_livro.ShowCellErrors = false;
+            this.dg_livro.ShowCellToolTips = false;
+            this.dg_livro.ShowEditingIcon = false;
+            this.dg_livro.Size = new System.Drawing.Size(865, 446);
+            this.dg_livro.TabIndex = 3;
+            this.dg_livro.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_livro_CellClick);
+            // 
+            // tp_user
+            // 
+            this.tp_user.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.tp_user.Controls.Add(this.tb_pesquisaUser);
+            this.tp_user.Controls.Add(this.dg_user);
+            this.tp_user.Controls.Add(this.tb_pesquisa_user);
+            this.tp_user.Controls.Add(this.pc_pesquisa_user);
+            this.tp_user.Location = new System.Drawing.Point(4, 22);
+            this.tp_user.Name = "tp_user";
+            this.tp_user.Padding = new System.Windows.Forms.Padding(3);
+            this.tp_user.Size = new System.Drawing.Size(879, 484);
+            this.tp_user.TabIndex = 1;
+            this.tp_user.Text = "Usúarios";
+            // 
+            // tb_pesquisa_user
+            // 
+            this.tb_pesquisa_user.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_pesquisa_user.Location = new System.Drawing.Point(8, 6);
+            this.tb_pesquisa_user.Name = "tb_pesquisa_user";
+            this.tb_pesquisa_user.Size = new System.Drawing.Size(863, 20);
+            this.tb_pesquisa_user.TabIndex = 7;
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tss_adp,
+            this.tss_status,
+            this.tss_img});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 541);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(887, 22);
+            this.statusStrip1.TabIndex = 3;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // tss_adp
+            // 
+            this.tss_adp.Name = "tss_adp";
+            this.tss_adp.Size = new System.Drawing.Size(133, 17);
+            this.tss_adp.Text = "Amigo de papel  0.06.2v";
+            // 
+            // tss_status
+            // 
+            this.tss_status.Name = "tss_status";
+            this.tss_status.Size = new System.Drawing.Size(91, 17);
+            this.tss_status.Text = "Status da Base:  ";
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
+            // tss_img
+            // 
+            this.tss_img.Image = global::AmigoDePapel.Properties.Resources.tick;
+            this.tss_img.Name = "tss_img";
+            this.tss_img.Size = new System.Drawing.Size(16, 17);
+            // 
+            // capa
+            // 
+            this.capa.Location = new System.Drawing.Point(848, 462);
+            this.capa.Name = "capa";
+            this.capa.Size = new System.Drawing.Size(23, 16);
+            this.capa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.capa.TabIndex = 6;
+            this.capa.TabStop = false;
+            this.capa.Visible = false;
+            this.capa.Click += new System.EventHandler(this.capa_Click);
+            // 
+            // pb_pesquisa_user
+            // 
+            this.pb_pesquisa_user.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_pesquisa_user.BackColor = System.Drawing.Color.White;
+            this.pb_pesquisa_user.Image = global::AmigoDePapel.Properties.Resources.zoom;
+            this.pb_pesquisa_user.Location = new System.Drawing.Point(850, 8);
+            this.pb_pesquisa_user.Name = "pb_pesquisa_user";
+            this.pb_pesquisa_user.Size = new System.Drawing.Size(16, 16);
+            this.pb_pesquisa_user.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pb_pesquisa_user.TabIndex = 5;
+            this.pb_pesquisa_user.TabStop = false;
+            // 
+            // pc_pesquisa_user
+            // 
+            this.pc_pesquisa_user.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pc_pesquisa_user.BackColor = System.Drawing.Color.White;
+            this.pc_pesquisa_user.Image = global::AmigoDePapel.Properties.Resources.zoom;
+            this.pc_pesquisa_user.Location = new System.Drawing.Point(850, 8);
+            this.pc_pesquisa_user.Name = "pc_pesquisa_user";
+            this.pc_pesquisa_user.Size = new System.Drawing.Size(16, 16);
+            this.pc_pesquisa_user.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pc_pesquisa_user.TabIndex = 8;
+            this.pc_pesquisa_user.TabStop = false;
             // 
             // tsb_reflesh
             // 
@@ -140,104 +316,14 @@
             this.toolStripButton1.Text = "Configurações";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
-            // tc_main
+            // tb_loan
             // 
-            this.tc_main.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tc_main.Controls.Add(this.tp_book);
-            this.tc_main.Controls.Add(this.tp_user);
-            this.tc_main.Location = new System.Drawing.Point(12, 30);
-            this.tc_main.Name = "tc_main";
-            this.tc_main.SelectedIndex = 0;
-            this.tc_main.Size = new System.Drawing.Size(884, 508);
-            this.tc_main.TabIndex = 2;
-            // 
-            // tp_book
-            // 
-            this.tp_book.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.tp_book.Controls.Add(this.pb_pesquisa_user);
-            this.tp_book.Controls.Add(this.tb_pesquisaLivro);
-            this.tp_book.Controls.Add(this.dg_livro);
-            this.tp_book.Location = new System.Drawing.Point(4, 22);
-            this.tp_book.Name = "tp_book";
-            this.tp_book.Padding = new System.Windows.Forms.Padding(3);
-            this.tp_book.Size = new System.Drawing.Size(876, 482);
-            this.tp_book.TabIndex = 0;
-            this.tp_book.Text = "Livros";
-            // 
-            // pb_pesquisa_user
-            // 
-            this.pb_pesquisa_user.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pb_pesquisa_user.BackColor = System.Drawing.Color.White;
-            this.pb_pesquisa_user.Image = global::AmigoDePapel.Properties.Resources.zoom;
-            this.pb_pesquisa_user.Location = new System.Drawing.Point(847, 8);
-            this.pb_pesquisa_user.Name = "pb_pesquisa_user";
-            this.pb_pesquisa_user.Size = new System.Drawing.Size(16, 16);
-            this.pb_pesquisa_user.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pb_pesquisa_user.TabIndex = 5;
-            this.pb_pesquisa_user.TabStop = false;
-            // 
-            // tb_pesquisaLivro
-            // 
-            this.tb_pesquisaLivro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_pesquisaLivro.Location = new System.Drawing.Point(8, 6);
-            this.tb_pesquisaLivro.Name = "tb_pesquisaLivro";
-            this.tb_pesquisaLivro.Size = new System.Drawing.Size(860, 20);
-            this.tb_pesquisaLivro.TabIndex = 4;
-            // 
-            // dg_livro
-            // 
-            this.dg_livro.AllowUserToAddRows = false;
-            this.dg_livro.AllowUserToDeleteRows = false;
-            this.dg_livro.AllowUserToResizeRows = false;
-            this.dg_livro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dg_livro.BackgroundColor = System.Drawing.Color.White;
-            this.dg_livro.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dg_livro.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dg_livro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dg_livro.GridColor = System.Drawing.Color.DarkGray;
-            this.dg_livro.Location = new System.Drawing.Point(6, 32);
-            this.dg_livro.MultiSelect = false;
-            this.dg_livro.Name = "dg_livro";
-            this.dg_livro.ReadOnly = true;
-            this.dg_livro.RowHeadersVisible = false;
-            this.dg_livro.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Maroon;
-            this.dg_livro.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dg_livro.ShowCellErrors = false;
-            this.dg_livro.ShowCellToolTips = false;
-            this.dg_livro.ShowEditingIcon = false;
-            this.dg_livro.Size = new System.Drawing.Size(862, 444);
-            this.dg_livro.TabIndex = 3;
-            // 
-            // tp_user
-            // 
-            this.tp_user.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.tp_user.Controls.Add(this.dg_user);
-            this.tp_user.Controls.Add(this.pc_pesquisa_user);
-            this.tp_user.Controls.Add(this.tb_pesquisa_user);
-            this.tp_user.Location = new System.Drawing.Point(4, 22);
-            this.tp_user.Name = "tp_user";
-            this.tp_user.Padding = new System.Windows.Forms.Padding(3);
-            this.tp_user.Size = new System.Drawing.Size(876, 482);
-            this.tp_user.TabIndex = 1;
-            this.tp_user.Text = "Usúarios";
+            this.tb_loan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.tb_loan.Location = new System.Drawing.Point(4, 22);
+            this.tb_loan.Name = "tb_loan";
+            this.tb_loan.Size = new System.Drawing.Size(879, 484);
+            this.tb_loan.TabIndex = 2;
+            this.tb_loan.Text = "Empréstimos";
             // 
             // dg_user
             // 
@@ -260,7 +346,6 @@
             this.dg_user.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dg_user.GridColor = System.Drawing.Color.DarkGray;
             this.dg_user.Location = new System.Drawing.Point(6, 32);
-            this.dg_user.MultiSelect = false;
             this.dg_user.Name = "dg_user";
             this.dg_user.ReadOnly = true;
             this.dg_user.RowHeadersVisible = false;
@@ -271,68 +356,24 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Maroon;
             this.dg_user.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dg_user.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dg_user.ShowCellErrors = false;
             this.dg_user.ShowCellToolTips = false;
             this.dg_user.ShowEditingIcon = false;
-            this.dg_user.Size = new System.Drawing.Size(862, 444);
+            this.dg_user.Size = new System.Drawing.Size(865, 446);
             this.dg_user.TabIndex = 9;
             // 
-            // pc_pesquisa_user
+            // tb_pesquisaUser
             // 
-            this.pc_pesquisa_user.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pc_pesquisa_user.BackColor = System.Drawing.Color.White;
-            this.pc_pesquisa_user.Image = global::AmigoDePapel.Properties.Resources.zoom;
-            this.pc_pesquisa_user.Location = new System.Drawing.Point(847, 8);
-            this.pc_pesquisa_user.Name = "pc_pesquisa_user";
-            this.pc_pesquisa_user.Size = new System.Drawing.Size(16, 16);
-            this.pc_pesquisa_user.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pc_pesquisa_user.TabIndex = 8;
-            this.pc_pesquisa_user.TabStop = false;
-            // 
-            // tb_pesquisa_user
-            // 
-            this.tb_pesquisa_user.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_pesquisa_user.Location = new System.Drawing.Point(8, 6);
-            this.tb_pesquisa_user.Name = "tb_pesquisa_user";
-            this.tb_pesquisa_user.Size = new System.Drawing.Size(860, 20);
-            this.tb_pesquisa_user.TabIndex = 7;
-            // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tss_adp,
-            this.tss_status,
-            this.tss_img});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 541);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(887, 22);
-            this.statusStrip1.TabIndex = 3;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // tss_adp
-            // 
-            this.tss_adp.Name = "tss_adp";
-            this.tss_adp.Size = new System.Drawing.Size(133, 17);
-            this.tss_adp.Text = "Amigo de papel  0.06.2v";
-            // 
-            // tss_status
-            // 
-            this.tss_status.Name = "tss_status";
-            this.tss_status.Size = new System.Drawing.Size(91, 17);
-            this.tss_status.Text = "Status da Base:  ";
-            // 
-            // tss_img
-            // 
-            this.tss_img.Image = global::AmigoDePapel.Properties.Resources.tick;
-            this.tss_img.Name = "tss_img";
-            this.tss_img.Size = new System.Drawing.Size(16, 17);
-            // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.Text = "notifyIcon1";
-            this.notifyIcon1.Visible = true;
+            this.tb_pesquisaUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_pesquisaUser.BackColor = System.Drawing.Color.White;
+            this.tb_pesquisaUser.Image = global::AmigoDePapel.Properties.Resources.zoom;
+            this.tb_pesquisaUser.Location = new System.Drawing.Point(850, 8);
+            this.tb_pesquisaUser.Name = "tb_pesquisaUser";
+            this.tb_pesquisaUser.Size = new System.Drawing.Size(16, 16);
+            this.tb_pesquisaUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.tb_pesquisaUser.TabIndex = 10;
+            this.tb_pesquisaUser.TabStop = false;
             // 
             // Index
             // 
@@ -354,14 +395,16 @@
             this.tc_main.ResumeLayout(false);
             this.tp_book.ResumeLayout(false);
             this.tp_book.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_pesquisa_user)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_livro)).EndInit();
             this.tp_user.ResumeLayout(false);
             this.tp_user.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dg_user)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pc_pesquisa_user)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.capa)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_pesquisa_user)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pc_pesquisa_user)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_user)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tb_pesquisaUser)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -387,9 +430,13 @@
         private System.Windows.Forms.ToolStripStatusLabel tss_adp;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.PictureBox pc_pesquisa_user;
+
         private System.Windows.Forms.TextBox tb_pesquisa_user;
-        private System.Windows.Forms.DataGridView dg_user;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.PictureBox capa;
+        private System.Windows.Forms.DataGridView dg_user;
+        private System.Windows.Forms.TabPage tb_loan;
+        private System.Windows.Forms.PictureBox tb_pesquisaUser;
     }
 }
 

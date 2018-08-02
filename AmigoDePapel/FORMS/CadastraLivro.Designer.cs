@@ -57,6 +57,8 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsb_save = new System.Windows.Forms.ToolStripButton();
             this.tsb_retirar = new System.Windows.Forms.ToolStripButton();
+            this.tsb_addimg = new System.Windows.Forms.ToolStripButton();
+            this.tsb_deleteimg = new System.Windows.Forms.ToolStripButton();
             this.tsb_ajuda = new System.Windows.Forms.ToolStripButton();
             this.gb_cadastroLivro.SuspendLayout();
             this.gb_observacao.SuspendLayout();
@@ -436,6 +438,8 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsb_save,
             this.tsb_retirar,
+            this.tsb_addimg,
+            this.tsb_deleteimg,
             this.tsb_ajuda});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
@@ -456,12 +460,33 @@
             // tsb_retirar
             // 
             this.tsb_retirar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsb_retirar.Enabled = false;
             this.tsb_retirar.Image = global::AmigoDePapel.Properties.Resources.book_delete;
             this.tsb_retirar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsb_retirar.Name = "tsb_retirar";
             this.tsb_retirar.Size = new System.Drawing.Size(23, 22);
             this.tsb_retirar.Text = "Descarta Livro";
             this.tsb_retirar.Click += new System.EventHandler(this.tsb_retirar_Click);
+            // 
+            // tsb_addimg
+            // 
+            this.tsb_addimg.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsb_addimg.Image = global::AmigoDePapel.Properties.Resources.image_add;
+            this.tsb_addimg.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_addimg.Name = "tsb_addimg";
+            this.tsb_addimg.Size = new System.Drawing.Size(23, 22);
+            this.tsb_addimg.Text = "Adiciona Capa";
+            // 
+            // tsb_deleteimg
+            // 
+            this.tsb_deleteimg.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsb_deleteimg.Enabled = false;
+            this.tsb_deleteimg.Image = global::AmigoDePapel.Properties.Resources.image_delete;
+            this.tsb_deleteimg.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_deleteimg.Name = "tsb_deleteimg";
+            this.tsb_deleteimg.Size = new System.Drawing.Size(23, 22);
+            this.tsb_deleteimg.Text = "Remove Capa";
+            this.tsb_deleteimg.ToolTipText = "Remova Capa";
             // 
             // tsb_ajuda
             // 
@@ -531,5 +556,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tb_ano;
         private System.Windows.Forms.ToolStripButton tsb_retirar;
+        private System.Windows.Forms.ToolStripButton tsb_addimg;
+        private System.Windows.Forms.ToolStripButton tsb_deleteimg;
     }
 }

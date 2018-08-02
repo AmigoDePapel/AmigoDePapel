@@ -156,6 +156,8 @@
     <Folder Include="DLL\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\image_delete.png" />
+    <None Include="Resources\image_add.png" />
     <None Include="Resources\wallpaper.png" />
     <None Include="Resources\zoom.png" />
     <None Include="Resources\find.png" />
