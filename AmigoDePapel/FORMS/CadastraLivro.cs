@@ -1,7 +1,7 @@
 ﻿using System;
 using AmigoDePapel.CLASS.conSql;
 using System.Windows.Forms;
-
+using System.IO;
 
 namespace AmigoDePapel.FORMS
 {
@@ -64,6 +64,28 @@ namespace AmigoDePapel.FORMS
             catch(Exception err)
             {
                 MessageBox.Show(err.Message,"PUTS!!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
+
+        private void tsb_addimg_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = new DialogResult();
+            dr = ofd_capa.ShowDialog();
+            if(dr == DialogResult.OK)
+            {
+                try
+                {
+                    string url = System.Environment.CurrentDirectory.ToString() + @"\img\capa\" + lb_codigo.Text + ".jpg";
+                    
+                    if (File.Exists(url))
+                        File.Delete(url);
+
+                    File.Move(ofd_capa.FileName.ToString(), url);
+                }
+                catch(Exception err)
+                {
+                    
+                }
             }
         }
     }

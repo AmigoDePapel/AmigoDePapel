@@ -60,6 +60,7 @@
             this.tsb_addimg = new System.Windows.Forms.ToolStripButton();
             this.tsb_deleteimg = new System.Windows.Forms.ToolStripButton();
             this.tsb_ajuda = new System.Windows.Forms.ToolStripButton();
+            this.ofd_capa = new System.Windows.Forms.OpenFileDialog();
             this.gb_cadastroLivro.SuspendLayout();
             this.gb_observacao.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -476,6 +477,7 @@
             this.tsb_addimg.Name = "tsb_addimg";
             this.tsb_addimg.Size = new System.Drawing.Size(23, 22);
             this.tsb_addimg.Text = "Adiciona Capa";
+            this.tsb_addimg.Click += new System.EventHandler(this.tsb_addimg_Click);
             // 
             // tsb_deleteimg
             // 
@@ -558,5 +560,6 @@
         private System.Windows.Forms.ToolStripButton tsb_retirar;
         private System.Windows.Forms.ToolStripButton tsb_addimg;
         private System.Windows.Forms.ToolStripButton tsb_deleteimg;
+        private System.Windows.Forms.OpenFileDialog ofd_capa;
     }
 }

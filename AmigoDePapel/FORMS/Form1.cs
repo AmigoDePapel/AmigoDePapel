@@ -89,7 +89,10 @@ namespace AmigoDePapel
 
         private void dg_livro_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            try
+            {
 
+            
             Point p = this.PointToClient(Cursor.Position);
 
             capa.Size = new Size(96, 139);
@@ -97,6 +100,11 @@ namespace AmigoDePapel
             capa.Image = Image.FromFile(GetURLImg(dg_livro.Rows[e.RowIndex].Cells[0].Value.ToString()));
             capa.BorderStyle = BorderStyle.FixedSingle;
             capa.Visible = true;
+            }
+            catch
+            {
+                capa.Visible = false;
+            }
         }
 
         private void capa_Click(object sender, EventArgs e)

@@ -9,17 +9,26 @@ namespace AmigoDePapel.CLASS
         public string url = System.Environment.CurrentDirectory.ToString();
         public string txt = "\\config.adpc";
 
+        private void CriaPastas()
+        {
+            System.IO.Directory.CreateDirectory(url + @"\img");
+            System.IO.Directory.CreateDirectory(url + @"\img\capa");
+            System.IO.Directory.CreateDirectory(url + @"\img\perfil");
+        }
+
         public string[] VerifinicaInicializacao()
         {
             //verifica se o arquivo esta apontando para uma base correta;
             //variaveis que serão utitilizadas na validação;
             ValidaTXT();
+            //CriaPastas();
+            
             string[] conteudoTXT = GetConteudoTXT();
 
             //verifica se a base existe, caso contrario pede o local
             if (ValidaDB(conteudoTXT[0]))
             {
-
+                
             }
 
             return conteudoTXT;
