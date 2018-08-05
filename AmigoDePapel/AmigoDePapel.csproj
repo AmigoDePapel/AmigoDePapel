@@ -85,6 +85,7 @@
     <Compile Include="CLASS\AdicionaInformacao.cs" />
     <Compile Include="CLASS\conSql\Connection.cs" />
     <Compile Include="CLASS\conSql\SqlQuery.cs" />
+    <Compile Include="CLASS\ControleArquivo.cs" />
     <Compile Include="CLASS\DeletaInformacao.cs" />
     <Compile Include="CLASS\DoaLivro.cs" />
     <Compile Include="CLASS\EmprestaLivro.cs" />

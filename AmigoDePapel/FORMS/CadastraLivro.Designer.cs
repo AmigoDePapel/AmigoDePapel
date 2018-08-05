@@ -489,6 +489,7 @@
             this.tsb_deleteimg.Size = new System.Drawing.Size(23, 22);
             this.tsb_deleteimg.Text = "Remove Capa";
             this.tsb_deleteimg.ToolTipText = "Remova Capa";
+            this.tsb_deleteimg.Click += new System.EventHandler(this.tsb_deleteimg_Click);
             // 
             // tsb_ajuda
             // 

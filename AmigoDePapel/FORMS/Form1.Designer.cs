@@ -33,6 +33,8 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Index));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsb_reflesh = new System.Windows.Forms.ToolStripButton();
@@ -53,15 +55,18 @@
             this.tb_pesquisa_user = new System.Windows.Forms.TextBox();
             this.pc_pesquisa_user = new System.Windows.Forms.PictureBox();
             this.tb_loan = new System.Windows.Forms.TabPage();
+            this.pb_pesquisa_emprestimo = new System.Windows.Forms.PictureBox();
+            this.tb_emprestimo = new System.Windows.Forms.TextBox();
+            this.dg_emprestimo = new System.Windows.Forms.DataGridView();
+            this.cb_emdia = new System.Windows.Forms.CheckBox();
+            this.cb_atrasados = new System.Windows.Forms.CheckBox();
+            this.cb_encerrados = new System.Windows.Forms.CheckBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tss_adp = new System.Windows.Forms.ToolStripStatusLabel();
             this.tss_status = new System.Windows.Forms.ToolStripStatusLabel();
             this.tss_img = new System.Windows.Forms.ToolStripStatusLabel();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.toolStrip1.SuspendLayout();
             this.tc_main.SuspendLayout();
             this.tp_book.SuspendLayout();
@@ -73,6 +78,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dg_user)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pc_pesquisa_user)).BeginInit();
             this.tb_loan.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_pesquisa_emprestimo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_emprestimo)).BeginInit();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -138,6 +145,7 @@
             this.tsb_help.Name = "tsb_help";
             this.tsb_help.Size = new System.Drawing.Size(23, 22);
             this.tsb_help.Text = "Ajuda";
+            this.tsb_help.Click += new System.EventHandler(this.tsb_help_Click);
             // 
             // toolStripButton1
             // 
@@ -199,6 +207,7 @@
             this.pb_pesquisa_user.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pb_pesquisa_user.TabIndex = 5;
             this.pb_pesquisa_user.TabStop = false;
+            this.pb_pesquisa_user.Click += new System.EventHandler(this.pb_pesquisa_user_Click);
             // 
             // tb_pesquisaLivro
             // 
@@ -209,6 +218,7 @@
             this.tb_pesquisaLivro.Name = "tb_pesquisaLivro";
             this.tb_pesquisaLivro.Size = new System.Drawing.Size(863, 20);
             this.tb_pesquisaLivro.TabIndex = 4;
+            this.tb_pesquisaLivro.TextChanged += new System.EventHandler(this.tb_pesquisaLivro_TextChanged);
             // 
             // dg_livro
             // 
@@ -218,6 +228,7 @@
             this.dg_livro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dg_livro.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dg_livro.BackgroundColor = System.Drawing.Color.White;
             this.dg_livro.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
             this.dg_livro.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
@@ -231,6 +242,7 @@
             this.dg_livro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dg_livro.GridColor = System.Drawing.Color.DarkGray;
             this.dg_livro.Location = new System.Drawing.Point(6, 32);
+            this.dg_livro.MultiSelect = false;
             this.dg_livro.Name = "dg_livro";
             this.dg_livro.ReadOnly = true;
             this.dg_livro.RowHeadersVisible = false;
@@ -248,6 +260,8 @@
             this.dg_livro.Size = new System.Drawing.Size(865, 446);
             this.dg_livro.TabIndex = 3;
             this.dg_livro.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_livro_CellClick);
+            this.dg_livro.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_livro_CellContentClick);
+            this.dg_livro.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_livro_CellDoubleClick);
             // 
             // tp_user
             // 
@@ -338,14 +352,107 @@
             // tb_loan
             // 
             this.tb_loan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            this.tb_loan.Controls.Add(this.checkBox3);
-            this.tb_loan.Controls.Add(this.checkBox2);
-            this.tb_loan.Controls.Add(this.checkBox1);
+            this.tb_loan.Controls.Add(this.pb_pesquisa_emprestimo);
+            this.tb_loan.Controls.Add(this.tb_emprestimo);
+            this.tb_loan.Controls.Add(this.dg_emprestimo);
+            this.tb_loan.Controls.Add(this.cb_emdia);
+            this.tb_loan.Controls.Add(this.cb_atrasados);
+            this.tb_loan.Controls.Add(this.cb_encerrados);
             this.tb_loan.Location = new System.Drawing.Point(4, 22);
             this.tb_loan.Name = "tb_loan";
             this.tb_loan.Size = new System.Drawing.Size(879, 484);
             this.tb_loan.TabIndex = 2;
             this.tb_loan.Text = "Empréstimos";
+            // 
+            // pb_pesquisa_emprestimo
+            // 
+            this.pb_pesquisa_emprestimo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_pesquisa_emprestimo.BackColor = System.Drawing.Color.White;
+            this.pb_pesquisa_emprestimo.Image = global::AmigoDePapel.Properties.Resources.zoom;
+            this.pb_pesquisa_emprestimo.Location = new System.Drawing.Point(850, 8);
+            this.pb_pesquisa_emprestimo.Name = "pb_pesquisa_emprestimo";
+            this.pb_pesquisa_emprestimo.Size = new System.Drawing.Size(16, 16);
+            this.pb_pesquisa_emprestimo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pb_pesquisa_emprestimo.TabIndex = 11;
+            this.pb_pesquisa_emprestimo.TabStop = false;
+            // 
+            // tb_emprestimo
+            // 
+            this.tb_emprestimo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_emprestimo.Location = new System.Drawing.Point(233, 6);
+            this.tb_emprestimo.Name = "tb_emprestimo";
+            this.tb_emprestimo.Size = new System.Drawing.Size(638, 20);
+            this.tb_emprestimo.TabIndex = 8;
+            // 
+            // dg_emprestimo
+            // 
+            this.dg_emprestimo.AllowUserToAddRows = false;
+            this.dg_emprestimo.AllowUserToDeleteRows = false;
+            this.dg_emprestimo.AllowUserToResizeRows = false;
+            this.dg_emprestimo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dg_emprestimo.BackgroundColor = System.Drawing.Color.White;
+            this.dg_emprestimo.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dg_emprestimo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dg_emprestimo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dg_emprestimo.GridColor = System.Drawing.Color.DarkGray;
+            this.dg_emprestimo.Location = new System.Drawing.Point(6, 32);
+            this.dg_emprestimo.Name = "dg_emprestimo";
+            this.dg_emprestimo.ReadOnly = true;
+            this.dg_emprestimo.RowHeadersVisible = false;
+            this.dg_emprestimo.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Maroon;
+            this.dg_emprestimo.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.dg_emprestimo.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dg_emprestimo.ShowCellErrors = false;
+            this.dg_emprestimo.ShowCellToolTips = false;
+            this.dg_emprestimo.ShowEditingIcon = false;
+            this.dg_emprestimo.Size = new System.Drawing.Size(865, 446);
+            this.dg_emprestimo.TabIndex = 4;
+            // 
+            // cb_emdia
+            // 
+            this.cb_emdia.AutoSize = true;
+            this.cb_emdia.Location = new System.Drawing.Point(169, 8);
+            this.cb_emdia.Name = "cb_emdia";
+            this.cb_emdia.Size = new System.Drawing.Size(58, 17);
+            this.cb_emdia.TabIndex = 2;
+            this.cb_emdia.Text = "Em dia";
+            this.cb_emdia.UseVisualStyleBackColor = true;
+            // 
+            // cb_atrasados
+            // 
+            this.cb_atrasados.AutoSize = true;
+            this.cb_atrasados.Location = new System.Drawing.Point(90, 8);
+            this.cb_atrasados.Name = "cb_atrasados";
+            this.cb_atrasados.Size = new System.Drawing.Size(73, 17);
+            this.cb_atrasados.TabIndex = 1;
+            this.cb_atrasados.Text = "Atrasados";
+            this.cb_atrasados.UseVisualStyleBackColor = true;
+            // 
+            // cb_encerrados
+            // 
+            this.cb_encerrados.AutoSize = true;
+            this.cb_encerrados.Location = new System.Drawing.Point(4, 8);
+            this.cb_encerrados.Name = "cb_encerrados";
+            this.cb_encerrados.Size = new System.Drawing.Size(80, 17);
+            this.cb_encerrados.TabIndex = 0;
+            this.cb_encerrados.Text = "Encerrados";
+            this.cb_encerrados.UseVisualStyleBackColor = true;
             // 
             // statusStrip1
             // 
@@ -382,36 +489,6 @@
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(9, 27);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(142, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Empréstimos Encerrados";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(4, 51);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(80, 17);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "checkBox2";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(31, 89);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(80, 17);
-            this.checkBox3.TabIndex = 2;
-            this.checkBox3.Text = "checkBox3";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            // 
             // Index
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -442,6 +519,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pc_pesquisa_user)).EndInit();
             this.tb_loan.ResumeLayout(false);
             this.tb_loan.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_pesquisa_emprestimo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_emprestimo)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -476,9 +555,12 @@
         private System.Windows.Forms.DataGridView dg_user;
         private System.Windows.Forms.TabPage tb_loan;
         private System.Windows.Forms.PictureBox tb_pesquisaUser;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox cb_emdia;
+        private System.Windows.Forms.CheckBox cb_atrasados;
+        private System.Windows.Forms.CheckBox cb_encerrados;
+        private System.Windows.Forms.PictureBox pb_pesquisa_emprestimo;
+        private System.Windows.Forms.TextBox tb_emprestimo;
+        private System.Windows.Forms.DataGridView dg_emprestimo;
     }
 }
 

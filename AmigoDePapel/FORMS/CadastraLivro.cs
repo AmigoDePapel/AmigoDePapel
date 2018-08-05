@@ -2,11 +2,14 @@
 using AmigoDePapel.CLASS.conSql;
 using System.Windows.Forms;
 using System.IO;
+using System.Data.SqlServerCe;
 
 namespace AmigoDePapel.FORMS
 {
     public partial class CadastraLivro : Form
     {
+        public string urlImg = null;
+
         public CadastraLivro()
         {
             InitializeComponent();
@@ -16,16 +19,65 @@ namespace AmigoDePapel.FORMS
         {
 
             InitializeComponent();
+            ValidacoesBasicas();
+        }
+
+        public CadastraLivro(string codigo)
+        {
+            InitializeComponent();
+
+            try
+            {
+                Connection sqlExecut = new Connection();
+                SqlCeDataReader dr = sqlExecut.ReturnQuery(@"SELECT ID, TITULO, SUBTITULO,ISBN,EDITORA,VERSAO,ANO,AUTOR,TEMA,SUBTEMA,PAGINAS,OBSERVACAO FROM STK_ITEM_LIVRO WHERE ID = " + codigo + " AND ISDELETED = 0");
+
+                if (dr.Read())
+                {
+                    lb_codigo.Text = String.Concat(dr.GetInt32(0),"");
+                    tb_titulo.Text = dr.GetString(1);
+                    tb_subtitulo.Text = dr.GetString(2);
+                    tb_isbn.Text = dr.GetString(3);
+                    tb_editora.Text = dr.GetString(4);
+                    tb_versao.Text = dr.GetString(5); ;
+                    tb_ano.Text = String.Concat(dr.GetInt32(6), "");
+                    tb_autor.Text = dr.GetString(7);
+                    cb_tema.Text = dr.GetString(8);
+                    cb_subtema.Text = dr.GetString(9);
+                    tb_pagina.Text = String.Concat(dr.GetInt32(10), "");
+                    tb_obs.Text = dr.GetString(11);
+                }
+            }
+            catch(Exception err)
+            {
+                MessageBox.Show(err.Message, "PUTS!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            ValidacoesBasicas();
         }
 
         private void tsb_retirar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Deseja remover do sistema esse livro?","ATENÇÃO",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+            DialogResult dr = new DialogResult();
+           dr = MessageBox.Show("Deseja remover do sistema esse livro?","ATENÇÃO",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+            if(dr == DialogResult.Yes)
+            {
+                string sql = @"UPDATE STK_ITEM_LIVRO SET ISDELETED = 1 WHERE ID = " + lb_codigo.Text;
+                try
+                {
+                    Connection sqlExecut = new Connection();
+                    sqlExecut.LoadQuery(sql);
+                    this.Close();
+                }
+
+                catch (Exception err)
+                {
+                    MessageBox.Show(err.Message, "PUTS!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void CadastraLivro_Load(object sender, EventArgs e)
         {
-            ValidacoesBasicas();
+
         }
 
         private void ValidacoesBasicas()
@@ -34,13 +86,17 @@ namespace AmigoDePapel.FORMS
             //se o código do itemm for 00 (cadastro novo) - desativar botão de retirada do sistema. 
             if (!lb_codigo.Text.Equals("00"))
                 tsb_retirar.Enabled = true;
+            else
+            {
+
+            }
         }
 
         private void tsb_save_Click(object sender, EventArgs e)
         {
             //INICIA O SALVAMENTO DAS INFORMAÇÕES
             //SE O ID FOR 00 É UM NOVO REGISTRO, SE NÃO, É UMA ALTERAÇÃO
-            string sql;
+            string sql = String.Empty;
             if(lb_codigo.Text == "00")
             {
                 sql = @"INSERT INTO STK_ITEM_LIVRO (ISDELETED,TITULO,SUBTITULO,ISBN,EDITORA,VERSAO,ANO,AUTOR,TEMA,SUBTEMA,PAGINAS,OBSERVACAO)
@@ -54,7 +110,6 @@ namespace AmigoDePapel.FORMS
             }
             try
             {
-
 
             Connection sqlExecut = new Connection();
             sqlExecut.LoadQuery(sql);
@@ -71,20 +126,52 @@ namespace AmigoDePapel.FORMS
         {
             DialogResult dr = new DialogResult();
             dr = ofd_capa.ShowDialog();
+
             if(dr == DialogResult.OK)
             {
                 try
                 {
-                    string url = System.Environment.CurrentDirectory.ToString() + @"\img\capa\" + lb_codigo.Text + ".jpg";
-                    
-                    if (File.Exists(url))
-                        File.Delete(url);
-
-                    File.Move(ofd_capa.FileName.ToString(), url);
+                    //se o codigo for 00 é um cadastro novo, então vou apenas guardar a url;
+                    //se o codigo não for 00 é um cadastro já registrado no sistema então apenas mova com o codigo do cadastro;
+                    if(lb_codigo.Text == "00")
+                    {
+                        urlImg = ofd_capa.FileName.ToString();
+                    }
+                    else
+                    {
+                        string url = System.Environment.CurrentDirectory.ToString() + @"\img\capa\" + lb_codigo.Text + ".jpg";
+                        if (File.Exists(url))
+                            File.Delete(url);
+                        File.Move(ofd_capa.FileName.ToString(), url);
+                    }
                 }
                 catch(Exception err)
                 {
-                    
+                    MessageBox.Show(err.Message, "Caramba!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                tsb_deleteimg.Enabled = true;
+            }
+        }
+
+        private void tsb_deleteimg_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = new DialogResult();
+            dr = MessageBox.Show("Deseja remover a capa selecionada para esse livro?", "Opa!!", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+            if(dr == DialogResult.Yes && lb_codigo.Text == "00")
+            {
+                urlImg = String.Empty;
+                tsb_deleteimg.Enabled = false;
+            }
+            else if (dr == DialogResult.Yes && lb_codigo.Text != "00")
+            {
+                try
+                { 
+                    File.Delete(System.Environment.CurrentDirectory.ToString() + @"\img\capa\" + lb_codigo.Text + ".jpg");
+                    tsb_deleteimg.Enabled = false;
+                }
+                catch(Exception err)
+                {
+                    MessageBox.Show(err.Message, "Caramba!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
