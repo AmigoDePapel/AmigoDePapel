@@ -56,6 +56,7 @@ namespace AmigoDePapel.FORMS
             {
                 Connection con = new Connection();
                 con.CreateDB();
+                
             }
             this.Focus();
         }

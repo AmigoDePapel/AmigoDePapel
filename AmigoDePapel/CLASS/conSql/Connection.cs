@@ -10,6 +10,7 @@ namespace AmigoDePapel.CLASS.conSql
         public string urlCon = "Data Source=" +
                             Application.StartupPath +
                             @"\DB_AMIGODEPAPEL.sdf";
+        ValidaInicializacao valid = new ValidaInicializacao();
 
         public void CreateDB()
         {
@@ -21,6 +22,7 @@ namespace AmigoDePapel.CLASS.conSql
                     eng.CreateDatabase();
                     CreateTables();
                     MessageBox.Show("Nova base de dados criada com sucesso.  Seu aplicativo irá reinicializar. \n LOCAL:"+ Application.StartupPath, "OBA!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    valid.AtualizaTXT(Application.StartupPath + @"\DB_AMIGODEPAPEL.sdf", null);
                     System.Diagnostics.Process.Start(Application.StartupPath+ @"\AmigoDePapel.exe");
                     Application.Exit();
                 }
@@ -31,7 +33,7 @@ namespace AmigoDePapel.CLASS.conSql
             }
             catch(Exception err)
             {
-                MessageBox.Show(err.Message);
+                MessageBox.Show(err.Message, "Puts!!", MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 

@@ -21,7 +21,7 @@ namespace AmigoDePapel.CLASS
             //verifica se o arquivo esta apontando para uma base correta;
             //variaveis que serão utitilizadas na validação;
             ValidaTXT();
-            //CriaPastas();
+            CriaPastas();
             
             string[] conteudoTXT = GetConteudoTXT();
 
@@ -53,6 +53,8 @@ namespace AmigoDePapel.CLASS
 
         public void AtualizaTXT(string db, string date)
         {
+            if (date == null)
+                date = "05";
             string[] lines = { "DB="+db, "DATE="+date };
             System.IO.File.WriteAllLines(url+txt, lines);
         }

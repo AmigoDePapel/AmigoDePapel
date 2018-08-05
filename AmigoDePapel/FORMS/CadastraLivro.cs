@@ -3,12 +3,14 @@ using AmigoDePapel.CLASS.conSql;
 using System.Windows.Forms;
 using System.IO;
 using System.Data.SqlServerCe;
+using AmigoDePapel.CLASS;
 
 namespace AmigoDePapel.FORMS
 {
     public partial class CadastraLivro : Form
     {
         public string urlImg = null;
+        ControleArquivo ctrlImg = new ControleArquivo();
 
         public CadastraLivro()
         {
@@ -51,6 +53,7 @@ namespace AmigoDePapel.FORMS
             {
                 MessageBox.Show(err.Message, "PUTS!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
             ValidacoesBasicas();
         }
 
@@ -84,12 +87,13 @@ namespace AmigoDePapel.FORMS
         {
             //VALIDAÇÕES BÁSICAS
             //se o código do itemm for 00 (cadastro novo) - desativar botão de retirada do sistema. 
-            if (!lb_codigo.Text.Equals("00"))
+            if (lb_codigo.Text != "00")
                 tsb_retirar.Enabled = true;
-            else
-            {
 
-            }
+            //se tiver imagem - libera o botão de deletar img.
+            if (ctrlImg.ImgExist(lb_codigo.Text))
+                tsb_deleteimg.Enabled = true;
+
         }
 
         private void tsb_save_Click(object sender, EventArgs e)
@@ -105,7 +109,7 @@ namespace AmigoDePapel.FORMS
             else
             {
                 //ID EXISTE, ENTÃO... UPDATE.
-                sql = @"UPDATE STK_ITEM_LIVRO SET TITULO = '" + tb_titulo.Text + "', SUBTITULO = '"+tb_subtitulo.Text+ "', ISBN = '"+tb_isbn.Text+ "', EDITORA = '"+tb_editora.Text+ "', VERSAO = '"+tb_versao.Text+ "', ANO = '"+tb_ano.Text+ "', AUTOR = '"+tb_autor.Text+ "', TEMA = '"+cb_tema.Text+ "', SUBTEMA = '"+cb_subtema.Text+ "', PAGINAS = '"+tb_ano.Text+ "', OBSERVACAO = '"+tb_obs.Text+"' WHERE ID = '" + lb_codigo.Text + "' and isdeleted = 0";
+                sql = @"UPDATE STK_ITEM_LIVRO SET TITULO = '" + tb_titulo.Text + "', SUBTITULO = '"+tb_subtitulo.Text+ "', ISBN = '"+tb_isbn.Text+ "', EDITORA = '"+tb_editora.Text+ "', VERSAO = '"+tb_versao.Text+ "', ANO = '"+tb_ano.Text+ "', AUTOR = '"+tb_autor.Text+ "', TEMA = '"+cb_tema.Text+ "', SUBTEMA = '"+cb_subtema.Text+ "', PAGINAS = '"+tb_pagina.Text+ "', OBSERVACAO = '"+tb_obs.Text+"' WHERE ID = '" + lb_codigo.Text + "' AND ISDELETED = 0";
 
             }
             try
@@ -113,6 +117,16 @@ namespace AmigoDePapel.FORMS
 
             Connection sqlExecut = new Connection();
             sqlExecut.LoadQuery(sql);
+
+            //SALVEI, AGORA FOI UM CADASTRO NOVO E ELE SELECIONOU UMA IMG? 
+            if (lb_codigo.Text == "00" && urlImg != null)
+            {
+                    SqlCeDataReader dr = sqlExecut.ReturnQuery("SELECT MAX(ID) FROM STK_ITEM_LIVRO");
+                    if (dr.Read())
+                    {
+                        ctrlImg.SalvaImagem(urlImg, String.Concat(dr.GetInt32(0),""));
+                    }
+            }
                 this.Close();
             }
 
@@ -138,7 +152,10 @@ namespace AmigoDePapel.FORMS
                         urlImg = ofd_capa.FileName.ToString();
                     }
                     else
-                    {
+                    {                       
+
+                        ctrlImg.SalvaImagem(ofd_capa.FileName.ToString(), lb_codigo.Text);
+
                         string url = System.Environment.CurrentDirectory.ToString() + @"\img\capa\" + lb_codigo.Text + ".jpg";
                         if (File.Exists(url))
                             File.Delete(url);
@@ -165,8 +182,8 @@ namespace AmigoDePapel.FORMS
             else if (dr == DialogResult.Yes && lb_codigo.Text != "00")
             {
                 try
-                { 
-                    File.Delete(System.Environment.CurrentDirectory.ToString() + @"\img\capa\" + lb_codigo.Text + ".jpg");
+                {
+                    ctrlImg.DeletaArquivo(lb_codigo.Text);
                     tsb_deleteimg.Enabled = false;
                 }
                 catch(Exception err)

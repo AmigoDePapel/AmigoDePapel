@@ -49,10 +49,10 @@
             this.lb_nome_completo = new System.Windows.Forms.Label();
             this.tb_nome = new System.Windows.Forms.TextBox();
             this.gb_cadastraUser = new System.Windows.Forms.GroupBox();
+            this.dt_nascimento = new System.Windows.Forms.DateTimePicker();
+            this.tb_documento = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cb_documento = new System.Windows.Forms.ComboBox();
-            this.tb_documento = new System.Windows.Forms.MaskedTextBox();
-            this.dt_nascimento = new System.Windows.Forms.DateTimePicker();
             this.gb_observacao.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.gb_cadastraUser.SuspendLayout();
@@ -279,6 +279,25 @@
             this.gb_cadastraUser.TabIndex = 3;
             this.gb_cadastraUser.TabStop = false;
             // 
+            // dt_nascimento
+            // 
+            this.dt_nascimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dt_nascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dt_nascimento.Location = new System.Drawing.Point(354, 144);
+            this.dt_nascimento.MaxDate = new System.DateTime(2150, 12, 31, 0, 0, 0, 0);
+            this.dt_nascimento.MinDate = new System.DateTime(1935, 1, 1, 0, 0, 0, 0);
+            this.dt_nascimento.Name = "dt_nascimento";
+            this.dt_nascimento.Size = new System.Drawing.Size(120, 21);
+            this.dt_nascimento.TabIndex = 5;
+            // 
+            // tb_documento
+            // 
+            this.tb_documento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_documento.Location = new System.Drawing.Point(153, 144);
+            this.tb_documento.Name = "tb_documento";
+            this.tb_documento.Size = new System.Drawing.Size(195, 21);
+            this.tb_documento.TabIndex = 4;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -304,25 +323,6 @@
             this.cb_documento.Size = new System.Drawing.Size(121, 23);
             this.cb_documento.TabIndex = 3;
             this.cb_documento.TextChanged += new System.EventHandler(this.cb_documento_TextChanged);
-            // 
-            // tb_documento
-            // 
-            this.tb_documento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_documento.Location = new System.Drawing.Point(153, 144);
-            this.tb_documento.Name = "tb_documento";
-            this.tb_documento.Size = new System.Drawing.Size(195, 21);
-            this.tb_documento.TabIndex = 4;
-            // 
-            // dt_nascimento
-            // 
-            this.dt_nascimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dt_nascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dt_nascimento.Location = new System.Drawing.Point(354, 144);
-            this.dt_nascimento.MaxDate = new System.DateTime(2150, 12, 31, 0, 0, 0, 0);
-            this.dt_nascimento.MinDate = new System.DateTime(1935, 1, 1, 0, 0, 0, 0);
-            this.dt_nascimento.Name = "dt_nascimento";
-            this.dt_nascimento.Size = new System.Drawing.Size(120, 21);
-            this.dt_nascimento.TabIndex = 5;
             // 
             // CadastraUser
             // 
