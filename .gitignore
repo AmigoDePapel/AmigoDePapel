@@ -8,3 +8,7 @@ AmigoDePapel/bin/Release/
 *.log
 *.exe
 *.cache
+.vs/AmigoDePapel/v15/Server/sqlite3/storage.ide-shm
+.vs/AmigoDePapel/v15/.suo
+.vs/AmigoDePapel/v15/Server/sqlite3/storage.ide
+AmigoDePapel/obj/Debug/AmigoDePapel.pdb
