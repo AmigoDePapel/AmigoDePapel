@@ -1,2 +1,9 @@
-
 *.lock
+AmigoDePapel/bin/Debug/
+AmigoDePapel/bin/Release/
+*Debug.script
+*Debug.properti
+*.log
+*.exe
+
+
