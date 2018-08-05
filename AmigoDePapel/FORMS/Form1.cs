@@ -45,6 +45,22 @@ namespace AmigoDePapel
             }
         }
 
+        private void FormUser(int e)
+        {
+            CadastraUser newUser;
+            if(e < 0)
+            {
+                newUser = new CadastraUser();
+            }
+            else
+            {
+                newUser = new CadastraUser(dg_user.Rows[e].Cells[0].Value.ToString());
+            }
+
+            newUser.FormClosing += new FormClosingEventHandler(this.atualiza_FormClosing);
+            newUser.Show();
+        }
+
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
             FormLivro(-1);
@@ -70,9 +86,7 @@ namespace AmigoDePapel
 
         private void tsb_add_userr_Click(object sender, EventArgs e)
         {
-            CadastraUser newUser = new CadastraUser();
-            newUser.FormClosing += new FormClosingEventHandler(this.atualiza_FormClosing);
-            newUser.Show();
+            FormUser(-1);
         }
 
 
@@ -126,6 +140,7 @@ namespace AmigoDePapel
         private void atualiza_FormClosing(object sender, FormClosingEventArgs e)
         {
             LoadGrids();
+            this.Focus();
         }
 
         private void dg_livro_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -180,6 +195,11 @@ namespace AmigoDePapel
         private void dg_livro_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void dg_user_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            FormUser(e.RowIndex);
         }
     }
 }

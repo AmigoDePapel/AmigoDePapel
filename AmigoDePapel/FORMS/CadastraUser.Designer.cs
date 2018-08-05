@@ -322,6 +322,7 @@
             this.cb_documento.Name = "cb_documento";
             this.cb_documento.Size = new System.Drawing.Size(121, 23);
             this.cb_documento.TabIndex = 3;
+            this.cb_documento.SelectedIndexChanged += new System.EventHandler(this.cb_documento_SelectedIndexChanged);
             this.cb_documento.TextChanged += new System.EventHandler(this.cb_documento_TextChanged);
             // 
             // CadastraUser

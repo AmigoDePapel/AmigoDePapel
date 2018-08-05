@@ -17,13 +17,6 @@ namespace AmigoDePapel.FORMS
             InitializeComponent();
         }
 
-        public CadastraLivro(string[] livro)
-        {
-
-            InitializeComponent();
-            ValidacoesBasicas();
-        }
-
         public CadastraLivro(string codigo)
         {
             InitializeComponent();
@@ -55,6 +48,24 @@ namespace AmigoDePapel.FORMS
             }
 
             ValidacoesBasicas();
+        }
+
+        private string ValidaSalvamento()
+        {
+            string alerta = null;
+            if(String.IsNullOrEmpty(tb_titulo.Text))
+            {
+                alerta = "* Preencha um titulo para o livro.";
+            }
+            if(!int.TryParse(tb_ano.Text, out int m) && !String.IsNullOrEmpty(tb_ano.Text))
+            {
+                alerta += "\n* O Ano tem que contem apenas numeros.";
+            }
+            if(!int.TryParse(tb_pagina.Text, out int n) && !String.IsNullOrEmpty(tb_pagina.Text))
+            {
+                alerta += "\n* A Qtd de páginas tem que contem apenas numeros.";
+            }
+            return alerta;
         }
 
         private void tsb_retirar_Click(object sender, EventArgs e)
@@ -98,41 +109,49 @@ namespace AmigoDePapel.FORMS
 
         private void tsb_save_Click(object sender, EventArgs e)
         {
-            //INICIA O SALVAMENTO DAS INFORMAÇÕES
-            //SE O ID FOR 00 É UM NOVO REGISTRO, SE NÃO, É UMA ALTERAÇÃO
-            string sql = String.Empty;
-            if(lb_codigo.Text == "00")
+            string alerta = ValidaSalvamento();
+            if(alerta!= null)
             {
-                sql = @"INSERT INTO STK_ITEM_LIVRO (ISDELETED,TITULO,SUBTITULO,ISBN,EDITORA,VERSAO,ANO,AUTOR,TEMA,SUBTEMA,PAGINAS,OBSERVACAO)
-                                   VALUES (0,'" + tb_titulo.Text + "','" + tb_subtitulo.Text + "','" + tb_isbn.Text + "','" + tb_editora.Text + "','" + tb_versao.Text + "'," + tb_ano.Text + ",'" + tb_autor.Text + "','" + cb_tema.Text + "','" + cb_subtema.Text + "'," + tb_pagina.Text + ",'" + tb_obs.Text + "')";
+                MessageBox.Show(alerta, "Opa!!", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
             else
-            {
-                //ID EXISTE, ENTÃO... UPDATE.
-                sql = @"UPDATE STK_ITEM_LIVRO SET TITULO = '" + tb_titulo.Text + "', SUBTITULO = '"+tb_subtitulo.Text+ "', ISBN = '"+tb_isbn.Text+ "', EDITORA = '"+tb_editora.Text+ "', VERSAO = '"+tb_versao.Text+ "', ANO = '"+tb_ano.Text+ "', AUTOR = '"+tb_autor.Text+ "', TEMA = '"+cb_tema.Text+ "', SUBTEMA = '"+cb_subtema.Text+ "', PAGINAS = '"+tb_pagina.Text+ "', OBSERVACAO = '"+tb_obs.Text+"' WHERE ID = '" + lb_codigo.Text + "' AND ISDELETED = 0";
+            { 
+                //INICIA O SALVAMENTO DAS INFORMAÇÕES
+                //SE O ID FOR 00 É UM NOVO REGISTRO, SE NÃO, É UMA ALTERAÇÃO
+                string sql = String.Empty;
+                if(lb_codigo.Text == "00")
+                {
+                    sql = @"INSERT INTO STK_ITEM_LIVRO (ISDELETED,TITULO,SUBTITULO,ISBN,EDITORA,VERSAO,ANO,AUTOR,TEMA,SUBTEMA,PAGINAS,OBSERVACAO)
+                                        VALUES (0,'" + tb_titulo.Text + "','" + tb_subtitulo.Text + "','" + tb_isbn.Text + "','" + tb_editora.Text + "','" + tb_versao.Text + "'," + tb_ano.Text + ",'" + tb_autor.Text + "','" + cb_tema.Text + "','" + cb_subtema.Text + "'," + tb_pagina.Text + ",'" + tb_obs.Text + "')";
+                }
+                else
+                {
+                    //ID EXISTE, ENTÃO... UPDATE.
+                    sql = @"UPDATE STK_ITEM_LIVRO SET TITULO = '" + tb_titulo.Text + "', SUBTITULO = '"+tb_subtitulo.Text+ "', ISBN = '"+tb_isbn.Text+ "', EDITORA = '"+tb_editora.Text+ "', VERSAO = '"+tb_versao.Text+ "', ANO = '"+tb_ano.Text+ "', AUTOR = '"+tb_autor.Text+ "', TEMA = '"+cb_tema.Text+ "', SUBTEMA = '"+cb_subtema.Text+ "', PAGINAS = '"+tb_pagina.Text+ "', OBSERVACAO = '"+tb_obs.Text+"' WHERE ID = '" + lb_codigo.Text + "' AND ISDELETED = 0";
 
-            }
-            try
-            {
+                }
+                try
+                {
 
-            Connection sqlExecut = new Connection();
-            sqlExecut.LoadQuery(sql);
+                Connection sqlExecut = new Connection();
+                sqlExecut.LoadQuery(sql);
 
-            //SALVEI, AGORA FOI UM CADASTRO NOVO E ELE SELECIONOU UMA IMG? 
-            if (lb_codigo.Text == "00" && urlImg != null)
-            {
-                    SqlCeDataReader dr = sqlExecut.ReturnQuery("SELECT MAX(ID) FROM STK_ITEM_LIVRO");
-                    if (dr.Read())
-                    {
-                        ctrlImg.SalvaImagem(urlImg, String.Concat(dr.GetInt32(0),""));
-                    }
-            }
-                this.Close();
-            }
+                //SALVEI, AGORA FOI UM CADASTRO NOVO E ELE SELECIONOU UMA IMG? 
+                if (lb_codigo.Text == "00" && urlImg != null)
+                {
+                        SqlCeDataReader dr = sqlExecut.ReturnQuery("SELECT MAX(ID) FROM STK_ITEM_LIVRO");
+                        if (dr.Read())
+                        {
+                            ctrlImg.SalvaImagem(urlImg, String.Concat(dr.GetInt32(0),""));
+                        }
+                }
+                    this.Close();
+                }
 
-            catch(Exception err)
-            {
-                MessageBox.Show(err.Message,"PUTS!!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                catch(Exception err)
+                {
+                    MessageBox.Show(err.Message,"PUTS!!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                }
             }
         }
 
