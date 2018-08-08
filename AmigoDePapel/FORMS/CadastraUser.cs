@@ -7,6 +7,8 @@ namespace AmigoDePapel.FORMS
 {
     public partial class CadastraUser : Form
     {
+        SqlQuery querys = new SqlQuery();
+
         public CadastraUser()
         {
             InitializeComponent();
@@ -115,6 +117,19 @@ namespace AmigoDePapel.FORMS
         private void cb_documento_SelectedIndexChanged(object sender, EventArgs e)
         {
             tb_documento.Text = String.Empty;
+        }
+
+        private void tsb_retirar_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = new DialogResult();
+            dr = MessageBox.Show("Deseja realmente excluir esse cadastro?", "Olha la!!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if(dr == DialogResult.Yes)
+            {
+                Connection con = new Connection();
+                con.LoadQuery(querys.sql_deleteLogico_crm_cliente + lb_codigo.Text);
+                this.Close();
+            }
         }
     }
 }

@@ -167,6 +167,7 @@
             this.tsb_retirar.Name = "tsb_retirar";
             this.tsb_retirar.Size = new System.Drawing.Size(23, 22);
             this.tsb_retirar.Text = "Descarta Livro";
+            this.tsb_retirar.Click += new System.EventHandler(this.tsb_retirar_Click);
             // 
             // tsb_ajuda
             // 

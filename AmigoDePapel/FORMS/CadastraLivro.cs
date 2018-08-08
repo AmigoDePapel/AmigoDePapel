@@ -11,6 +11,7 @@ namespace AmigoDePapel.FORMS
     {
         public string urlImg = null;
         ControleArquivo ctrlImg = new ControleArquivo();
+        SqlQuery querys = new SqlQuery();
 
         public CadastraLivro()
         {
@@ -70,15 +71,16 @@ namespace AmigoDePapel.FORMS
 
         private void tsb_retirar_Click(object sender, EventArgs e)
         {
+
             DialogResult dr = new DialogResult();
-           dr = MessageBox.Show("Deseja remover do sistema esse livro?","ATENÇÃO",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
-            if(dr == DialogResult.Yes)
+            dr = MessageBox.Show("Deseja realmente excluir esse livro?", "Olha la!!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (dr == DialogResult.Yes)
             {
-                string sql = @"UPDATE STK_ITEM_LIVRO SET ISDELETED = 1 WHERE ID = " + lb_codigo.Text;
                 try
                 {
-                    Connection sqlExecut = new Connection();
-                    sqlExecut.LoadQuery(sql);
+                    Connection con = new Connection();
+                    con.LoadQuery(querys.sql_deleteLogico_stk_item_livro + lb_codigo.Text);
                     this.Close();
                 }
 

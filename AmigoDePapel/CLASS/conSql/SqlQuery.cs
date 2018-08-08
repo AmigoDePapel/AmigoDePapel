@@ -52,13 +52,13 @@
 	                                                CONSTRAINT EMPRESTIMOS_PK_0001 PRIMARY KEY (ID))";
 
         //GRID SELECT 
-        //stk_item_livro
+        //STK_ITEM_LIVRO
         public string sql_select_stk_item_livro = @"SELECT ID, TITULO, SUBTITULO, ISBN, EDITORA, VERSAO, ANO, AUTOR, TEMA, SUBTEMA, PAGINAS, OBSERVACAO FROM STK_ITEM_LIVRO WHERE ISDELETED = 0";
 
-        //crm_cliente
+        //CRM_CLIENTE
         public string sql_select_crm_cliente = @"SELECT ID, NOME, ENDERECO, DOCUMENTO, NASCIMENTO, EMAIL, TELEFONE FROM CRM_CLIENTE WHERE ISDELETED = 0";
 
-        //pvd_emprestimos 
+        //PVD_EMPRESTIMOS
         public string sql_select_pvd_emprestimos = @"SELECT 
 	                                                    EMP.STATUS
 	                                                    EMP.ID,
@@ -71,6 +71,20 @@
 	                                                    LEFT JOIN STK_ITEM_LIVRO LIV ON LIV.ID = EMP.ID_ITEM_LIVRO 
 	                                                    LEFT JOIN CRM_CLIENTE CLI ON CLI.ID = EMP.ID_CLIENTE 
                                                     WHERE EMP.ISDELETED = 0 ";
+
+
+        //DELEÇÕES
+        public string sql_deleteLogico_stk_item_livro = @"UPDATE STK_ITEM_LIVRO 
+                                                SET ISDELETED = 1 
+                                                WHERE ID = ";
+
+        public string sql_deleteLogico_crm_cliente = @"UPDATE CRM_CLIENTE 
+                                                    SET ISDELETED = 1 
+                                                    WHERE ID = ";
+
+        public string sql_deleteLogico_pvd_emprestimos = @"UPDATE STK_ITEM_LIVRO 
+                                                            SET ISDELETED = 0 
+                                                            WHERE ID = ";
 
     }
 
