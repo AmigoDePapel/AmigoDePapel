@@ -22,7 +22,7 @@ namespace AmigoDePapel.FORMS
             {
 
                 Connection sqlExecut = new Connection();
-                SqlCeDataReader dr = sqlExecut.ReturnQuery(@"SELECT ID,NOME,NASCIMENTO,ENDERECO,TELEFONE,EMAIL,DOCUMENTO_TIPO,DOCUMENTO,OBSERVACAO FROM CRM_CLIENTE WHERE ID = " + id + " AND ISDELETED = 0");
+                SqlCeDataReader dr = sqlExecut.ReturnQuery(querys.sql_selectCadastro_user+id);
 
                 if (dr.Read())
                 {
@@ -130,6 +130,18 @@ namespace AmigoDePapel.FORMS
                 con.LoadQuery(querys.sql_deleteLogico_crm_cliente + lb_codigo.Text);
                 this.Close();
             }
+        }
+
+        private void dt_nascimento_ValueChanged(object sender, EventArgs e)
+        {
+            //Preciso voltar aqui e melhorar, ficou horrivel essa abordagem. - Lucas Vinicius
+            DateTime atual = DateTime.Now;
+            lb_anos.Text = (Int32.Parse(atual.Year.ToString()) - Int32.Parse(dt_nascimento.Value.Year.ToString())) + " Anos";
+        }
+
+        private void lb_anos_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

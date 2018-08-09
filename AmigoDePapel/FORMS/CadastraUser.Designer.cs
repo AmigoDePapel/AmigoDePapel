@@ -53,6 +53,7 @@
             this.tb_documento = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cb_documento = new System.Windows.Forms.ComboBox();
+            this.lb_anos = new System.Windows.Forms.Label();
             this.gb_observacao.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.gb_cadastraUser.SuspendLayout();
@@ -201,11 +202,11 @@
             // 
             this.lb_nascimento.AutoSize = true;
             this.lb_nascimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_nascimento.Location = new System.Drawing.Point(360, 128);
+            this.lb_nascimento.Location = new System.Drawing.Point(354, 128);
             this.lb_nascimento.Name = "lb_nascimento";
-            this.lb_nascimento.Size = new System.Drawing.Size(88, 13);
+            this.lb_nascimento.Size = new System.Drawing.Size(44, 13);
             this.lb_nascimento.TabIndex = 9;
-            this.lb_nascimento.Text = "NASCIMENTO";
+            this.lb_nascimento.Text = "NASC.";
             // 
             // lb_editora
             // 
@@ -257,6 +258,7 @@
             // gb_cadastraUser
             // 
             this.gb_cadastraUser.BackColor = System.Drawing.Color.Transparent;
+            this.gb_cadastraUser.Controls.Add(this.lb_anos);
             this.gb_cadastraUser.Controls.Add(this.dt_nascimento);
             this.gb_cadastraUser.Controls.Add(this.tb_documento);
             this.gb_cadastraUser.Controls.Add(this.label1);
@@ -290,6 +292,7 @@
             this.dt_nascimento.Name = "dt_nascimento";
             this.dt_nascimento.Size = new System.Drawing.Size(120, 21);
             this.dt_nascimento.TabIndex = 5;
+            this.dt_nascimento.ValueChanged += new System.EventHandler(this.dt_nascimento_ValueChanged);
             // 
             // tb_documento
             // 
@@ -311,6 +314,17 @@
             // 
             // cb_documento
             // 
+            this.cb_documento.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.cb_documento.AutoCompleteCustomSource.AddRange(new string[] {
+            "CPF",
+            "RG",
+            "CNH",
+            "CNPJ",
+            "PASSAPORTE"});
+            this.cb_documento.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cb_documento.BackColor = System.Drawing.Color.White;
+            this.cb_documento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cb_documento.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.cb_documento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cb_documento.FormattingEnabled = true;
             this.cb_documento.Items.AddRange(new object[] {
@@ -325,6 +339,18 @@
             this.cb_documento.TabIndex = 3;
             this.cb_documento.SelectedIndexChanged += new System.EventHandler(this.cb_documento_SelectedIndexChanged);
             this.cb_documento.TextChanged += new System.EventHandler(this.cb_documento_TextChanged);
+            // 
+            // lb_anos
+            // 
+            this.lb_anos.AccessibleDescription = "Apenas considera o ANO de nascimento.";
+            this.lb_anos.AutoSize = true;
+            this.lb_anos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_anos.Location = new System.Drawing.Point(421, 128);
+            this.lb_anos.Name = "lb_anos";
+            this.lb_anos.Size = new System.Drawing.Size(53, 13);
+            this.lb_anos.TabIndex = 27;
+            this.lb_anos.Text = "00 Anos";
+            this.lb_anos.Click += new System.EventHandler(this.lb_anos_Click);
             // 
             // CadastraUser
             // 
@@ -379,5 +405,6 @@
         private System.Windows.Forms.ComboBox cb_documento;
         private System.Windows.Forms.MaskedTextBox tb_documento;
         private System.Windows.Forms.DateTimePicker dt_nascimento;
+        private System.Windows.Forms.Label lb_anos;
     }
 }

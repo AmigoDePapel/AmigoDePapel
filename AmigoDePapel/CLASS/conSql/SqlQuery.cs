@@ -86,6 +86,13 @@
                                                             SET ISDELETED = 0 
                                                             WHERE ID = ";
 
+        //CARREGA CADASTRO
+        public string sql_selectCadastro_user = "SELECT ID,NOME,NASCIMENTO,ENDERECO,TELEFONE,EMAIL,DOCUMENTO_TIPO,DOCUMENTO,OBSERVACAO FROM CRM_CLIENTE WHERE ISDELETED = 0 AND ID = ";
+
+        public string sql_selectCadastro_livro = "";
+
+        public string sql_selectCadastro_emprestimo = "";
+
     }
 
 }

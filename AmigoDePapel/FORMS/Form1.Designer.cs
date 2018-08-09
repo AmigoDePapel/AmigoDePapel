@@ -31,10 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Index));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.tsb_reflesh = new System.Windows.Forms.ToolStripButton();
@@ -50,6 +50,7 @@
             this.tb_pesquisaLivro = new System.Windows.Forms.TextBox();
             this.dg_livro = new System.Windows.Forms.DataGridView();
             this.tp_user = new System.Windows.Forms.TabPage();
+            this.dg_user = new System.Windows.Forms.DataGridView();
             this.tb_pesquisaUser = new System.Windows.Forms.PictureBox();
             this.tb_pesquisa_user = new System.Windows.Forms.TextBox();
             this.pc_pesquisa_user = new System.Windows.Forms.PictureBox();
@@ -66,7 +67,6 @@
             this.tss_img = new System.Windows.Forms.ToolStripStatusLabel();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.dg_user = new System.Windows.Forms.DataGridView();
             this.toolStrip1.SuspendLayout();
             this.tc_main.SuspendLayout();
             this.tp_book.SuspendLayout();
@@ -74,13 +74,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_pesquisa_user)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_livro)).BeginInit();
             this.tp_user.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_user)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tb_pesquisaUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pc_pesquisa_user)).BeginInit();
             this.tb_loan.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pb_pesquisa_emprestimo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_emprestimo)).BeginInit();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dg_user)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -277,6 +277,47 @@
             this.tp_user.TabIndex = 1;
             this.tp_user.Text = "Usúarios";
             // 
+            // dg_user
+            // 
+            this.dg_user.AllowUserToAddRows = false;
+            this.dg_user.AllowUserToDeleteRows = false;
+            this.dg_user.AllowUserToResizeRows = false;
+            this.dg_user.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dg_user.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dg_user.BackgroundColor = System.Drawing.Color.White;
+            this.dg_user.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
+            this.dg_user.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dg_user.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dg_user.GridColor = System.Drawing.Color.DarkGray;
+            this.dg_user.Location = new System.Drawing.Point(6, 32);
+            this.dg_user.MultiSelect = false;
+            this.dg_user.Name = "dg_user";
+            this.dg_user.ReadOnly = true;
+            this.dg_user.RowHeadersVisible = false;
+            this.dg_user.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Maroon;
+            this.dg_user.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dg_user.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dg_user.ShowCellErrors = false;
+            this.dg_user.ShowCellToolTips = false;
+            this.dg_user.ShowEditingIcon = false;
+            this.dg_user.Size = new System.Drawing.Size(865, 446);
+            this.dg_user.TabIndex = 11;
+            this.dg_user.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_user_CellDoubleClick);
+            // 
             // tb_pesquisaUser
             // 
             this.tb_pesquisaUser.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -432,7 +473,7 @@
             // 
             this.tss_adp.Name = "tss_adp";
             this.tss_adp.Size = new System.Drawing.Size(133, 17);
-            this.tss_adp.Text = "Amigo de papel  0.06.2v";
+            this.tss_adp.Text = "Amigo de papel  0.08.3v";
             // 
             // tss_status
             // 
@@ -450,47 +491,6 @@
             // 
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
-            // 
-            // dg_user
-            // 
-            this.dg_user.AllowUserToAddRows = false;
-            this.dg_user.AllowUserToDeleteRows = false;
-            this.dg_user.AllowUserToResizeRows = false;
-            this.dg_user.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dg_user.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dg_user.BackgroundColor = System.Drawing.Color.White;
-            this.dg_user.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised;
-            this.dg_user.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dg_user.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dg_user.GridColor = System.Drawing.Color.DarkGray;
-            this.dg_user.Location = new System.Drawing.Point(6, 32);
-            this.dg_user.MultiSelect = false;
-            this.dg_user.Name = "dg_user";
-            this.dg_user.ReadOnly = true;
-            this.dg_user.RowHeadersVisible = false;
-            this.dg_user.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToFirstHeader;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Maroon;
-            this.dg_user.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dg_user.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dg_user.ShowCellErrors = false;
-            this.dg_user.ShowCellToolTips = false;
-            this.dg_user.ShowEditingIcon = false;
-            this.dg_user.Size = new System.Drawing.Size(865, 446);
-            this.dg_user.TabIndex = 11;
-            this.dg_user.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_user_CellDoubleClick);
             // 
             // Index
             // 
@@ -517,6 +517,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dg_livro)).EndInit();
             this.tp_user.ResumeLayout(false);
             this.tp_user.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dg_user)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tb_pesquisaUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pc_pesquisa_user)).EndInit();
             this.tb_loan.ResumeLayout(false);
@@ -525,7 +526,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dg_emprestimo)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dg_user)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
