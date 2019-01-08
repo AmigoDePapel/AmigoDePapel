@@ -15,3 +15,4 @@ AmigoDePapel/v15/Server
 *.ide
 *.cache
 .vs
+#IGNORE_100MB

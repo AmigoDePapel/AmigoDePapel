@@ -28,6 +28,7 @@ namespace AmigoDePapel.CLASS
             //verifica se a base existe, caso contrario pede o local
             if (ValidaDB(conteudoTXT[0]))
             {
+                MessageBox.Show("Qual é o local da base?", "Não encontrei a base", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
                 
             }
 

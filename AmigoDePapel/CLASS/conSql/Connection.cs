@@ -92,10 +92,20 @@ namespace AmigoDePapel.CLASS.conSql
 
         public SqlCeDataReader ReturnQuery(string sqlExecut)
         {
+            try
+            {
                 SqlCeConnection con = OpenCon();
                 SqlCeCommand sql = new SqlCeCommand(sqlExecut, con);
                 SqlCeDataReader dr = sql.ExecuteReader();
-            return dr; 
+                return dr;
+            }
+            catch(Exception err)
+            {
+                //SE DER ERRO VOLTE UM SQLCDR VAZIO, E VALIDE. 
+                SqlCeDataReader dr = null;
+                MessageBox.Show(err.Message);
+                return dr;
+            }
         }
     }
 }
