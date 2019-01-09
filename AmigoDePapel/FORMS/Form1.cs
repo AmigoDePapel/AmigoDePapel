@@ -185,24 +185,39 @@ namespace AmigoDePapel
 
         private void pb_pesquisa_livro_Click(object sender, EventArgs e)
         {
-            chamaPesquisa();
+            RealizaPesquisa();
         }
 
         private void tb_pesquisaLivro_KeyUp(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter)
             {
-                chamaPesquisa();
+                RealizaPesquisa();
             }
         }
 
-        private void chamaPesquisa()
+        private void RealizaPesquisa()
         {
             dg_livro.DataSource = null;
             dg_livro.Rows.Clear();
             LoadGDLivros gdLivros = new LoadGDLivros();
             DataTable dtLivros = gdLivros.DesenhaGridLivro();
             dg_livro.DataSource = gdLivros.PreencheGridLivro(dtLivros, tb_pesquisaLivro.Text);
+            pb_cancelaPesquisa.Visible = true;
+
+        }
+
+        private void pb_cancelaPesquisa_Click(object sender, EventArgs e)
+        {
+            pb_cancelaPesquisa.Visible = false;
+            tb_pesquisaLivro.Text = null;
+
+            dg_livro.DataSource = null;
+            dg_livro.Rows.Clear();
+            LoadGDLivros gdLivros = new LoadGDLivros();
+            DataTable dtLivros = gdLivros.DesenhaGridLivro();
+            dg_livro.DataSource = gdLivros.PreencheGridLivro(dtLivros);
+
         }
     }
 }

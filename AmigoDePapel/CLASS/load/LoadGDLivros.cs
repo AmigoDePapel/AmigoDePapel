@@ -94,7 +94,14 @@ namespace AmigoDePapel.CLASS.load
             //carrega a query de preenchimento de grid padrão
             string queryPesquisa = query.sql_select_stk_item_livro;
             //adiciona os where 
-            queryPesquisa += " AND TITULO LIKE '%" + pesquisa + "%' ";
+            queryPesquisa += " AND (ID LIKE '%" + pesquisa + "%'";
+            queryPesquisa += " OR TITULO LIKE '%" + pesquisa + "%'";
+            queryPesquisa += " OR SUBTITULO LIKE '%" + pesquisa + "%'";
+            queryPesquisa += " OR ISBN LIKE '%" + pesquisa + "%'";
+            queryPesquisa += " OR EDITORA LIKE '%" + pesquisa + "%'";
+            queryPesquisa += " OR AUTOR LIKE '%" + pesquisa + "%'";
+            queryPesquisa += " OR TEMA LIKE '%" + pesquisa + "%'";
+            queryPesquisa += " OR SUBTEMA LIKE '%" + pesquisa + "%')";
             SqlCeDataReader dr = con.ReturnQuery(queryPesquisa);
      
             while (dr.Read())

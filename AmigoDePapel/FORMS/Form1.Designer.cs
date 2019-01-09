@@ -67,6 +67,7 @@
             this.tss_img = new System.Windows.Forms.ToolStripStatusLabel();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.pb_cancelaPesquisa = new System.Windows.Forms.PictureBox();
             this.toolStrip1.SuspendLayout();
             this.tc_main.SuspendLayout();
             this.tp_book.SuspendLayout();
@@ -81,6 +82,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pb_pesquisa_emprestimo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_emprestimo)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_cancelaPesquisa)).BeginInit();
             this.SuspendLayout();
             // 
             // toolStrip1
@@ -173,6 +175,7 @@
             // tp_book
             // 
             this.tp_book.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.tp_book.Controls.Add(this.pb_cancelaPesquisa);
             this.tp_book.Controls.Add(this.capa);
             this.tp_book.Controls.Add(this.pb_pesquisa_livro);
             this.tp_book.Controls.Add(this.tb_pesquisaLivro);
@@ -493,6 +496,20 @@
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             // 
+            // pb_cancelaPesquisa
+            // 
+            this.pb_cancelaPesquisa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_cancelaPesquisa.BackColor = System.Drawing.Color.White;
+            this.pb_cancelaPesquisa.Image = global::AmigoDePapel.Properties.Resources.cancel;
+            this.pb_cancelaPesquisa.Location = new System.Drawing.Point(831, 8);
+            this.pb_cancelaPesquisa.Name = "pb_cancelaPesquisa";
+            this.pb_cancelaPesquisa.Size = new System.Drawing.Size(16, 16);
+            this.pb_cancelaPesquisa.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pb_cancelaPesquisa.TabIndex = 7;
+            this.pb_cancelaPesquisa.TabStop = false;
+            this.pb_cancelaPesquisa.Visible = false;
+            this.pb_cancelaPesquisa.Click += new System.EventHandler(this.pb_cancelaPesquisa_Click);
+            // 
             // Index
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -527,6 +544,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dg_emprestimo)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_cancelaPesquisa)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -565,6 +583,7 @@
         private System.Windows.Forms.TextBox tb_emprestimo;
         private System.Windows.Forms.DataGridView dg_emprestimo;
         private System.Windows.Forms.DataGridView dg_user;
+        private System.Windows.Forms.PictureBox pb_cancelaPesquisa;
     }
 }
 

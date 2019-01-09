@@ -28,7 +28,21 @@ namespace AmigoDePapel.CLASS
             //verifica se a base existe, caso contrario pede o local
             if (ValidaDB(conteudoTXT[0]))
             {
-                MessageBox.Show("Qual é o local da base?", "Não encontrei a base", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+             if(
+                DialogResult.Yes ==
+                MessageBox.Show("Não encontramos a base de dados, deseja selecionar uma existente? ", 
+                                "Encontre a base!", 
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Asterisk)
+               )
+                {
+                    // pegar o caminho da base
+                    // salvar no arquivo, utilizando a msm função do confg
+                    // reinicia o programa
+                    // caso não encontre a base gerar alertar que é preciso gerar uma nova base nas configurações do programa 
+                    // abrir as configurações do programa 
+                }
+
                 
             }
 

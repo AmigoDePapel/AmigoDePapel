@@ -54,6 +54,7 @@ namespace AmigoDePapel.FORMS
         private string ValidaSalvamento()
         {
             string alerta = String.Empty;
+
             if(String.IsNullOrEmpty(tb_titulo.Text))
             {
                 alerta = "* O campo 'TÍTULO' é obrigatório.";
@@ -112,7 +113,7 @@ namespace AmigoDePapel.FORMS
         private void tsb_save_Click(object sender, EventArgs e)
         {
             string alerta = ValidaSalvamento();
-            if(alerta!= null)
+            if(alerta != String.Empty)
             {
                 MessageBox.Show(alerta, "Opa!!", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
