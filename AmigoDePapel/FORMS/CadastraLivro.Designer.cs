@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gb_cadastroLivro = new System.Windows.Forms.GroupBox();
+            this.tb_isbn = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tb_ano = new System.Windows.Forms.TextBox();
             this.lb_subtitulo = new System.Windows.Forms.Label();
@@ -60,7 +61,6 @@
             this.tsb_deleteimg = new System.Windows.Forms.ToolStripButton();
             this.tsb_ajuda = new System.Windows.Forms.ToolStripButton();
             this.ofd_capa = new System.Windows.Forms.OpenFileDialog();
-            this.tb_isbn = new System.Windows.Forms.MaskedTextBox();
             this.gb_cadastroLivro.SuspendLayout();
             this.gb_observacao.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -97,6 +97,16 @@
             this.gb_cadastroLivro.TabIndex = 0;
             this.gb_cadastroLivro.TabStop = false;
             // 
+            // tb_isbn
+            // 
+            this.tb_isbn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_isbn.Location = new System.Drawing.Point(8, 144);
+            this.tb_isbn.Mask = "000-00-000-0000-0";
+            this.tb_isbn.Name = "tb_isbn";
+            this.tb_isbn.Size = new System.Drawing.Size(134, 21);
+            this.tb_isbn.TabIndex = 25;
+            this.tb_isbn.ValidatingType = typeof(int);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -114,8 +124,9 @@
             this.tb_ano.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_ano.Location = new System.Drawing.Point(620, 144);
             this.tb_ano.Name = "tb_ano";
-            this.tb_ano.Size = new System.Drawing.Size(170, 21);
+            this.tb_ano.Size = new System.Drawing.Size(67, 21);
             this.tb_ano.TabIndex = 5;
+            this.tb_ano.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lb_subtitulo
             // 
@@ -141,11 +152,11 @@
             // 
             this.lb_paginas.AutoSize = true;
             this.lb_paginas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_paginas.Location = new System.Drawing.Point(702, 176);
+            this.lb_paginas.Location = new System.Drawing.Point(702, 128);
             this.lb_paginas.Name = "lb_paginas";
-            this.lb_paginas.Size = new System.Drawing.Size(61, 13);
+            this.lb_paginas.Size = new System.Drawing.Size(66, 13);
             this.lb_paginas.TabIndex = 20;
-            this.lb_paginas.Text = "PÁGINAS";
+            this.lb_paginas.Text = "QTD PÁG.";
             // 
             // cb_subtema
             // 
@@ -240,9 +251,9 @@
             "TEATRO",
             "TERROR",
             "OUTROS"});
-            this.cb_subtema.Location = new System.Drawing.Point(511, 191);
+            this.cb_subtema.Location = new System.Drawing.Point(556, 191);
             this.cb_subtema.Name = "cb_subtema";
-            this.cb_subtema.Size = new System.Drawing.Size(182, 23);
+            this.cb_subtema.Size = new System.Drawing.Size(222, 23);
             this.cb_subtema.TabIndex = 8;
             // 
             // cb_tema
@@ -340,7 +351,7 @@
             "OUTROS"});
             this.cb_tema.Location = new System.Drawing.Point(320, 191);
             this.cb_tema.Name = "cb_tema";
-            this.cb_tema.Size = new System.Drawing.Size(185, 23);
+            this.cb_tema.Size = new System.Drawing.Size(228, 23);
             this.cb_tema.TabIndex = 7;
             // 
             // label6
@@ -357,16 +368,17 @@
             this.tb_pagina.AllowDrop = true;
             this.tb_pagina.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tb_pagina.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_pagina.Location = new System.Drawing.Point(702, 192);
+            this.tb_pagina.Location = new System.Drawing.Point(702, 144);
             this.tb_pagina.Name = "tb_pagina";
-            this.tb_pagina.Size = new System.Drawing.Size(88, 21);
+            this.tb_pagina.Size = new System.Drawing.Size(76, 21);
             this.tb_pagina.TabIndex = 9;
+            this.tb_pagina.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // llb_subtema
             // 
             this.llb_subtema.AutoSize = true;
             this.llb_subtema.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llb_subtema.Location = new System.Drawing.Point(511, 176);
+            this.llb_subtema.Location = new System.Drawing.Point(553, 176);
             this.llb_subtema.Name = "llb_subtema";
             this.llb_subtema.Size = new System.Drawing.Size(70, 13);
             this.llb_subtema.TabIndex = 15;
@@ -408,9 +420,9 @@
             this.lb_versao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_versao.Location = new System.Drawing.Point(412, 128);
             this.lb_versao.Name = "lb_versao";
-            this.lb_versao.Size = new System.Drawing.Size(57, 13);
+            this.lb_versao.Size = new System.Drawing.Size(125, 13);
             this.lb_versao.TabIndex = 9;
-            this.lb_versao.Text = "VERSÃO";
+            this.lb_versao.Text = "VERSÃO ou EDIÇÃO";
             // 
             // tb_versao
             // 
@@ -579,16 +591,6 @@
             this.tsb_ajuda.Name = "tsb_ajuda";
             this.tsb_ajuda.Size = new System.Drawing.Size(23, 22);
             this.tsb_ajuda.Text = "Ajuda";
-            // 
-            // tb_isbn
-            // 
-            this.tb_isbn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_isbn.Location = new System.Drawing.Point(8, 144);
-            this.tb_isbn.Mask = "000-00-000-0000-0";
-            this.tb_isbn.Name = "tb_isbn";
-            this.tb_isbn.Size = new System.Drawing.Size(134, 21);
-            this.tb_isbn.TabIndex = 25;
-            this.tb_isbn.ValidatingType = typeof(int);
             // 
             // CadastraLivro
             // 

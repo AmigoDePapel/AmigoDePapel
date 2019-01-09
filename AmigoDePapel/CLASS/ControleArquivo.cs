@@ -1,5 +1,4 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
 
 
 namespace AmigoDePapel.CLASS
@@ -51,12 +50,10 @@ namespace AmigoDePapel.CLASS
                     return false;
                 }
             }
-            catch(Exception err)
+            catch
             {
-
                 return false;
             }
-
         }
 
         public string getUrl(string nome)

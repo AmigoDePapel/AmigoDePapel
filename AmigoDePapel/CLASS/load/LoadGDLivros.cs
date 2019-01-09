@@ -86,6 +86,37 @@ namespace AmigoDePapel.CLASS.load
             return dtLivros;
         }
 
+        public DataTable PreencheGridLivro(DataTable dtLivros, string  pesquisa)
+        {
+            //CARREGA OS GRID
+            Connection con = new Connection();
+            SqlQuery query = new SqlQuery();
+            //carrega a query de preenchimento de grid padrão
+            string queryPesquisa = query.sql_select_stk_item_livro;
+            //adiciona os where 
+            queryPesquisa += " AND TITULO LIKE '%" + pesquisa + "%' ";
+            SqlCeDataReader dr = con.ReturnQuery(queryPesquisa);
+     
+            while (dr.Read())
+            {
+                DataRow newLine = dtLivros.NewRow();
+                newLine["ID"] = dr["ID"];
+                newLine["TITULO"] = dr["TITULO"];
+                newLine["SUBTITULO"] = dr["SUBTITULO"];
+                newLine["ISBN ou EAN"] = dr["ISBN"];
+                newLine["EDITORA"] = dr["EDITORA"];
+                newLine["VERSÃO"] = dr["VERSAO"];
+                newLine["ANO"] = dr["ANO"];
+                newLine["AUTOR"] = dr["AUTOR"];
+                newLine["TEMA"] = dr["TEMA"];
+                newLine["SUBTEMA"] = dr["SUBTEMA"];
+                newLine["PÁGINAS"] = dr["PAGINAS"];
+                dtLivros.Rows.Add(newLine);
+            }
+            dr.Close();
+            return dtLivros;
+        }
+
         public DataTable PreencheGridUser(DataTable dtUsers)
         {
             //CARREGA OS GRID

@@ -70,6 +70,7 @@ namespace AmigoDePapel
         private void Index_Load(object sender, EventArgs e)
         {
             LoadGrids();
+            tb_pesquisaLivro.Focus();
         }
 
         private void tsb_reflesh_Click(object sender, EventArgs e)
@@ -172,34 +173,36 @@ namespace AmigoDePapel
             return System.Environment.CurrentDirectory.ToString() + @"\img\capa\" + id + ".jpg";
         }
 
-        private void tb_pesquisaLivro_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pb_pesquisa_user_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void dg_livro_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             FormLivro(e.RowIndex);
         }
 
-        private void tsb_help_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dg_livro_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void dg_user_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             FormUser(e.RowIndex);
+        }
+
+        private void pb_pesquisa_livro_Click(object sender, EventArgs e)
+        {
+            chamaPesquisa();
+        }
+
+        private void tb_pesquisaLivro_KeyUp(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                chamaPesquisa();
+            }
+        }
+
+        private void chamaPesquisa()
+        {
+            dg_livro.DataSource = null;
+            dg_livro.Rows.Clear();
+            LoadGDLivros gdLivros = new LoadGDLivros();
+            DataTable dtLivros = gdLivros.DesenhaGridLivro();
+            dg_livro.DataSource = gdLivros.PreencheGridLivro(dtLivros, tb_pesquisaLivro.Text);
         }
     }
 }

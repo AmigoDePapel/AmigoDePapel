@@ -46,7 +46,7 @@
             this.tc_main = new System.Windows.Forms.TabControl();
             this.tp_book = new System.Windows.Forms.TabPage();
             this.capa = new System.Windows.Forms.PictureBox();
-            this.pb_pesquisa_user = new System.Windows.Forms.PictureBox();
+            this.pb_pesquisa_livro = new System.Windows.Forms.PictureBox();
             this.tb_pesquisaLivro = new System.Windows.Forms.TextBox();
             this.dg_livro = new System.Windows.Forms.DataGridView();
             this.tp_user = new System.Windows.Forms.TabPage();
@@ -71,7 +71,7 @@
             this.tc_main.SuspendLayout();
             this.tp_book.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.capa)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_pesquisa_user)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_pesquisa_livro)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_livro)).BeginInit();
             this.tp_user.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_user)).BeginInit();
@@ -145,7 +145,6 @@
             this.tsb_help.Name = "tsb_help";
             this.tsb_help.Size = new System.Drawing.Size(23, 22);
             this.tsb_help.Text = "Ajuda";
-            this.tsb_help.Click += new System.EventHandler(this.tsb_help_Click);
             // 
             // toolStripButton1
             // 
@@ -175,7 +174,7 @@
             // 
             this.tp_book.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.tp_book.Controls.Add(this.capa);
-            this.tp_book.Controls.Add(this.pb_pesquisa_user);
+            this.tp_book.Controls.Add(this.pb_pesquisa_livro);
             this.tp_book.Controls.Add(this.tb_pesquisaLivro);
             this.tp_book.Controls.Add(this.dg_livro);
             this.tp_book.Location = new System.Drawing.Point(4, 22);
@@ -196,29 +195,32 @@
             this.capa.Visible = false;
             this.capa.Click += new System.EventHandler(this.capa_Click);
             // 
-            // pb_pesquisa_user
+            // pb_pesquisa_livro
             // 
-            this.pb_pesquisa_user.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pb_pesquisa_user.BackColor = System.Drawing.Color.White;
-            this.pb_pesquisa_user.Image = global::AmigoDePapel.Properties.Resources.zoom;
-            this.pb_pesquisa_user.Location = new System.Drawing.Point(850, 8);
-            this.pb_pesquisa_user.Name = "pb_pesquisa_user";
-            this.pb_pesquisa_user.Size = new System.Drawing.Size(16, 16);
-            this.pb_pesquisa_user.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pb_pesquisa_user.TabIndex = 5;
-            this.pb_pesquisa_user.TabStop = false;
-            this.pb_pesquisa_user.Click += new System.EventHandler(this.pb_pesquisa_user_Click);
+            this.pb_pesquisa_livro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pb_pesquisa_livro.BackColor = System.Drawing.Color.White;
+            this.pb_pesquisa_livro.Image = global::AmigoDePapel.Properties.Resources.zoom;
+            this.pb_pesquisa_livro.Location = new System.Drawing.Point(853, 8);
+            this.pb_pesquisa_livro.Name = "pb_pesquisa_livro";
+            this.pb_pesquisa_livro.Size = new System.Drawing.Size(16, 16);
+            this.pb_pesquisa_livro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pb_pesquisa_livro.TabIndex = 5;
+            this.pb_pesquisa_livro.TabStop = false;
+            this.pb_pesquisa_livro.Click += new System.EventHandler(this.pb_pesquisa_livro_Click);
             // 
             // tb_pesquisaLivro
             // 
             this.tb_pesquisaLivro.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tb_pesquisaLivro.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.tb_pesquisaLivro.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_pesquisaLivro.Location = new System.Drawing.Point(8, 6);
+            this.tb_pesquisaLivro.MaxLength = 99;
             this.tb_pesquisaLivro.Name = "tb_pesquisaLivro";
             this.tb_pesquisaLivro.Size = new System.Drawing.Size(863, 20);
             this.tb_pesquisaLivro.TabIndex = 4;
-            this.tb_pesquisaLivro.TextChanged += new System.EventHandler(this.tb_pesquisaLivro_TextChanged);
+            this.tb_pesquisaLivro.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tb_pesquisaLivro_KeyUp);
             // 
             // dg_livro
             // 
@@ -260,7 +262,6 @@
             this.dg_livro.Size = new System.Drawing.Size(865, 446);
             this.dg_livro.TabIndex = 3;
             this.dg_livro.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_livro_CellClick);
-            this.dg_livro.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_livro_CellContentClick);
             this.dg_livro.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_livro_CellDoubleClick);
             // 
             // tp_user
@@ -513,7 +514,7 @@
             this.tp_book.ResumeLayout(false);
             this.tp_book.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.capa)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_pesquisa_user)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_pesquisa_livro)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_livro)).EndInit();
             this.tp_user.ResumeLayout(false);
             this.tp_user.PerformLayout();
@@ -544,7 +545,7 @@
         private System.Windows.Forms.ToolStripStatusLabel tss_img;
         private System.Windows.Forms.DataGridView dg_livro;
         private System.Windows.Forms.TextBox tb_pesquisaLivro;
-        private System.Windows.Forms.PictureBox pb_pesquisa_user;
+        private System.Windows.Forms.PictureBox pb_pesquisa_livro;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.ToolStripButton tsb_report;
         private System.Windows.Forms.ToolStripButton tsb_help;

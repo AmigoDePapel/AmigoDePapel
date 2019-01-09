@@ -53,18 +53,18 @@ namespace AmigoDePapel.FORMS
 
         private string ValidaSalvamento()
         {
-            string alerta = null;
+            string alerta = String.Empty;
             if(String.IsNullOrEmpty(tb_titulo.Text))
             {
-                alerta = "* Preencha um titulo para o livro.";
+                alerta = "* O campo 'TÍTULO' é obrigatório.";
             }
             if(!int.TryParse(tb_ano.Text, out int m) && !String.IsNullOrEmpty(tb_ano.Text))
             {
-                alerta += "\n* O Ano tem que contem apenas numeros.";
+                alerta += "\n* O campo 'ANO' aceita apenas números.";
             }
             if(!int.TryParse(tb_pagina.Text, out int n) && !String.IsNullOrEmpty(tb_pagina.Text))
             {
-                alerta += "\n* A Qtd de páginas tem que contem apenas numeros.";
+                alerta += "\n* O campo 'QTD PÁGINAS' aceita apenas números.";
             }
             return alerta;
         }
