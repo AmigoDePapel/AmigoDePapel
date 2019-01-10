@@ -5,17 +5,20 @@ AmigoDePapel/v15
 AmigoDePapel/v15/Server
 AmigoDepapel/.vs
 
+
 *.lock
 *Debug.script
 *Debug.properti
 *.log
 *.exe
-*.ide-shm
 *.suo
-*.ide-wal
-*.ide
 *.cache
 *.ide
 *.ide-wal
+*.ide-shm
+
+.vs/AmigoDePapel/v15/.suo
 .vs
 .suo
+
+
