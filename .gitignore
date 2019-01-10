@@ -1,10 +1,9 @@
 AmigoDePapel/bin/Debug
-AmigoDePapel/obj/Debug 
+AmigoDePapel/obj/Debug
 AmigoDePapel/bin/Release
 AmigoDePapel/v15
 AmigoDePapel/v15/Server
 AmigoDepapel/.vs
-
 
 *.lock
 *Debug.script
@@ -22,3 +21,6 @@ AmigoDepapel/.vs
 .suo
 
 
+.vs/AmigoDePapel/v15/.suo
+.vs/AmigoDePapel/v15/Server/sqlite3/storage.ide-shm
+*.ide-wal

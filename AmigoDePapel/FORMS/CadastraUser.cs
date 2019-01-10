@@ -50,7 +50,15 @@ namespace AmigoDePapel.FORMS
             string erroMsg = null;
             if (String.IsNullOrEmpty(tb_nome.Text))
             {
-                erroMsg = "* Informe pelo menos um nome.";
+                erroMsg = "* O campo 'NOME' é obrigatório. \n";
+            }
+            if (String.IsNullOrEmpty(tb_endereco.Text))
+            {
+                erroMsg += " * O campo 'ENDEREÇO' é obrigatório.\n";
+            }
+            if (String.IsNullOrEmpty(tb_documento.Text))
+            {
+                erroMsg += " * O campo 'DOCUMENTO' é obrigatório.\n";
             }
             return erroMsg;
         }

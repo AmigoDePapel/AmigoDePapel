@@ -55,17 +55,25 @@ namespace AmigoDePapel.FORMS
         {
             string alerta = String.Empty;
 
-            if(String.IsNullOrEmpty(tb_titulo.Text))
+            if (String.IsNullOrEmpty(tb_titulo.Text))
             {
-                alerta = "* O campo 'TÍTULO' é obrigatório.";
+                alerta = "* O campo 'TÍTULO' é obrigatório. \n";
             }
-            if(!int.TryParse(tb_ano.Text, out int m) && !String.IsNullOrEmpty(tb_ano.Text))
+            if (String.IsNullOrEmpty(tb_autor.Text))
             {
-                alerta += "\n* O campo 'ANO' aceita apenas números.";
+                alerta += "* O campo 'AUTOR' é obrigatório. \n";
+            }
+            if (String.IsNullOrEmpty(cb_tema.Text))
+            {
+                alerta += "* O campo 'TEMA' é obrigatório. \n";
+            }
+            if (!int.TryParse(tb_ano.Text, out int m) && !String.IsNullOrEmpty(tb_ano.Text))
+            {
+                alerta += "\n* O campo 'ANO' aceita apenas números. \n";
             }
             if(!int.TryParse(tb_pagina.Text, out int n) && !String.IsNullOrEmpty(tb_pagina.Text))
             {
-                alerta += "\n* O campo 'QTD PÁGINAS' aceita apenas números.";
+                alerta += "\n* O campo 'QTD PÁGINAS' aceita apenas números. \n";
             }
             return alerta;
         }
