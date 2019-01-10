@@ -236,5 +236,10 @@ namespace AmigoDePapel
             dg_livro.DataSource = gdLivros.PreencheGridLivro(dtLivros);
 
         }
+
+        private void tss_adp_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

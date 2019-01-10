@@ -180,6 +180,10 @@ namespace AmigoDePapel.FORMS
                     if(lb_codigo.Text == "00")
                     {
                         urlImg = ofd_capa.FileName.ToString();
+                        MessageBox.Show("A foto foi selecionada, é preciso salvar o cadastro para efetivar.", 
+                                        "Precisa salvar!!", 
+                                        MessageBoxButtons.OK, 
+                                        MessageBoxIcon.Question);
                     }
                     else
                     {                       
@@ -190,6 +194,8 @@ namespace AmigoDePapel.FORMS
                         if (File.Exists(url))
                             File.Delete(url);
                         File.Move(ofd_capa.FileName.ToString(), url);
+
+                        MessageBox.Show("Foto salva com sucesso.", "Uau!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 catch(Exception err)
