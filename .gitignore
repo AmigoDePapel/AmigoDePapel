@@ -1,8 +1,9 @@
-AmigoDePapel/bin/Debug/
-AmigoDePapel/obj/Debug/
-AmigoDePapel/bin/Release/
-AmigoDePapel/v15/
+AmigoDePapel/bin/Debug
+AmigoDePapel/obj/Debug 
+AmigoDePapel/bin/Release
+AmigoDePapel/v15
 AmigoDePapel/v15/Server
+AmigoDepapel/.vs
 
 *.lock
 *Debug.script
@@ -14,5 +15,7 @@ AmigoDePapel/v15/Server
 *.ide-wal
 *.ide
 *.cache
+*.ide
+*.ide-wal
 .vs
-#IGNORE_100MB
+.suo
