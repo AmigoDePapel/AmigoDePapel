@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using AmigoDePapel.FORMS;
 using AmigoDePapel.CLASS;
+using AmigoDePapel.CLASS.conSql;
 using AmigoDePapel.CLASS.load;
 using System.IO;
 using System.Data;
@@ -198,12 +199,28 @@ namespace AmigoDePapel
 
         private void RealizaPesquisa()
         {
-            dg_livro.DataSource = null;
-            dg_livro.Rows.Clear();
-            LoadGDLivros gdLivros = new LoadGDLivros();
-            DataTable dtLivros = gdLivros.DesenhaGridLivro();
-            dg_livro.DataSource = gdLivros.PreencheGridLivro(dtLivros, tb_pesquisaLivro.Text);
-            pb_cancelaPesquisa.Visible = true;
+            //para tratar a query 
+            Connection con = new Connection();
+            string pesquisa = con.TrataQuery(tb_pesquisaLivro.Text);
+
+            if(pesquisa != null) {
+                dg_livro.DataSource = null;
+                dg_livro.Rows.Clear();
+                LoadGDLivros gdLivros = new LoadGDLivros();
+                DataTable dtLivros = gdLivros.DesenhaGridLivro();
+                dg_livro.DataSource = gdLivros.PreencheGridLivro(dtLivros, pesquisa);
+                pb_cancelaPesquisa.Visible = true;
+            }
+            else
+            {
+                pb_cancelaPesquisa.Visible = false;
+                tb_pesquisaLivro.Text = null;
+                dg_livro.DataSource = null;
+                dg_livro.Rows.Clear();
+                LoadGDLivros gdLivros = new LoadGDLivros();
+                DataTable dtLivros = gdLivros.DesenhaGridLivro();
+                dg_livro.DataSource = gdLivros.PreencheGridLivro(dtLivros);
+            }
 
         }
 

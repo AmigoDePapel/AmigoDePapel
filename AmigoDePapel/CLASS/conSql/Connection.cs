@@ -90,6 +90,22 @@ namespace AmigoDePapel.CLASS.conSql
             }
         }
 
+        public string TrataQuery(string sql)
+        {
+            // verifica se ta vazio, retorna null e faça a tratativa na chamada. 
+            // verifica se tem aspas simples 
+            // remove os espaços no começo e fim 
+
+            if(sql == null || sql == String.Empty || sql == ""){
+                return null;
+            }
+
+            sql = sql.Replace("'", "");
+            sql = sql.Trim();
+
+            return sql;
+        }
+
         public SqlCeDataReader ReturnQuery(string sqlExecut)
         {
             try
