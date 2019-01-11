@@ -683,7 +683,7 @@
             this.Name = "CadastraLivro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " Cadastramento de Livro";
-            this.Load += new System.EventHandler(this.CadastraLivro_Load);
+
             this.gb_cadastroLivro.ResumeLayout(false);
             this.gb_cadastroLivro.PerformLayout();
             this.gb_observacao.ResumeLayout(false);

@@ -492,7 +492,6 @@
             this.tss_adp.Name = "tss_adp";
             this.tss_adp.Size = new System.Drawing.Size(227, 17);
             this.tss_adp.Text = "Amigo de papel - 0.09.2v ALPHA RELEASE";
-            this.tss_adp.Click += new System.EventHandler(this.tss_adp_Click);
             // 
             // tss_status
             // 

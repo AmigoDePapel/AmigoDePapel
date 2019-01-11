@@ -8,7 +8,7 @@ namespace AmigoDePapel.CLASS
 
         public bool ImgExist(string nome)
         {
-            if (File.Exists(getUrl(nome)))
+            if (File.Exists(GetUrl(nome)))
                 return true;
             else
                 return false;
@@ -16,19 +16,18 @@ namespace AmigoDePapel.CLASS
 
         public bool SalvaImagem(string url, string nome)
         {
-            string urlNovo = getUrl(nome);
+            string urlNovo = GetUrl(nome);
             try
             {
-            if (File.Exists(urlNovo))
-            {
-                DeletaArquivo(nome);
-                File.Copy(url, urlNovo);
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+                if (File.Exists(urlNovo))
+                {
+                    if (DeletaArquivo(nome)) {
+                        File.Copy(url, urlNovo);
+                        return true;
+                    }
+                    else return false;
+                }
+                else return false;
             }
             catch
             {
@@ -40,9 +39,9 @@ namespace AmigoDePapel.CLASS
         {
             try
             { 
-                if(File.Exists(getUrl(nome)))
+                if(File.Exists(GetUrl(nome)))
                 {
-                    File.Delete(getUrl(nome));
+                    File.Delete(GetUrl(nome));
                     return true;
                 }
                 else
@@ -56,7 +55,7 @@ namespace AmigoDePapel.CLASS
             }
         }
 
-        public string getUrl(string nome)
+        public string GetUrl(string nome)
         {
             return System.Environment.CurrentDirectory.ToString() + @"\img\capa\" + nome + ".jpg";
         }

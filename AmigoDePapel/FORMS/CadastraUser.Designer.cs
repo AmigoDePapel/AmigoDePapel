@@ -350,7 +350,6 @@
             this.lb_anos.Size = new System.Drawing.Size(53, 13);
             this.lb_anos.TabIndex = 27;
             this.lb_anos.Text = "00 Anos";
-            this.lb_anos.Click += new System.EventHandler(this.lb_anos_Click);
             // 
             // CadastraUser
             // 

@@ -146,10 +146,5 @@ namespace AmigoDePapel.FORMS
             DateTime atual = DateTime.Now;
             lb_anos.Text = (Int32.Parse(atual.Year.ToString()) - Int32.Parse(dt_nascimento.Value.Year.ToString())) + " Anos";
         }
-
-        private void lb_anos_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

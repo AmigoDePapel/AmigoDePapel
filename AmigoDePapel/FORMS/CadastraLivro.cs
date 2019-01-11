@@ -69,40 +69,14 @@ namespace AmigoDePapel.FORMS
             }
             if (!int.TryParse(tb_ano.Text, out int m) && !String.IsNullOrEmpty(tb_ano.Text))
             {
-                alerta += "\n* O campo 'ANO' aceita apenas números. \n";
+                alerta += "* O campo 'ANO' aceita apenas números. \n";
             }
             if(!int.TryParse(tb_pagina.Text, out int n) && !String.IsNullOrEmpty(tb_pagina.Text))
             {
-                alerta += "\n* O campo 'QTD PÁGINAS' aceita apenas números. \n";
+                alerta += "* O campo 'QTD PÁGINAS' aceita apenas números. \n";
             }
+
             return alerta;
-        }
-
-        private void tsb_retirar_Click(object sender, EventArgs e)
-        {
-
-            DialogResult dr = new DialogResult();
-            dr = MessageBox.Show("Deseja realmente excluir esse livro?", "Olha la!!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (dr == DialogResult.Yes)
-            {
-                try
-                {
-                    Connection con = new Connection();
-                    con.LoadQuery(querys.sql_deleteLogico_stk_item_livro + lb_codigo.Text);
-                    this.Close();
-                }
-
-                catch (Exception err)
-                {
-                    MessageBox.Show(err.Message, "PUTS!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        private void CadastraLivro_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void ValidacoesBasicas()
@@ -118,9 +92,31 @@ namespace AmigoDePapel.FORMS
 
         }
 
+        private void tsb_retirar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja realmente excluir esse livro?",
+                                "Exclusão!",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    Connection con = new Connection();
+                    con.LoadQuery(querys.sql_deleteLogico_stk_item_livro + lb_codigo.Text);
+                    this.Close();
+                }
+
+                catch (Exception err)
+                {
+                    MessageBox.Show(err.Message, "PUTS!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
         private void tsb_save_Click(object sender, EventArgs e)
         {
             string alerta = ValidaSalvamento();
+
             if(alerta != String.Empty)
             {
                 MessageBox.Show(alerta, "Opa!!", MessageBoxButtons.OK, MessageBoxIcon.Hand);
@@ -147,7 +143,7 @@ namespace AmigoDePapel.FORMS
                 Connection sqlExecut = new Connection();
                 sqlExecut.LoadQuery(sql);
 
-                //SALVEI, AGORA FOI UM CADASTRO NOVO E ELE SELECIONOU UMA IMG? 
+                //SALVEI, AGORA FOI UM CADASTRO NOVO? E ELE SELECIONOU UMA IMG? 
                 if (lb_codigo.Text == "00" && urlImg != null)
                 {
                         SqlCeDataReader dr = sqlExecut.ReturnQuery("SELECT MAX(ID) FROM STK_ITEM_LIVRO");
@@ -161,7 +157,7 @@ namespace AmigoDePapel.FORMS
 
                 catch(Exception err)
                 {
-                    MessageBox.Show(err.Message,"PUTS!!",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show(err.Message,"Erro!",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
             }
         }
@@ -208,25 +204,31 @@ namespace AmigoDePapel.FORMS
 
         private void tsb_deleteimg_Click(object sender, EventArgs e)
         {
-            DialogResult dr = new DialogResult();
-            dr = MessageBox.Show("Deseja remover a capa selecionada para esse livro?", "Opa!!", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-            if(dr == DialogResult.Yes && lb_codigo.Text == "00")
+            if(MessageBox.Show("Deseja remover a capa selecionada para esse livro?", 
+                                "Opa!",
+                                MessageBoxButtons.YesNo,
+                                MessageBoxIcon.Asterisk) == DialogResult.Yes)
             {
-                urlImg = String.Empty;
-                tsb_deleteimg.Enabled = false;
-            }
-            else if (dr == DialogResult.Yes && lb_codigo.Text != "00")
-            {
-                try
+                if(lb_codigo.Text == "00")
                 {
-                    ctrlImg.DeletaArquivo(lb_codigo.Text);
+                    urlImg = String.Empty;
                     tsb_deleteimg.Enabled = false;
                 }
-                catch(Exception err)
+                else
                 {
-                    MessageBox.Show(err.Message, "Caramba!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    try
+                    {
+                        ctrlImg.DeletaArquivo(lb_codigo.Text);
+                        tsb_deleteimg.Enabled = false;
+                    }
+                    catch (Exception err)
+                    {
+                        MessageBox.Show(err.Message, "Caramba!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
+
             }
+
         }
     }
 }

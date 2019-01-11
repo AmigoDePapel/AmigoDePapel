@@ -26,7 +26,7 @@ namespace AmigoDePapel.CLASS.load
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message,"Erro",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message,"Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
 
@@ -54,7 +54,7 @@ namespace AmigoDePapel.CLASS.load
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(ex.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null;
             }
         }

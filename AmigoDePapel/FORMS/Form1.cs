@@ -67,6 +67,86 @@ namespace AmigoDePapel
             FormLivro(-1);
         }
 
+        private void LoadGrids()
+        {
+
+            ValidaInicializacao validacao = new ValidaInicializacao();
+            //VERIFICA OS ARQUIVOS BASICOS;
+            string[] txt = validacao.VerifinicaInicializacao();
+
+            //BASE EXISTE?
+            if (!File.Exists(txt[0]))
+            {
+                tss_img.Image = global::AmigoDePapel.Properties.Resources.cancel;
+            }
+            else
+            {
+                //DESENHA OS GRIDS
+                LoadGDLivros gdLivros = new LoadGDLivros();
+                DataTable dtLivros = gdLivros.DesenhaGridLivro();
+                DataTable dtUsers = gdLivros.DesenhaGridUser();
+
+                //A BASE EXISTE, ENTÃO VAMOS PREENCHER OS GRIDS COM OS RESULTADOS.
+                dg_livro.DataSource = gdLivros.PreencheGridLivro(dtLivros);
+                dg_user.DataSource = gdLivros.PreencheGridUser(dtUsers);
+            }
+        }
+
+        private void RefreshGrids()
+        {
+            //ABA LIVROS
+            if (tc_main.SelectedIndex == 1)
+            {
+                dg_livro.DataSource = null;
+                dg_livro.Rows.Clear();
+                LoadGDLivros gdLivros = new LoadGDLivros();
+                DataTable dtLivros = gdLivros.DesenhaGridLivro();
+                dg_livro.DataSource = gdLivros.PreencheGridLivro(dtLivros);
+            }
+            else if (tc_main.SelectedIndex == 2)
+            {
+                dg_user.DataSource = null;
+                dg_user.Rows.Clear();
+                LoadGDLivros gdLivros = new LoadGDLivros();
+                DataTable dtUsers = gdLivros.DesenhaGridUser();
+                dg_user.DataSource = gdLivros.PreencheGridUser(dtUsers);
+            }
+
+        }
+
+        private string GetURLImg(string id)
+        {
+            return System.Environment.CurrentDirectory.ToString() + @"\img\capa\" + id + ".jpg";
+        }
+
+        private void RealizaPesquisa()
+        {
+            //para tratar a query 
+            Connection con = new Connection();
+            string pesquisa = con.TrataQuery(tb_pesquisaLivro.Text);
+
+            if (pesquisa != null)
+            {
+                dg_livro.DataSource = null;
+                dg_livro.Rows.Clear();
+                LoadGDLivros gdLivros = new LoadGDLivros();
+                DataTable dtLivros = gdLivros.DesenhaGridLivro();
+                dg_livro.DataSource = gdLivros.PreencheGridLivro(dtLivros, pesquisa);
+                pb_cancelaPesquisa.Visible = true;
+            }
+            else
+            {
+                pb_cancelaPesquisa.Visible = false;
+                tb_pesquisaLivro.Text = null;
+                dg_livro.DataSource = null;
+                dg_livro.Rows.Clear();
+                LoadGDLivros gdLivros = new LoadGDLivros();
+                DataTable dtLivros = gdLivros.DesenhaGridLivro();
+                dg_livro.DataSource = gdLivros.PreencheGridLivro(dtLivros);
+            }
+
+        }
+
         //ações
         private void Index_Load(object sender, EventArgs e)
         {
@@ -91,54 +171,6 @@ namespace AmigoDePapel
             FormUser(-1);
         }
 
-
-        private void LoadGrids()
-        {
-            
-            ValidaInicializacao validacao = new ValidaInicializacao();
-            //VERIFICA OS ARQUIVOS BASICOS;
-            string[] txt = validacao.VerifinicaInicializacao();
-
-            //BASE EXISTE?
-            if (!File.Exists(txt[0]))
-            {
-                tss_img.Image = global::AmigoDePapel.Properties.Resources.cancel;
-            }
-            else
-            { 
-            //DESENHA OS GRIDS
-                LoadGDLivros gdLivros = new LoadGDLivros();
-                DataTable dtLivros = gdLivros.DesenhaGridLivro();
-                DataTable dtUsers = gdLivros.DesenhaGridUser();
-
-            //A BASE EXISTE, ENTÃO VAMOS PREENCHER OS GRIDS COM OS RESULTADOS.
-                dg_livro.DataSource = gdLivros.PreencheGridLivro(dtLivros);
-                dg_user.DataSource = gdLivros.PreencheGridUser(dtUsers);
-            }
-        }
-
-        private void RefreshGrids()
-        {
-            //ABA LIVROS
-            if(tc_main.SelectedIndex == 1)
-            {
-                dg_livro.DataSource = null;
-                dg_livro.Rows.Clear();
-                LoadGDLivros gdLivros = new LoadGDLivros();
-                DataTable dtLivros = gdLivros.DesenhaGridLivro();
-                dg_livro.DataSource = gdLivros.PreencheGridLivro(dtLivros);
-            }
-            else if(tc_main.SelectedIndex == 2)
-            {
-                dg_user.DataSource = null;
-                dg_user.Rows.Clear();
-                LoadGDLivros gdLivros = new LoadGDLivros();
-                DataTable dtUsers = gdLivros.DesenhaGridUser();
-                dg_user.DataSource = gdLivros.PreencheGridUser(dtUsers);
-            }
-
-        }
-
         private void atualiza_FormClosing(object sender, FormClosingEventArgs e)
         {
             LoadGrids();
@@ -149,7 +181,6 @@ namespace AmigoDePapel
         {
             try
             {
-
                 Point p = this.PointToClient(Cursor.Position);
                 capa.Size = new Size(96, 139);
                 capa.Location = new Point(p.X - 20, p.Y - 45);
@@ -167,11 +198,6 @@ namespace AmigoDePapel
         {
             capa.Visible = false;
             capa.Image = null;
-        }
-
-        private string GetURLImg(string id)
-        {
-            return System.Environment.CurrentDirectory.ToString() + @"\img\capa\" + id + ".jpg";
         }
 
         private void dg_livro_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -196,34 +222,7 @@ namespace AmigoDePapel
                 RealizaPesquisa();
             }
         }
-
-        private void RealizaPesquisa()
-        {
-            //para tratar a query 
-            Connection con = new Connection();
-            string pesquisa = con.TrataQuery(tb_pesquisaLivro.Text);
-
-            if(pesquisa != null) {
-                dg_livro.DataSource = null;
-                dg_livro.Rows.Clear();
-                LoadGDLivros gdLivros = new LoadGDLivros();
-                DataTable dtLivros = gdLivros.DesenhaGridLivro();
-                dg_livro.DataSource = gdLivros.PreencheGridLivro(dtLivros, pesquisa);
-                pb_cancelaPesquisa.Visible = true;
-            }
-            else
-            {
-                pb_cancelaPesquisa.Visible = false;
-                tb_pesquisaLivro.Text = null;
-                dg_livro.DataSource = null;
-                dg_livro.Rows.Clear();
-                LoadGDLivros gdLivros = new LoadGDLivros();
-                DataTable dtLivros = gdLivros.DesenhaGridLivro();
-                dg_livro.DataSource = gdLivros.PreencheGridLivro(dtLivros);
-            }
-
-        }
-
+        
         private void pb_cancelaPesquisa_Click(object sender, EventArgs e)
         {
             pb_cancelaPesquisa.Visible = false;
@@ -234,11 +233,6 @@ namespace AmigoDePapel
             LoadGDLivros gdLivros = new LoadGDLivros();
             DataTable dtLivros = gdLivros.DesenhaGridLivro();
             dg_livro.DataSource = gdLivros.PreencheGridLivro(dtLivros);
-
-        }
-
-        private void tss_adp_Click(object sender, EventArgs e)
-        {
 
         }
     }

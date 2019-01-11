@@ -21,19 +21,19 @@ namespace AmigoDePapel.CLASS.conSql
                     SqlCeEngine eng = new SqlCeEngine(urlCon);
                     eng.CreateDatabase();
                     CreateTables();
-                    MessageBox.Show("Nova base de dados criada com sucesso.  Seu aplicativo irá reinicializar. \n LOCAL:"+ Application.StartupPath, "OBA!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Nova base de dados criada com sucesso.  Seu aplicativo irá reinicializar. \n LOCAL:"+ Application.StartupPath, "Oba!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     valid.AtualizaTXT(Application.StartupPath + @"\DB_AMIGODEPAPEL.sdf", null);
                     System.Diagnostics.Process.Start(Application.StartupPath+ @"\AmigoDePapel.exe");
                     Application.Exit();
                 }
                 else
                 {
-                    MessageBox.Show("Já existe uma base criada na pasta raiz. \n LOCAL:" + Application.StartupPath, "CALMA!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Já existe uma base criada na pasta raiz. \n LOCAL:" + Application.StartupPath, "Calma!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch(Exception err)
             {
-                MessageBox.Show(err.Message, "Puts!!", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(err.Message, "Puts!", MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
 
@@ -41,6 +41,7 @@ namespace AmigoDePapel.CLASS.conSql
         {
             SqlCeConnection con = new SqlCeConnection(urlCon);
             con.Open();
+
             return con;
         }
 
@@ -71,7 +72,7 @@ namespace AmigoDePapel.CLASS.conSql
             }
             catch(Exception err)
             {
-                MessageBox.Show(err.Message);
+                MessageBox.Show(err.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -86,13 +87,13 @@ namespace AmigoDePapel.CLASS.conSql
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message);
+                MessageBox.Show(err.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         public string TrataQuery(string sql)
         {
-            // verifica se ta vazio, retorna null e faça a tratativa na chamada. 
+            // verifica se esta vazio, retorna null e faça a tratativa na chamada. 
             // verifica se tem aspas simples 
             // remove os espaços no começo e fim 
 
@@ -113,13 +114,15 @@ namespace AmigoDePapel.CLASS.conSql
                 SqlCeConnection con = OpenCon();
                 SqlCeCommand sql = new SqlCeCommand(sqlExecut, con);
                 SqlCeDataReader dr = sql.ExecuteReader();
+
                 return dr;
             }
             catch(Exception err)
             {
                 //SE DER ERRO VOLTE UM SQLCDR VAZIO, E VALIDE. 
                 SqlCeDataReader dr = null;
-                MessageBox.Show(err.Message);
+                MessageBox.Show(err.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
                 return dr;
             }
         }
