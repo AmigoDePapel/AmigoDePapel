@@ -87,7 +87,7 @@ namespace AmigoDePapel.FORMS
                 tsb_retirar.Enabled = true;
 
             //se tiver imagem - libera o botão de deletar img.
-            if (ctrlImg.ImgExist(lb_codigo.Text))
+            if (ctrlImg.ImgExist(lb_codigo.Text,"capa"))
                 tsb_deleteimg.Enabled = true;
 
         }
@@ -149,7 +149,7 @@ namespace AmigoDePapel.FORMS
                         SqlCeDataReader dr = sqlExecut.ReturnQuery("SELECT MAX(ID) FROM STK_ITEM_LIVRO");
                         if (dr.Read())
                         {
-                            ctrlImg.SalvaImagem(urlImg, String.Concat(dr.GetInt32(0),""));
+                            ctrlImg.SalvaImagem(urlImg, String.Concat(dr.GetInt32(0),""),"capa");
                         }
                 }
                     this.Close();
@@ -171,34 +171,18 @@ namespace AmigoDePapel.FORMS
             {
                 try
                 {
-                    //se o codigo for 00 é um cadastro novo, então vou apenas guardar a url;
-                    //se o codigo não for 00 é um cadastro já registrado no sistema então apenas mova com o codigo do cadastro;
-                    if(lb_codigo.Text == "00")
+                    if(ctrlImg.SalvaImagem(ofd_capa.FileName.ToString(), lb_codigo.Text,"capa"))
                     {
-                        urlImg = ofd_capa.FileName.ToString();
-                        MessageBox.Show("A foto foi selecionada, é preciso salvar o cadastro para efetivar.", 
-                                        "Precisa salvar!!", 
-                                        MessageBoxButtons.OK, 
-                                        MessageBoxIcon.Question);
-                    }
-                    else
-                    {                       
-
-                        ctrlImg.SalvaImagem(ofd_capa.FileName.ToString(), lb_codigo.Text);
-
-                        string url = System.Environment.CurrentDirectory.ToString() + @"\img\capa\" + lb_codigo.Text + ".jpg";
-                        if (File.Exists(url))
-                            File.Delete(url);
-                        File.Move(ofd_capa.FileName.ToString(), url);
-
+                        tsb_deleteimg.Enabled = true;
                         MessageBox.Show("Foto salva com sucesso.", "Uau!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                    }   
+                    else
+                        MessageBox.Show("Algo deu errado em salvar sua foto.", "Ops!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch(Exception err)
                 {
                     MessageBox.Show(err.Message, "Caramba!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                tsb_deleteimg.Enabled = true;
+                }                
             }
         }
 
@@ -218,7 +202,7 @@ namespace AmigoDePapel.FORMS
                 {
                     try
                     {
-                        ctrlImg.DeletaArquivo(lb_codigo.Text);
+                        ctrlImg.DeletaArquivo(lb_codigo.Text,"capa");
                         tsb_deleteimg.Enabled = false;
                     }
                     catch (Exception err)

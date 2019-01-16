@@ -6,28 +6,22 @@ namespace AmigoDePapel.CLASS
     class ControleArquivo
     {
 
-        public bool ImgExist(string nome)
+        public bool ImgExist(string nome, string tipo)
         {
-            if (File.Exists(GetUrl(nome)))
+            if (File.Exists(GetUrl(nome, tipo)))
                 return true;
             else
                 return false;
         }
 
-        public bool SalvaImagem(string url, string nome)
+        public bool SalvaImagem(string url, string nome, string tipo)
         {
-            string urlNovo = GetUrl(nome);
+            string urlNovo = GetUrl(nome,tipo);
             try
             {
-                if (File.Exists(urlNovo))
-                {
-                    if (DeletaArquivo(nome)) {
-                        File.Copy(url, urlNovo);
-                        return true;
-                    }
-                    else return false;
-                }
-                else return false;
+                DeletaArquivo(nome, tipo);
+                File.Copy(url, urlNovo);
+                return true;
             }
             catch
             {
@@ -35,13 +29,13 @@ namespace AmigoDePapel.CLASS
             }
         }
 
-        public bool DeletaArquivo(string nome)
+        public bool DeletaArquivo(string nome, string tipo)
         {
             try
             { 
-                if(File.Exists(GetUrl(nome)))
+                if(File.Exists(GetUrl(nome,tipo)))
                 {
-                    File.Delete(GetUrl(nome));
+                    File.Delete(GetUrl(nome,tipo));
                     return true;
                 }
                 else
@@ -55,9 +49,9 @@ namespace AmigoDePapel.CLASS
             }
         }
 
-        public string GetUrl(string nome)
+        public string GetUrl(string nome, string tipo)
         {
-            return System.Environment.CurrentDirectory.ToString() + @"\img\capa\" + nome + ".jpg";
+            return System.Environment.CurrentDirectory.ToString() + @"\img\"+tipo+@"\" + nome + ".jpg";
         }
     }
 }

@@ -2,16 +2,19 @@
 using AmigoDePapel.CLASS.conSql;
 using System.Windows.Forms;
 using System.Data.SqlServerCe;
+using AmigoDePapel.CLASS;
 
 namespace AmigoDePapel.FORMS
 {
     public partial class CadastraUser : Form
     {
         SqlQuery querys = new SqlQuery();
+        ControleArquivo ctrlImg = new ControleArquivo();
 
         public CadastraUser()
         {
             InitializeComponent();
+            tsb_removeImg.Enabled = false;
         }
 
         public CadastraUser(string id)
@@ -145,6 +148,30 @@ namespace AmigoDePapel.FORMS
             //Preciso voltar aqui e melhorar, ficou horrivel essa abordagem. - Lucas Vinicius
             DateTime atual = DateTime.Now;
             lb_anos.Text = (Int32.Parse(atual.Year.ToString()) - Int32.Parse(dt_nascimento.Value.Year.ToString())) + " Anos";
+        }
+
+        private void tsb_addImg_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = new DialogResult();
+            dr = ofd_user.ShowDialog();
+
+            if (dr == DialogResult.OK)
+            {
+                try
+                {
+                    if (ctrlImg.SalvaImagem(ofd_user.FileName.ToString(), lb_codigo.Text,"user"))
+                    {
+                        tsb_removeImg.Enabled = true;
+                        MessageBox.Show("Foto salva com sucesso.", "Uau!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                        MessageBox.Show("Algo deu errado em salvar sua foto.", "Ops!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch (Exception err)
+                {
+                    MessageBox.Show(err.Message, "Caramba!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

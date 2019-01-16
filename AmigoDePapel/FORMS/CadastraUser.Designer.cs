@@ -40,6 +40,8 @@
             this.tsb_save = new System.Windows.Forms.ToolStripButton();
             this.tsb_retirar = new System.Windows.Forms.ToolStripButton();
             this.tsb_ajuda = new System.Windows.Forms.ToolStripButton();
+            this.tsb_addImg = new System.Windows.Forms.ToolStripButton();
+            this.tsb_removeImg = new System.Windows.Forms.ToolStripButton();
             this.tb_telefone = new System.Windows.Forms.TextBox();
             this.lb_telefone = new System.Windows.Forms.Label();
             this.lb_nascimento = new System.Windows.Forms.Label();
@@ -49,11 +51,12 @@
             this.lb_nome_completo = new System.Windows.Forms.Label();
             this.tb_nome = new System.Windows.Forms.TextBox();
             this.gb_cadastraUser = new System.Windows.Forms.GroupBox();
+            this.lb_anos = new System.Windows.Forms.Label();
             this.dt_nascimento = new System.Windows.Forms.DateTimePicker();
             this.tb_documento = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cb_documento = new System.Windows.Forms.ComboBox();
-            this.lb_anos = new System.Windows.Forms.Label();
+            this.ofd_user = new System.Windows.Forms.OpenFileDialog();
             this.gb_observacao.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.gb_cadastraUser.SuspendLayout();
@@ -143,7 +146,9 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsb_save,
             this.tsb_retirar,
-            this.tsb_ajuda});
+            this.tsb_ajuda,
+            this.tsb_addImg,
+            this.tsb_removeImg});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(826, 25);
@@ -178,6 +183,25 @@
             this.tsb_ajuda.Name = "tsb_ajuda";
             this.tsb_ajuda.Size = new System.Drawing.Size(23, 22);
             this.tsb_ajuda.Text = "Ajuda";
+            // 
+            // tsb_addImg
+            // 
+            this.tsb_addImg.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsb_addImg.Image = global::AmigoDePapel.Properties.Resources.image_add;
+            this.tsb_addImg.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_addImg.Name = "tsb_addImg";
+            this.tsb_addImg.Size = new System.Drawing.Size(23, 22);
+            this.tsb_addImg.Text = "Adicionar Imagem";
+            this.tsb_addImg.Click += new System.EventHandler(this.tsb_addImg_Click);
+            // 
+            // tsb_removeImg
+            // 
+            this.tsb_removeImg.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsb_removeImg.Image = global::AmigoDePapel.Properties.Resources.image_delete;
+            this.tsb_removeImg.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_removeImg.Name = "tsb_removeImg";
+            this.tsb_removeImg.Size = new System.Drawing.Size(23, 22);
+            this.tsb_removeImg.Text = "Remover Imagem";
             // 
             // tb_telefone
             // 
@@ -282,6 +306,17 @@
             this.gb_cadastraUser.TabIndex = 3;
             this.gb_cadastraUser.TabStop = false;
             // 
+            // lb_anos
+            // 
+            this.lb_anos.AccessibleDescription = "Apenas considera o ANO de nascimento.";
+            this.lb_anos.AutoSize = true;
+            this.lb_anos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_anos.Location = new System.Drawing.Point(421, 128);
+            this.lb_anos.Name = "lb_anos";
+            this.lb_anos.Size = new System.Drawing.Size(53, 13);
+            this.lb_anos.TabIndex = 27;
+            this.lb_anos.Text = "00 Anos";
+            // 
             // dt_nascimento
             // 
             this.dt_nascimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -340,17 +375,6 @@
             this.cb_documento.SelectedIndexChanged += new System.EventHandler(this.cb_documento_SelectedIndexChanged);
             this.cb_documento.TextChanged += new System.EventHandler(this.cb_documento_TextChanged);
             // 
-            // lb_anos
-            // 
-            this.lb_anos.AccessibleDescription = "Apenas considera o ANO de nascimento.";
-            this.lb_anos.AutoSize = true;
-            this.lb_anos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_anos.Location = new System.Drawing.Point(421, 128);
-            this.lb_anos.Name = "lb_anos";
-            this.lb_anos.Size = new System.Drawing.Size(53, 13);
-            this.lb_anos.TabIndex = 27;
-            this.lb_anos.Text = "00 Anos";
-            // 
             // CadastraUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -405,5 +429,8 @@
         private System.Windows.Forms.MaskedTextBox tb_documento;
         private System.Windows.Forms.DateTimePicker dt_nascimento;
         private System.Windows.Forms.Label lb_anos;
+        private System.Windows.Forms.ToolStripButton tsb_addImg;
+        private System.Windows.Forms.ToolStripButton tsb_removeImg;
+        private System.Windows.Forms.OpenFileDialog ofd_user;
     }
 }
