@@ -114,9 +114,26 @@ namespace AmigoDePapel
 
         }
 
-        private string GetURLImg(string id)
+        private string GetURLImg(string id, string tipo)
         {
-            return System.Environment.CurrentDirectory.ToString() + @"\img\capa\" + id + ".jpg";
+            return System.Environment.CurrentDirectory.ToString() + @"\img\"+tipo+@"\" + id + ".jpg";
+        }
+
+        private void CarregaImg(string id, string tipo)
+        {
+            try
+            {
+                Point p = this.PointToClient(Cursor.Position);
+                capa.Size = new Size(96, 139);
+                capa.Location = new Point(p.X - 20, p.Y - 45);
+                capa.Image = Image.FromFile(GetURLImg(id, tipo));
+                capa.BorderStyle = BorderStyle.FixedSingle;
+                capa.Visible = true;
+            }
+            catch
+            {
+                capa.Visible = false;
+            }
         }
 
         private void RealizaPesquisa()
@@ -179,19 +196,7 @@ namespace AmigoDePapel
 
         private void dg_livro_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            try
-            {
-                Point p = this.PointToClient(Cursor.Position);
-                capa.Size = new Size(96, 139);
-                capa.Location = new Point(p.X - 20, p.Y - 45);
-                capa.Image = Image.FromFile(GetURLImg(dg_livro.Rows[e.RowIndex].Cells[0].Value.ToString()));
-                capa.BorderStyle = BorderStyle.FixedSingle;
-                capa.Visible = true;
-            }
-            catch
-            {
-                capa.Visible = false;
-            }
+            CarregaImg(dg_livro.Rows[e.RowIndex].Cells[0].Value.ToString(), "capa");
         }
 
         private void capa_Click(object sender, EventArgs e)
@@ -233,6 +238,16 @@ namespace AmigoDePapel
             LoadGDLivros gdLivros = new LoadGDLivros();
             DataTable dtLivros = gdLivros.DesenhaGridLivro();
             dg_livro.DataSource = gdLivros.PreencheGridLivro(dtLivros);
+
+        }
+
+        private void dg_user_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CarregaImg(dg_user.Rows[e.RowIndex].Cells[0].Value.ToString(), "user");
+        }
+
+        private void dg_livro_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
 
         }
     }

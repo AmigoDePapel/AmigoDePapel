@@ -13,7 +13,7 @@ namespace AmigoDePapel.CLASS
         {
             System.IO.Directory.CreateDirectory(url + @"\img");
             System.IO.Directory.CreateDirectory(url + @"\img\capa");
-            System.IO.Directory.CreateDirectory(url + @"\img\perfil");
+            System.IO.Directory.CreateDirectory(url + @"\img\user");
         }
 
         public string[] VerifinicaInicializacao()

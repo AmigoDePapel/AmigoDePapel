@@ -279,6 +279,7 @@
             this.dg_livro.Size = new System.Drawing.Size(865, 446);
             this.dg_livro.TabIndex = 3;
             this.dg_livro.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_livro_CellClick);
+            this.dg_livro.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_livro_CellContentClick);
             this.dg_livro.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_livro_CellDoubleClick);
             // 
             // tp_user
@@ -334,6 +335,7 @@
             this.dg_user.ShowEditingIcon = false;
             this.dg_user.Size = new System.Drawing.Size(865, 446);
             this.dg_user.TabIndex = 11;
+            this.dg_user.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_user_CellClick);
             this.dg_user.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_user_CellDoubleClick);
             // 
             // tb_pesquisaUser
