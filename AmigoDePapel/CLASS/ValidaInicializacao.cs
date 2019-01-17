@@ -11,9 +11,17 @@ namespace AmigoDePapel.CLASS
 
         private void CriaPastas()
         {
-            System.IO.Directory.CreateDirectory(url + @"\img");
-            System.IO.Directory.CreateDirectory(url + @"\img\capa");
-            System.IO.Directory.CreateDirectory(url + @"\img\user");
+            try
+            {
+                System.IO.Directory.CreateDirectory(url + @"\img");
+                System.IO.Directory.CreateDirectory(url + @"\img\capa");
+                System.IO.Directory.CreateDirectory(url + @"\img\user");
+            }
+            catch(Exception err)
+            {
+                MessageBox.Show(err.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
 
         public string[] VerifinicaInicializacao()
@@ -62,7 +70,7 @@ namespace AmigoDePapel.CLASS
             }
             catch(Exception err)
             {
-                MessageBox.Show(err.Message);
+                MessageBox.Show(err.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

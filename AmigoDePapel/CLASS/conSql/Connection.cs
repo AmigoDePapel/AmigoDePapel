@@ -39,6 +39,7 @@ namespace AmigoDePapel.CLASS.conSql
 
         public SqlCeConnection OpenCon()
         {
+            
             SqlCeConnection con = new SqlCeConnection(urlCon);
             con.Open();
 

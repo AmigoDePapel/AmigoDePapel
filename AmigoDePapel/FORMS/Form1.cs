@@ -86,7 +86,7 @@ namespace AmigoDePapel
                 DataTable dtLivros = gdLivros.DesenhaGridLivro();
                 DataTable dtUsers = gdLivros.DesenhaGridUser();
 
-                //A BASE EXISTE, ENTÃO VAMOS PREENCHER OS GRIDS COM OS RESULTADOS.
+                //A BASE (E VEM FORTE) EXISTE, ENTÃO VAMOS PREENCHER OS GRIDS COM OS RESULTADOS.
                 dg_livro.DataSource = gdLivros.PreencheGridLivro(dtLivros);
                 dg_user.DataSource = gdLivros.PreencheGridUser(dtUsers);
             }
@@ -243,12 +243,18 @@ namespace AmigoDePapel
 
         private void dg_user_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            capa.Parent = tp_user;
             CarregaImg(dg_user.Rows[e.RowIndex].Cells[0].Value.ToString(), "user");
         }
 
         private void dg_livro_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void tb_pesquisaUser_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

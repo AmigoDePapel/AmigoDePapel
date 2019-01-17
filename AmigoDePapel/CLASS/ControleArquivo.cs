@@ -17,6 +17,7 @@ namespace AmigoDePapel.CLASS
         public bool SalvaImagem(string url, string nome, string tipo)
         {
             string urlNovo = GetUrl(nome,tipo);
+
             try
             {
                 DeletaArquivo(nome, tipo);
