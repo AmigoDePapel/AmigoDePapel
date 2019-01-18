@@ -94,7 +94,7 @@
                                             FROM PVD_EMPRESTIMOS EMP 
                                                 LEFT JOIN STK_ITEM_LIVRO LIV ON LIV.ID = EMP.ID_ITEM_LIVRO 
                                                 LEFT JOIN CRM_CLIENTE CLI ON CLI.ID = EMP.ID_CLIENTE 
-                                            WHERE EMP.ISDELETED = 0 ";
+                                            WHERE EMP.ISDELETED = 0";
 
 
         // 

@@ -256,5 +256,11 @@ namespace AmigoDePapel
         {
             
         }
+
+        private void tsb_help_Click(object sender, EventArgs e)
+        {
+            AdicionaInformacao ain = new AdicionaInformacao();
+            tb_pesquisaLivro.Text = ain.GeraCod("TERRO", "RAN");
+        }
     }
 }

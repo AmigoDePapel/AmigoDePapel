@@ -59,14 +59,14 @@
             this.tsb_retirar = new System.Windows.Forms.ToolStripButton();
             this.tsb_addimg = new System.Windows.Forms.ToolStripButton();
             this.tsb_deleteimg = new System.Windows.Forms.ToolStripButton();
+            this.tsb_historico = new System.Windows.Forms.ToolStripButton();
             this.tsb_ajuda = new System.Windows.Forms.ToolStripButton();
             this.ofd_capa = new System.Windows.Forms.OpenFileDialog();
-            this.tsb_historico = new System.Windows.Forms.ToolStripButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.gb_cadastroLivro.SuspendLayout();
             this.gb_observacao.SuspendLayout();
             this.toolStrip1.SuspendLayout();
@@ -521,6 +521,7 @@
             this.lb_oservacao.Size = new System.Drawing.Size(90, 13);
             this.lb_oservacao.TabIndex = 1;
             this.lb_oservacao.Text = "OBSERVAÇÃO";
+            this.lb_oservacao.Click += new System.EventHandler(this.lb_oservacao_Click);
             // 
             // tb_obs
             // 
@@ -591,15 +592,6 @@
             this.tsb_deleteimg.ToolTipText = "Remova Capa";
             this.tsb_deleteimg.Click += new System.EventHandler(this.tsb_deleteimg_Click);
             // 
-            // tsb_ajuda
-            // 
-            this.tsb_ajuda.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_ajuda.Image = global::AmigoDePapel.Properties.Resources.help;
-            this.tsb_ajuda.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_ajuda.Name = "tsb_ajuda";
-            this.tsb_ajuda.Size = new System.Drawing.Size(23, 22);
-            this.tsb_ajuda.Text = "Ajuda";
-            // 
             // tsb_historico
             // 
             this.tsb_historico.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -608,6 +600,15 @@
             this.tsb_historico.Name = "tsb_historico";
             this.tsb_historico.Size = new System.Drawing.Size(23, 22);
             this.tsb_historico.Text = "Histórico";
+            // 
+            // tsb_ajuda
+            // 
+            this.tsb_ajuda.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsb_ajuda.Image = global::AmigoDePapel.Properties.Resources.help;
+            this.tsb_ajuda.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_ajuda.Name = "tsb_ajuda";
+            this.tsb_ajuda.Size = new System.Drawing.Size(23, 22);
+            this.tsb_ajuda.Text = "Ajuda";
             // 
             // groupBox1
             // 
@@ -623,27 +624,16 @@
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             // 
-            // label1
+            // textBox2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Enabled = false;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(8, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(129, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "EMPRESTADO PARA";
-            // 
-            // textBox1
-            // 
-            this.textBox1.AllowDrop = true;
-            this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(8, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(306, 21);
-            this.textBox1.TabIndex = 7;
+            this.textBox2.AllowDrop = true;
+            this.textBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBox2.Enabled = false;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(347, 31);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(123, 21);
+            this.textBox2.TabIndex = 9;
             // 
             // label3
             // 
@@ -656,16 +646,27 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "ATÉ ";
             // 
-            // textBox2
+            // textBox1
             // 
-            this.textBox2.AllowDrop = true;
-            this.textBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(347, 31);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(123, 21);
-            this.textBox2.TabIndex = 9;
+            this.textBox1.AllowDrop = true;
+            this.textBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.textBox1.Enabled = false;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(8, 31);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(306, 21);
+            this.textBox1.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Enabled = false;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(8, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(129, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "EMPRESTADO PARA";
             // 
             // CadastraLivro
             // 
@@ -683,7 +684,6 @@
             this.Name = "CadastraLivro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = " Cadastramento de Livro";
-
             this.gb_cadastroLivro.ResumeLayout(false);
             this.gb_cadastroLivro.PerformLayout();
             this.gb_observacao.ResumeLayout(false);

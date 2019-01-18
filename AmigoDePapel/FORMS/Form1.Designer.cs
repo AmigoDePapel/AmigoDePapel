@@ -66,9 +66,9 @@
             this.tss_adp = new System.Windows.Forms.ToolStripStatusLabel();
             this.tss_status = new System.Windows.Forms.ToolStripStatusLabel();
             this.tss_img = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1.SuspendLayout();
             this.tc_main.SuspendLayout();
             this.tp_book.SuspendLayout();
@@ -148,6 +148,7 @@
             this.tsb_help.Name = "tsb_help";
             this.tsb_help.Size = new System.Drawing.Size(23, 22);
             this.tsb_help.Text = "Ajuda";
+            this.tsb_help.Click += new System.EventHandler(this.tsb_help_Click);
             // 
             // toolStripButton1
             // 
@@ -510,15 +511,15 @@
             this.tss_img.Name = "tss_img";
             this.tss_img.Size = new System.Drawing.Size(16, 17);
             // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.Text = "notifyIcon1";
-            this.notifyIcon1.Visible = true;
-            // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(0, 17);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
             // 
             // Index
             // 

@@ -214,5 +214,11 @@ namespace AmigoDePapel.FORMS
             }
 
         }
+
+        private void lb_oservacao_Click(object sender, EventArgs e)
+        {
+            AdicionaInformacao ai = new AdicionaInformacao();
+            tb_titulo.Text = ai.GeraCod(cb_tema.Text, cb_subtema.Text);
+        }
     }
 }
