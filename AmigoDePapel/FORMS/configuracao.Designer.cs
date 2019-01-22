@@ -168,6 +168,7 @@
             this.bt_validate.TabIndex = 12;
             this.bt_validate.Text = "Validar configurações atuais";
             this.bt_validate.UseVisualStyleBackColor = true;
+            this.bt_validate.Click += new System.EventHandler(this.bt_validate_Click);
             // 
             // bt_exclusoes
             // 

@@ -281,7 +281,6 @@
             this.dg_livro.Size = new System.Drawing.Size(865, 446);
             this.dg_livro.TabIndex = 3;
             this.dg_livro.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_livro_CellClick);
-            this.dg_livro.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_livro_CellContentClick);
             this.dg_livro.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_livro_CellDoubleClick);
             // 
             // tp_user
@@ -351,7 +350,6 @@
             this.tb_pesquisaUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.tb_pesquisaUser.TabIndex = 10;
             this.tb_pesquisaUser.TabStop = false;
-            this.tb_pesquisaUser.Click += new System.EventHandler(this.tb_pesquisaUser_Click);
             // 
             // tb_pesquisa_user
             // 
@@ -497,7 +495,7 @@
             // 
             this.tss_adp.Name = "tss_adp";
             this.tss_adp.Size = new System.Drawing.Size(227, 17);
-            this.tss_adp.Text = "Amigo de papel - 0.09.2v ALPHA RELEASE";
+            this.tss_adp.Text = "Amigo de papel - 0.09.6v ALPHA RELEASE";
             // 
             // tss_status
             // 

@@ -53,7 +53,7 @@ namespace AmigoDePapel.FORMS
             string erroMsg = null;
             if (String.IsNullOrEmpty(tb_nome.Text))
             {
-                erroMsg = "* O campo 'NOME' é obrigatório. \n";
+                erroMsg = " * O campo 'NOME' é obrigatório. \n";
             }
             if (String.IsNullOrEmpty(tb_endereco.Text))
             {
@@ -100,7 +100,7 @@ namespace AmigoDePapel.FORMS
 
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "PUTS!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(err.Message, "Puts!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             }
         }
@@ -133,7 +133,7 @@ namespace AmigoDePapel.FORMS
         private void tsb_retirar_Click(object sender, EventArgs e)
         {
             DialogResult dr = new DialogResult();
-            dr = MessageBox.Show("Deseja realmente excluir esse cadastro?", "Olha la!!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            dr = MessageBox.Show("Deseja excluir o cadastro de nome '"+tb_nome+"'?", "Calma!!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if(dr == DialogResult.Yes)
             {

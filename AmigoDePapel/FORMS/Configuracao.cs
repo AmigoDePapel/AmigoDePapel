@@ -60,5 +60,12 @@ namespace AmigoDePapel.FORMS
             }
             this.Focus();
         }
+
+        private void bt_validate_Click(object sender, EventArgs e)
+        {
+            ValidaInicializacao val = new ValidaInicializacao();
+
+            val.VerifinicaInicializacao();
+        }
     }
 }

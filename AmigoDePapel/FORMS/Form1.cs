@@ -62,11 +62,6 @@ namespace AmigoDePapel
             newUser.Show();
         }
 
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-            FormLivro(-1);
-        }
-
         private void LoadGrids()
         {
 
@@ -86,7 +81,7 @@ namespace AmigoDePapel
                 DataTable dtLivros = gdLivros.DesenhaGridLivro();
                 DataTable dtUsers = gdLivros.DesenhaGridUser();
 
-                //A BASE (E VEM FORTE) EXISTE, ENTÃO VAMOS PREENCHER OS GRIDS COM OS RESULTADOS.
+                //A BASE (VEM FORTE) EXISTE, ENTÃO VAMOS PREENCHER OS GRIDS COM OS RESULTADOS.
                 dg_livro.DataSource = gdLivros.PreencheGridLivro(dtLivros);
                 dg_user.DataSource = gdLivros.PreencheGridUser(dtUsers);
             }
@@ -171,6 +166,11 @@ namespace AmigoDePapel
             tb_pesquisaLivro.Focus();
         }
 
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            FormLivro(-1);
+        }
+
         private void tsb_reflesh_Click(object sender, EventArgs e)
         {
             //PREENCHE NOVAMENTE 
@@ -238,23 +238,12 @@ namespace AmigoDePapel
             LoadGDLivros gdLivros = new LoadGDLivros();
             DataTable dtLivros = gdLivros.DesenhaGridLivro();
             dg_livro.DataSource = gdLivros.PreencheGridLivro(dtLivros);
-
         }
 
         private void dg_user_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             capa.Parent = tp_user;
             CarregaImg(dg_user.Rows[e.RowIndex].Cells[0].Value.ToString(), "user");
-        }
-
-        private void dg_livro_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void tb_pesquisaUser_Click(object sender, EventArgs e)
-        {
-            
         }
 
         private void tsb_help_Click(object sender, EventArgs e)

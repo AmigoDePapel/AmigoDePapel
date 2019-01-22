@@ -9,7 +9,8 @@ namespace AmigoDePapel.FORMS
 {
     public partial class CadastraLivro : Form
     {
-        public string urlImg = null;
+        public string urlImg = String.Empty;
+
         ControleArquivo ctrlImg = new ControleArquivo();
         SqlQuery querys = new SqlQuery();
 
@@ -25,7 +26,24 @@ namespace AmigoDePapel.FORMS
             try
             {
                 Connection sqlExecut = new Connection();
-                SqlCeDataReader dr = sqlExecut.ReturnQuery(@"SELECT ID, TITULO, SUBTITULO,ISBN,EDITORA,VERSAO,ANO,AUTOR,TEMA,SUBTEMA,PAGINAS,OBSERVACAO FROM STK_ITEM_LIVRO WHERE ID = " + codigo + " AND ISDELETED = 0");
+
+                //colocar esse select na classe consql e utilizar interpolação pra adicionar o valor no codigo.
+                SqlCeDataReader dr = sqlExecut.ReturnQuery(@"SELECT 
+                                                                    ID,
+                                                                    TITULO, 
+                                                                    SUBTITULO,
+                                                                    ISBN,
+                                                                    EDITORA,
+                                                                    VERSAO,
+                                                                    ANO,
+                                                                    AUTOR,
+                                                                    TEMA,
+                                                                    SUBTEMA,
+                                                                    PAGINAS,
+                                                                    OBSERVACAO 
+                                                               FROM STK_ITEM_LIVRO 
+                                                               WHERE ID = " + codigo +
+                                                               "AND ISDELETED = 0");
 
                 if (dr.Read())
                 {
@@ -45,7 +63,7 @@ namespace AmigoDePapel.FORMS
             }
             catch(Exception err)
             {
-                MessageBox.Show(err.Message, "PUTS!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(err.Message, "Caraca!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             ValidacoesBasicas();
@@ -89,12 +107,11 @@ namespace AmigoDePapel.FORMS
             //se tiver imagem - libera o botão de deletar img.
             if (ctrlImg.ImgExist(lb_codigo.Text,"capa"))
                 tsb_deleteimg.Enabled = true;
-
         }
 
         private void tsb_retirar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Deseja realmente excluir esse livro?",
+            if (MessageBox.Show("Deseja excluir o livro: '"+tb_titulo.Text+"'?",
                                 "Exclusão!",
                                 MessageBoxButtons.YesNo,
                                 MessageBoxIcon.Question) == DialogResult.Yes)
@@ -108,7 +125,7 @@ namespace AmigoDePapel.FORMS
 
                 catch (Exception err)
                 {
-                    MessageBox.Show(err.Message, "PUTS!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(err.Message, "Puts!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -119,7 +136,7 @@ namespace AmigoDePapel.FORMS
 
             if(alerta != String.Empty)
             {
-                MessageBox.Show(alerta, "Opa!!", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                MessageBox.Show(alerta, "Opa!", MessageBoxButtons.OK, MessageBoxIcon.Hand);
             }
             else
             { 
@@ -181,7 +198,7 @@ namespace AmigoDePapel.FORMS
                 }
                 catch(Exception err)
                 {
-                    MessageBox.Show(err.Message, "Caramba!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(err.Message, "Caramba!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }                
             }
         }

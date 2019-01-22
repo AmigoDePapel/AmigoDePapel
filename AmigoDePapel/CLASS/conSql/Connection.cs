@@ -7,9 +7,12 @@ namespace AmigoDePapel.CLASS.conSql
 {
     class Connection
     {
-        public string urlCon = "Data Source=" +
+        //variaveis globais 
+        public static string urlCon = "Data Source=" +
                             Application.StartupPath +
                             @"\DB_AMIGODEPAPEL.sdf";
+
+        //instanciamentos globais 
         ValidaInicializacao valid = new ValidaInicializacao();
 
         public void CreateDB()
@@ -21,8 +24,8 @@ namespace AmigoDePapel.CLASS.conSql
                     SqlCeEngine eng = new SqlCeEngine(urlCon);
                     eng.CreateDatabase();
                     CreateTables();
-                    MessageBox.Show("Nova base de dados criada com sucesso.  Seu aplicativo irá reinicializar. \n LOCAL:"+ Application.StartupPath, "Oba!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    valid.AtualizaTXT(Application.StartupPath + @"\DB_AMIGODEPAPEL.sdf", null);
+                    MessageBox.Show("Nova base de dados foi criada e selecionada com sucesso. \n Seu aplicativo irá reinicializar. \n LOCAL DA BASE:"+ Application.StartupPath, "Oba!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    valid.AtualizaTXT(Application.StartupPath + @"\DB_AMIGODEPAPEL.sdf", "05");
                     System.Diagnostics.Process.Start(Application.StartupPath+ @"\AmigoDePapel.exe");
                     Application.Exit();
                 }
@@ -42,7 +45,6 @@ namespace AmigoDePapel.CLASS.conSql
             
             SqlCeConnection con = new SqlCeConnection(urlCon);
             con.Open();
-
             return con;
         }
 
@@ -94,13 +96,12 @@ namespace AmigoDePapel.CLASS.conSql
 
         public string TrataQuery(string sql)
         {
-            // verifica se esta vazio, retorna null e faça a tratativa na chamada. 
-            // verifica se tem aspas simples 
-            // remove os espaços no começo e fim 
+            /* verifica se está vazio, em caso de retorno null faça a tratativa na chamada. 
+             verifica se tem aspas simples.
+             remove os espaços no começo e fim. */
 
-            if(sql == null || sql == String.Empty || sql == ""){
+            if (String.IsNullOrEmpty(sql))
                 return null;
-            }
 
             sql = sql.Replace("'", "");
             sql = sql.Trim();
@@ -120,7 +121,7 @@ namespace AmigoDePapel.CLASS.conSql
             }
             catch(Exception err)
             {
-                //SE DER ERRO VOLTE UM SQLCDR VAZIO, E VALIDE. 
+                //SE DER ERRO VOLTE UM SQLCDR VAZIO, E VALIDE NA CHAMADA. 
                 SqlCeDataReader dr = null;
                 MessageBox.Show(err.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
 

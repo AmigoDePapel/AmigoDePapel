@@ -1,27 +1,29 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
+using AmigoDePapel.CLASS.conSql;
 
 namespace AmigoDePapel.CLASS
 {
     class ValidaInicializacao
     {
-        public string url = System.Environment.CurrentDirectory.ToString();
-        public string txt = "\\config.adpc";
+        //Variaveis_globais
+        public static string url = Environment.CurrentDirectory.ToString();
+        public const string txt = "\\config.adpc";
 
+        //Metodos
         private void CriaPastas()
         {
             try
             {
-                System.IO.Directory.CreateDirectory(url + @"\img");
-                System.IO.Directory.CreateDirectory(url + @"\img\capa");
-                System.IO.Directory.CreateDirectory(url + @"\img\user");
+                Directory.CreateDirectory(url + @"\img");
+                Directory.CreateDirectory(url + @"\img\capa");
+                Directory.CreateDirectory(url + @"\img\user");
             }
             catch(Exception err)
             {
                 MessageBox.Show(err.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         public string[] VerifinicaInicializacao()
@@ -36,24 +38,16 @@ namespace AmigoDePapel.CLASS
             //verifica se a base existe, caso contrario pede o local
             if (ValidaDB(conteudoTXT[0]))
             {
-             if(
-                DialogResult.Yes ==
+             if(DialogResult.Yes ==
                 MessageBox.Show("Não encontramos a base de dados, deseja selecionar uma existente? ", 
                                 "Encontre a base!", 
                                 MessageBoxButtons.YesNo,
-                                MessageBoxIcon.Asterisk)
-               )
+                                MessageBoxIcon.Asterisk))
                 {
-                    // pegar o caminho da base
-                    // salvar no arquivo, utilizando a msm função do confg
-                    // reinicia o programa
-                    // caso não encontre a base gerar alertar que é preciso gerar uma nova base nas configurações do programa 
-                    // abrir as configurações do programa 
+                    Connection con = new Connection();
+                    con.CreateDB();
                 }
-
-                
             }
-
             return conteudoTXT;
         }
 
@@ -76,15 +70,13 @@ namespace AmigoDePapel.CLASS
 
         public void AtualizaTXT(string db, string date)
         {
-            if (date == null)
-                date = "05";
-            string[] lines = { "DB="+db, "DATE="+date };
-            System.IO.File.WriteAllLines(url+txt, lines);
+            string[] lines = { "DB="+db, "DATE="+ date != null? date: "05" };
+            File.WriteAllLines(url+txt, lines);
         }
 
         public string[] GetConteudoTXT()
         {
-            string[] conteudoBruto = System.IO.File.ReadAllLines(url+txt), 
+            string[] conteudoBruto = System.IO.File.ReadAllLines(url + txt), 
                      conteudo = new string[3];
             int i = 0;
             foreach (string line in conteudoBruto)

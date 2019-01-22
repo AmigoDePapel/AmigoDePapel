@@ -1,11 +1,9 @@
 ﻿using System.IO;
 
-
 namespace AmigoDePapel.CLASS
 {
     class ControleArquivo
     {
-
         public bool ImgExist(string nome, string tipo)
         {
             if (File.Exists(GetUrl(nome, tipo)))
@@ -17,11 +15,10 @@ namespace AmigoDePapel.CLASS
         public bool SalvaImagem(string url, string nome, string tipo)
         {
             string urlNovo = GetUrl(nome,tipo);
-
             try
             {
-                DeletaArquivo(nome, tipo);
-                File.Copy(url, urlNovo);
+                if (DeletaArquivo(nome, tipo))
+                    File.Copy(url, urlNovo);
                 return true;
             }
             catch
