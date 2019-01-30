@@ -17,7 +17,7 @@ namespace AmigoDePapel.CLASS
             string urlNovo = GetUrl(nome,tipo);
             try
             {
-                if (DeletaArquivo(nome, tipo))
+                if(DeletaArquivo(nome, tipo))
                     File.Copy(url, urlNovo);
                 return true;
             }
@@ -38,7 +38,7 @@ namespace AmigoDePapel.CLASS
                 }
                 else
                 {
-                    return false;
+                    return true;
                 }
             }
             catch

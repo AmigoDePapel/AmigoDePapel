@@ -35,14 +35,14 @@ namespace AmigoDePapel
 
                 livro.FormClosing += new FormClosingEventHandler(this.atualiza_FormClosing);
                 livro.Show();
-                capa.Visible = false;
-                capa.Image = null;
+                pb_livro_capa.Visible = false;
+                pb_livro_capa.Image = null;
                 livro.Show();
             }
             catch
             {
-                capa.Visible = false;
-                capa.Image = null;
+                pb_livro_capa.Visible = false;
+                pb_livro_capa.Image = null;
             }
         }
 
@@ -111,23 +111,24 @@ namespace AmigoDePapel
 
         private string GetURLImg(string id, string tipo)
         {
-            return System.Environment.CurrentDirectory.ToString() + @"\img\"+tipo+@"\" + id + ".jpg";
+            return Environment.CurrentDirectory.ToString() + @"\img\"+tipo+@"\" + id + ".jpg";
         }
 
-        private void CarregaImg(string id, string tipo)
+        private void CarregaImg(string id, string tipo, PictureBox pb)
         {
+            
             try
             {
                 Point p = this.PointToClient(Cursor.Position);
-                capa.Size = new Size(96, 139);
-                capa.Location = new Point(p.X - 20, p.Y - 45);
-                capa.Image = Image.FromFile(GetURLImg(id, tipo));
-                capa.BorderStyle = BorderStyle.FixedSingle;
-                capa.Visible = true;
+                pb.Size = new Size(96, 139);
+                pb.Location = new Point(p.X - 20, p.Y - 45);
+                pb.Image = Image.FromFile(GetURLImg(id, tipo));
+                pb.BorderStyle = BorderStyle.FixedSingle;
+                pb.Visible = true;
             }
             catch
             {
-                capa.Visible = false;
+                pb.Visible = false;
             }
         }
 
@@ -173,7 +174,6 @@ namespace AmigoDePapel
 
         private void tsb_reflesh_Click(object sender, EventArgs e)
         {
-            //PREENCHE NOVAMENTE 
             RefreshGrids();
         }
 
@@ -196,13 +196,13 @@ namespace AmigoDePapel
 
         private void dg_livro_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            CarregaImg(dg_livro.Rows[e.RowIndex].Cells[0].Value.ToString(), "capa");
+            CarregaImg(dg_livro.Rows[e.RowIndex].Cells[0].Value.ToString(), "capa", pb_livro_capa);
         }
 
         private void capa_Click(object sender, EventArgs e)
         {
-            capa.Visible = false;
-            capa.Image = null;
+            pb_livro_capa.Visible = false;
+            pb_livro_capa.Image = null;
         }
 
         private void dg_livro_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -242,14 +242,13 @@ namespace AmigoDePapel
 
         private void dg_user_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            capa.Parent = tp_user;
-            CarregaImg(dg_user.Rows[e.RowIndex].Cells[0].Value.ToString(), "user");
+            CarregaImg(dg_user.Rows[e.RowIndex].Cells[0].Value.ToString(), "user", pb_userFoto);
         }
 
-        private void tsb_help_Click(object sender, EventArgs e)
+        private void pb_userFoto_Click(object sender, EventArgs e)
         {
-            AdicionaInformacao ain = new AdicionaInformacao();
-            tb_pesquisaLivro.Text = ain.GeraCod("TERRO", "RAN");
+            pb_userFoto.Visible = false;
+            pb_userFoto.Image = null;
         }
     }
 }
