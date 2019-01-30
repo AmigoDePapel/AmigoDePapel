@@ -5,7 +5,6 @@ namespace AmigoDePapel.CLASS
 {
     class AdicionaInformacao
     {
-
         public string GeraCod(string tema, string subTema)
         {
             Random r = new Random();

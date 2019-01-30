@@ -67,5 +67,10 @@ namespace AmigoDePapel.FORMS
 
             val.VerifinicaInicializacao();
         }
+
+        private void bt_exclusoes_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

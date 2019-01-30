@@ -73,9 +73,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(3, 81);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(143, 13);
+            this.label1.Size = new System.Drawing.Size(198, 13);
             this.label1.TabIndex = 5;
-            this.label1.Text = "DIAS DE EMPRESTIMO";
+            this.label1.Text = "DIAS DE EMPRESTIMO PADRÃO";
             // 
             // cb_dias
             // 
@@ -178,6 +178,7 @@
             this.bt_exclusoes.TabIndex = 13;
             this.bt_exclusoes.Text = "Restaurar exclusões";
             this.bt_exclusoes.UseVisualStyleBackColor = true;
+            this.bt_exclusoes.Click += new System.EventHandler(this.bt_exclusoes_Click);
             // 
             // gb_manutencao
             // 

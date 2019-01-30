@@ -109,11 +109,23 @@
     <Compile Include="FORMS\Configuracao.Designer.cs">
       <DependentUpon>Configuracao.cs</DependentUpon>
     </Compile>
+    <Compile Include="FORMS\Emprestimo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMS\Emprestimo.Designer.cs">
+      <DependentUpon>Emprestimo.cs</DependentUpon>
+    </Compile>
     <Compile Include="FORMS\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FORMS\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FORMS\RestauraItens.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FORMS\RestauraItens.Designer.cs">
+      <DependentUpon>RestauraItens.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
