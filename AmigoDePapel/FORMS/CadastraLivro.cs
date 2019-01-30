@@ -1,7 +1,6 @@
 ﻿using System;
 using AmigoDePapel.CLASS.conSql;
 using System.Windows.Forms;
-using System.IO;
 using System.Data.SqlServerCe;
 using AmigoDePapel.CLASS;
 
@@ -65,7 +64,6 @@ namespace AmigoDePapel.FORMS
             {
                 MessageBox.Show(err.Message, "Caraca!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
             ValidacoesBasicas();
         }
 
@@ -91,9 +89,8 @@ namespace AmigoDePapel.FORMS
             }
             if(!int.TryParse(tb_pagina.Text, out int n) && !String.IsNullOrEmpty(tb_pagina.Text))
             {
-                alerta += "* O campo 'QTD PÁGINAS' aceita apenas números. \n";
+                alerta += "* O campo 'QTD PÁGINAS' aceita apenas números.";
             }
-
             return alerta;
         }
 
@@ -145,13 +142,47 @@ namespace AmigoDePapel.FORMS
                 string sql = String.Empty;
                 if(lb_codigo.Text == "00")
                 {
-                    sql = @"INSERT INTO STK_ITEM_LIVRO (ISDELETED,TITULO,SUBTITULO,ISBN,EDITORA,VERSAO,ANO,AUTOR,TEMA,SUBTEMA,PAGINAS,OBSERVACAO)
-                                        VALUES (0,'" + tb_titulo.Text + "','" + tb_subtitulo.Text + "','" + tb_isbn.Text + "','" + tb_editora.Text + "','" + tb_versao.Text + "'," + tb_ano.Text + ",'" + tb_autor.Text + "','" + cb_tema.Text + "','" + cb_subtema.Text + "'," + tb_pagina.Text + ",'" + tb_obs.Text + "')";
+                    sql = @"INSERT INTO STK_ITEM_LIVRO (ISDELETED,
+                                                        TITULO,
+                                                        SUBTITULO,
+                                                        ISBN,
+                                                        EDITORA,
+                                                        VERSAO,
+                                                        ANO,
+                                                        AUTOR,
+                                                        TEMA,
+                                                        SUBTEMA,
+                                                        PAGINAS,
+                                                        OBSERVACAO)
+                                             VALUES   (0,'"
+                                                        + tb_titulo.Text + "','" 
+                                                        + tb_subtitulo.Text + "','"
+                                                        + tb_isbn.Text + "','"
+                                                        + tb_editora.Text + "','"
+                                                        + tb_versao.Text + "',"
+                                                        + tb_ano.Text + ",'"
+                                                        + tb_autor.Text + "','"
+                                                        + cb_tema.Text + "','"
+                                                        + cb_subtema.Text + "',"
+                                                        + tb_pagina.Text + ",'"
+                                                        + tb_obs.Text + "')";
                 }
                 else
                 {
                     //ID EXISTE, ENTÃO... UPDATE.
-                    sql = @"UPDATE STK_ITEM_LIVRO SET TITULO = '" + tb_titulo.Text + "', SUBTITULO = '"+tb_subtitulo.Text+ "', ISBN = '"+tb_isbn.Text+ "', EDITORA = '"+tb_editora.Text+ "', VERSAO = '"+tb_versao.Text+ "', ANO = '"+tb_ano.Text+ "', AUTOR = '"+tb_autor.Text+ "', TEMA = '"+cb_tema.Text+ "', SUBTEMA = '"+cb_subtema.Text+ "', PAGINAS = '"+tb_pagina.Text+ "', OBSERVACAO = '"+tb_obs.Text+"' WHERE ID = '" + lb_codigo.Text + "' AND ISDELETED = 0";
+                    sql = @"UPDATE STK_ITEM_LIVRO SET TITULO = '" + tb_titulo.Text + 
+                                                      "', SUBTITULO = '"+tb_subtitulo.Text+ 
+                                                      "', ISBN = '"+tb_isbn.Text+ 
+                                                      "', EDITORA = '"+tb_editora.Text+ 
+                                                      "', VERSAO = '"+tb_versao.Text+ 
+                                                      "', ANO = '"+tb_ano.Text+ 
+                                                      "', AUTOR = '"+tb_autor.Text+ 
+                                                      "', TEMA = '"+cb_tema.Text+ 
+                                                      "', SUBTEMA = '"+cb_subtema.Text+ 
+                                                      "', PAGINAS = '"+tb_pagina.Text+ 
+                                                      "', OBSERVACAO = '"+tb_obs.Text+ 
+                          "' WHERE ID = '" + lb_codigo.Text + 
+                          "' AND ISDELETED = 0";
 
                 }
                 try
@@ -191,10 +222,10 @@ namespace AmigoDePapel.FORMS
                     if(ctrlImg.SalvaImagem(ofd_capa.FileName.ToString(), lb_codigo.Text,"capa"))
                     {
                         tsb_deleteimg.Enabled = true;
-                        MessageBox.Show("Foto salva com sucesso.", "Uau!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Foto salva com sucesso.", "Uau!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }   
                     else
-                        MessageBox.Show("Algo deu errado em salvar sua foto.", "Ops!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Algo deu errado em salvar sua foto.", "Ops!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 catch(Exception err)
                 {
@@ -227,9 +258,7 @@ namespace AmigoDePapel.FORMS
                         MessageBox.Show(err.Message, "Caramba!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
-
             }
-
         }
 
         private void lb_oservacao_Click(object sender, EventArgs e)

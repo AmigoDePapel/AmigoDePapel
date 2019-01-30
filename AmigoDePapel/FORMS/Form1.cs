@@ -106,7 +106,6 @@ namespace AmigoDePapel
                 DataTable dtUsers = gdLivros.DesenhaGridUser();
                 dg_user.DataSource = gdLivros.PreencheGridUser(dtUsers);
             }
-
         }
 
         private string GetURLImg(string id, string tipo)
@@ -116,7 +115,6 @@ namespace AmigoDePapel
 
         private void CarregaImg(string id, string tipo, PictureBox pb)
         {
-            
             try
             {
                 Point p = this.PointToClient(Cursor.Position);
@@ -157,7 +155,6 @@ namespace AmigoDePapel
                 DataTable dtLivros = gdLivros.DesenhaGridLivro();
                 dg_livro.DataSource = gdLivros.PreencheGridLivro(dtLivros);
             }
-
         }
 
         //ações
@@ -232,7 +229,6 @@ namespace AmigoDePapel
         {
             pb_cancelaPesquisa.Visible = false;
             tb_pesquisaLivro.Text = null;
-
             dg_livro.DataSource = null;
             dg_livro.Rows.Clear();
             LoadGDLivros gdLivros = new LoadGDLivros();
