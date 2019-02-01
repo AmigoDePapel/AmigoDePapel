@@ -24,14 +24,23 @@ namespace AmigoDePapel.CLASS.conSql
                     SqlCeEngine eng = new SqlCeEngine(urlCon);
                     eng.CreateDatabase();
                     CreateTables();
-                    MessageBox.Show("Nova base de dados foi criada e selecionada com sucesso. \n Seu aplicativo irá reinicializar. \n LOCAL DA BASE:"+ Application.StartupPath, "Oba!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    MessageBox.Show(@"Nova base de dados foi criada e selecionada com sucesso. 
+                                    \n Seu aplicativo irá reinicializar. \n LOCAL DA BASE:"+ Application.StartupPath, 
+                                    "Oba!", 
+                                    MessageBoxButtons.OK, 
+                                    MessageBoxIcon.Information);
+
                     valid.AtualizaTXT(Application.StartupPath + @"\DB_AMIGODEPAPEL.sdf", "05");
                     System.Diagnostics.Process.Start(Application.StartupPath+ @"\AmigoDePapel.exe");
                     Application.Exit();
                 }
                 else
                 {
-                    MessageBox.Show("Já existe uma base criada na pasta raiz. \n LOCAL:" + Application.StartupPath, "Calma!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Já existe uma base criada na pasta raiz. \n LOCAL:" + Application.StartupPath,
+                                    "Calma!",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information);
                 }
             }
             catch(Exception err)
@@ -42,7 +51,6 @@ namespace AmigoDePapel.CLASS.conSql
 
         public SqlCeConnection OpenCon()
         {
-            
             SqlCeConnection con = new SqlCeConnection(urlCon);
             con.Open();
             return con;

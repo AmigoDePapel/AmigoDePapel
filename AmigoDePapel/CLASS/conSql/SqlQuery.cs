@@ -147,5 +147,25 @@
 
         public string sql_selectCadastro_emprestimo = "";
 
+        // 
+        //########################## FORM EMPRESTIMOS ###########################
+        //STK_ITEM_LIVRO
+        public string sql_select_stk_item_livro_emprestimo = @"SELECT 
+                                                                        ID, 
+                                                                        TITULO, 
+                                                                        SUBTITULO, 
+                                                                        ISBN,
+                                                                        AUTOR
+                                                                FROM STK_ITEM_LIVRO 
+                                                                WHERE ISDELETED = 0";
+
+        //CRM_CLIENTE
+        public string sql_select_crm_cliente_emprestimo = @"SELECT 
+                                                                    ID,
+                                                                    NOME, 
+                                                                    DOCUMENTO
+                                                             FROM CRM_CLIENTE
+                                                             WHERE ISDELETED = 0";
+
     }
 }
