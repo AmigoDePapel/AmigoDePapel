@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gb_cadastroLivro = new System.Windows.Forms.GroupBox();
+            this.pb_livro = new System.Windows.Forms.PictureBox();
             this.tb_isbn = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tb_ano = new System.Windows.Forms.TextBox();
@@ -68,6 +69,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.gb_cadastroLivro.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_livro)).BeginInit();
             this.gb_observacao.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -76,6 +78,7 @@
             // gb_cadastroLivro
             // 
             this.gb_cadastroLivro.BackColor = System.Drawing.Color.Transparent;
+            this.gb_cadastroLivro.Controls.Add(this.pb_livro);
             this.gb_cadastroLivro.Controls.Add(this.tb_isbn);
             this.gb_cadastroLivro.Controls.Add(this.label2);
             this.gb_cadastroLivro.Controls.Add(this.tb_ano);
@@ -100,14 +103,24 @@
             this.gb_cadastroLivro.Controls.Add(this.tb_titulo);
             this.gb_cadastroLivro.Location = new System.Drawing.Point(13, 28);
             this.gb_cadastroLivro.Name = "gb_cadastroLivro";
-            this.gb_cadastroLivro.Size = new System.Drawing.Size(801, 230);
+            this.gb_cadastroLivro.Size = new System.Drawing.Size(801, 264);
             this.gb_cadastroLivro.TabIndex = 0;
             this.gb_cadastroLivro.TabStop = false;
+            // 
+            // pb_livro
+            // 
+            this.pb_livro.Image = global::AmigoDePapel.Properties.Resources.imagem_livro;
+            this.pb_livro.Location = new System.Drawing.Point(636, 18);
+            this.pb_livro.Name = "pb_livro";
+            this.pb_livro.Size = new System.Drawing.Size(154, 171);
+            this.pb_livro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_livro.TabIndex = 26;
+            this.pb_livro.TabStop = false;
             // 
             // tb_isbn
             // 
             this.tb_isbn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_isbn.Location = new System.Drawing.Point(8, 144);
+            this.tb_isbn.Location = new System.Drawing.Point(8, 143);
             this.tb_isbn.Mask = "000-00-000-0000-0";
             this.tb_isbn.Name = "tb_isbn";
             this.tb_isbn.Size = new System.Drawing.Size(134, 21);
@@ -118,7 +131,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(620, 128);
+            this.label2.Location = new System.Drawing.Point(8, 219);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(33, 13);
             this.label2.TabIndex = 24;
@@ -129,7 +142,7 @@
             this.tb_ano.AllowDrop = true;
             this.tb_ano.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tb_ano.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_ano.Location = new System.Drawing.Point(620, 144);
+            this.tb_ano.Location = new System.Drawing.Point(8, 235);
             this.tb_ano.Name = "tb_ano";
             this.tb_ano.Size = new System.Drawing.Size(67, 21);
             this.tb_ano.TabIndex = 5;
@@ -139,7 +152,7 @@
             // 
             this.lb_subtitulo.AutoSize = true;
             this.lb_subtitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_subtitulo.Location = new System.Drawing.Point(8, 76);
+            this.lb_subtitulo.Location = new System.Drawing.Point(8, 79);
             this.lb_subtitulo.Name = "lb_subtitulo";
             this.lb_subtitulo.Size = new System.Drawing.Size(77, 13);
             this.lb_subtitulo.TabIndex = 22;
@@ -159,7 +172,7 @@
             // 
             this.lb_paginas.AutoSize = true;
             this.lb_paginas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_paginas.Location = new System.Drawing.Point(702, 128);
+            this.lb_paginas.Location = new System.Drawing.Point(93, 219);
             this.lb_paginas.Name = "lb_paginas";
             this.lb_paginas.Size = new System.Drawing.Size(66, 13);
             this.lb_paginas.TabIndex = 20;
@@ -258,9 +271,9 @@
             "TEATRO",
             "TERROR",
             "OUTROS"});
-            this.cb_subtema.Location = new System.Drawing.Point(556, 191);
+            this.cb_subtema.Location = new System.Drawing.Point(320, 234);
             this.cb_subtema.Name = "cb_subtema";
-            this.cb_subtema.Size = new System.Drawing.Size(222, 23);
+            this.cb_subtema.Size = new System.Drawing.Size(291, 23);
             this.cb_subtema.TabIndex = 8;
             // 
             // cb_tema
@@ -356,9 +369,9 @@
             "TEATRO",
             "TERROR",
             "OUTROS"});
-            this.cb_tema.Location = new System.Drawing.Point(320, 191);
+            this.cb_tema.Location = new System.Drawing.Point(320, 188);
             this.cb_tema.Name = "cb_tema";
-            this.cb_tema.Size = new System.Drawing.Size(228, 23);
+            this.cb_tema.Size = new System.Drawing.Size(291, 23);
             this.cb_tema.TabIndex = 7;
             // 
             // label6
@@ -375,7 +388,7 @@
             this.tb_pagina.AllowDrop = true;
             this.tb_pagina.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tb_pagina.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_pagina.Location = new System.Drawing.Point(702, 144);
+            this.tb_pagina.Location = new System.Drawing.Point(93, 235);
             this.tb_pagina.Name = "tb_pagina";
             this.tb_pagina.Size = new System.Drawing.Size(76, 21);
             this.tb_pagina.TabIndex = 9;
@@ -385,7 +398,7 @@
             // 
             this.llb_subtema.AutoSize = true;
             this.llb_subtema.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llb_subtema.Location = new System.Drawing.Point(553, 176);
+            this.llb_subtema.Location = new System.Drawing.Point(320, 219);
             this.llb_subtema.Name = "llb_subtema";
             this.llb_subtema.Size = new System.Drawing.Size(70, 13);
             this.llb_subtema.TabIndex = 15;
@@ -395,7 +408,7 @@
             // 
             this.lb_tema.AutoSize = true;
             this.lb_tema.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_tema.Location = new System.Drawing.Point(320, 176);
+            this.lb_tema.Location = new System.Drawing.Point(320, 174);
             this.lb_tema.Name = "lb_tema";
             this.lb_tema.Size = new System.Drawing.Size(41, 13);
             this.lb_tema.TabIndex = 13;
@@ -405,7 +418,7 @@
             // 
             this.lb_autor.AutoSize = true;
             this.lb_autor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_autor.Location = new System.Drawing.Point(8, 176);
+            this.lb_autor.Location = new System.Drawing.Point(8, 174);
             this.lb_autor.Name = "lb_autor";
             this.lb_autor.Size = new System.Drawing.Size(50, 13);
             this.lb_autor.TabIndex = 11;
@@ -416,7 +429,7 @@
             this.tb_autor.AllowDrop = true;
             this.tb_autor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tb_autor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_autor.Location = new System.Drawing.Point(8, 192);
+            this.tb_autor.Location = new System.Drawing.Point(8, 190);
             this.tb_autor.Name = "tb_autor";
             this.tb_autor.Size = new System.Drawing.Size(306, 21);
             this.tb_autor.TabIndex = 6;
@@ -425,7 +438,7 @@
             // 
             this.lb_versao.AutoSize = true;
             this.lb_versao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_versao.Location = new System.Drawing.Point(412, 128);
+            this.lb_versao.Location = new System.Drawing.Point(412, 127);
             this.lb_versao.Name = "lb_versao";
             this.lb_versao.Size = new System.Drawing.Size(125, 13);
             this.lb_versao.TabIndex = 9;
@@ -436,7 +449,7 @@
             this.tb_versao.AllowDrop = true;
             this.tb_versao.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tb_versao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_versao.Location = new System.Drawing.Point(412, 144);
+            this.tb_versao.Location = new System.Drawing.Point(412, 143);
             this.tb_versao.Name = "tb_versao";
             this.tb_versao.Size = new System.Drawing.Size(200, 21);
             this.tb_versao.TabIndex = 4;
@@ -445,7 +458,7 @@
             // 
             this.lb_editora.AutoSize = true;
             this.lb_editora.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_editora.Location = new System.Drawing.Point(148, 128);
+            this.lb_editora.Location = new System.Drawing.Point(148, 127);
             this.lb_editora.Name = "lb_editora";
             this.lb_editora.Size = new System.Drawing.Size(62, 13);
             this.lb_editora.TabIndex = 7;
@@ -456,7 +469,7 @@
             this.tb_editora.AllowDrop = true;
             this.tb_editora.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tb_editora.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_editora.Location = new System.Drawing.Point(148, 144);
+            this.tb_editora.Location = new System.Drawing.Point(148, 143);
             this.tb_editora.Name = "tb_editora";
             this.tb_editora.Size = new System.Drawing.Size(258, 21);
             this.tb_editora.TabIndex = 3;
@@ -465,7 +478,7 @@
             // 
             this.lb_ISBN.AutoSize = true;
             this.lb_ISBN.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_ISBN.Location = new System.Drawing.Point(8, 128);
+            this.lb_ISBN.Location = new System.Drawing.Point(8, 127);
             this.lb_ISBN.Name = "lb_ISBN";
             this.lb_ISBN.Size = new System.Drawing.Size(83, 13);
             this.lb_ISBN.TabIndex = 5;
@@ -476,16 +489,16 @@
             this.tb_subtitulo.AllowDrop = true;
             this.tb_subtitulo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tb_subtitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_subtitulo.Location = new System.Drawing.Point(8, 92);
+            this.tb_subtitulo.Location = new System.Drawing.Point(8, 95);
             this.tb_subtitulo.Name = "tb_subtitulo";
-            this.tb_subtitulo.Size = new System.Drawing.Size(782, 21);
+            this.tb_subtitulo.Size = new System.Drawing.Size(604, 21);
             this.tb_subtitulo.TabIndex = 1;
             // 
             // lb_titulo
             // 
             this.lb_titulo.AutoSize = true;
             this.lb_titulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_titulo.Location = new System.Drawing.Point(8, 37);
+            this.lb_titulo.Location = new System.Drawing.Point(8, 40);
             this.lb_titulo.Name = "lb_titulo";
             this.lb_titulo.Size = new System.Drawing.Size(52, 13);
             this.lb_titulo.TabIndex = 1;
@@ -496,9 +509,9 @@
             this.tb_titulo.AllowDrop = true;
             this.tb_titulo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tb_titulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_titulo.Location = new System.Drawing.Point(8, 53);
+            this.tb_titulo.Location = new System.Drawing.Point(8, 56);
             this.tb_titulo.Name = "tb_titulo";
-            this.tb_titulo.Size = new System.Drawing.Size(783, 21);
+            this.tb_titulo.Size = new System.Drawing.Size(604, 21);
             this.tb_titulo.TabIndex = 0;
             // 
             // gb_observacao
@@ -506,9 +519,9 @@
             this.gb_observacao.BackColor = System.Drawing.Color.Transparent;
             this.gb_observacao.Controls.Add(this.lb_oservacao);
             this.gb_observacao.Controls.Add(this.tb_obs);
-            this.gb_observacao.Location = new System.Drawing.Point(13, 264);
+            this.gb_observacao.Location = new System.Drawing.Point(13, 298);
             this.gb_observacao.Name = "gb_observacao";
-            this.gb_observacao.Size = new System.Drawing.Size(801, 131);
+            this.gb_observacao.Size = new System.Drawing.Size(801, 104);
             this.gb_observacao.TabIndex = 1;
             this.gb_observacao.TabStop = false;
             // 
@@ -516,7 +529,7 @@
             // 
             this.lb_oservacao.AutoSize = true;
             this.lb_oservacao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_oservacao.Location = new System.Drawing.Point(8, 16);
+            this.lb_oservacao.Location = new System.Drawing.Point(6, 14);
             this.lb_oservacao.Name = "lb_oservacao";
             this.lb_oservacao.Size = new System.Drawing.Size(90, 13);
             this.lb_oservacao.TabIndex = 1;
@@ -528,10 +541,10 @@
             this.tb_obs.AllowDrop = true;
             this.tb_obs.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tb_obs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_obs.Location = new System.Drawing.Point(8, 32);
+            this.tb_obs.Location = new System.Drawing.Point(8, 30);
             this.tb_obs.Multiline = true;
             this.tb_obs.Name = "tb_obs";
-            this.tb_obs.Size = new System.Drawing.Size(782, 82);
+            this.tb_obs.Size = new System.Drawing.Size(782, 66);
             this.tb_obs.TabIndex = 10;
             // 
             // toolStrip1
@@ -686,6 +699,7 @@
             this.Text = " Cadastramento de Livro";
             this.gb_cadastroLivro.ResumeLayout(false);
             this.gb_cadastroLivro.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_livro)).EndInit();
             this.gb_observacao.ResumeLayout(false);
             this.gb_observacao.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -738,5 +752,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox pb_livro;
     }
 }

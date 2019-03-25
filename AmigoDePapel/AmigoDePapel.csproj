@@ -170,6 +170,7 @@
     <Folder Include="FORMS\help\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\imagem livro.jpg" />
     <None Include="Resources\image_delete.png" />
     <None Include="Resources\image_add.png" />
     <None Include="Resources\wallpaper.png" />

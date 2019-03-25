@@ -38,6 +38,7 @@ namespace AmigoDePapel.CLASS
             //verifica se a base existe, caso contrario pede o local
             if (ValidaDB(conteudoTXT[0]))
             {
+
              if(DialogResult.Yes ==
                 MessageBox.Show("Não encontramos a base de dados, deseja selecionar uma existente? ", 
                                 "Encontre a base!", 
@@ -46,6 +47,10 @@ namespace AmigoDePapel.CLASS
                 {
                     Connection con = new Connection();
                     con.CreateDB();
+                }
+             else
+                {
+                    VerifinicaInicializacao();
                 }
             }
             return conteudoTXT;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastraUser));
             this.gb_observacao = new System.Windows.Forms.GroupBox();
             this.lb_oservacao = new System.Windows.Forms.Label();
             this.tb_obs = new System.Windows.Forms.TextBox();
@@ -51,6 +52,7 @@
             this.lb_nome_completo = new System.Windows.Forms.Label();
             this.tb_nome = new System.Windows.Forms.TextBox();
             this.gb_cadastraUser = new System.Windows.Forms.GroupBox();
+            this.pb_perfil = new System.Windows.Forms.PictureBox();
             this.lb_anos = new System.Windows.Forms.Label();
             this.dt_nascimento = new System.Windows.Forms.DateTimePicker();
             this.tb_documento = new System.Windows.Forms.MaskedTextBox();
@@ -60,6 +62,7 @@
             this.gb_observacao.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.gb_cadastraUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_perfil)).BeginInit();
             this.SuspendLayout();
             // 
             // gb_observacao
@@ -67,7 +70,7 @@
             this.gb_observacao.BackColor = System.Drawing.Color.Transparent;
             this.gb_observacao.Controls.Add(this.lb_oservacao);
             this.gb_observacao.Controls.Add(this.tb_obs);
-            this.gb_observacao.Location = new System.Drawing.Point(13, 264);
+            this.gb_observacao.Location = new System.Drawing.Point(13, 221);
             this.gb_observacao.Name = "gb_observacao";
             this.gb_observacao.Size = new System.Drawing.Size(801, 131);
             this.gb_observacao.TabIndex = 4;
@@ -97,7 +100,7 @@
             // 
             this.lb_email.AutoSize = true;
             this.lb_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_email.Location = new System.Drawing.Point(477, 128);
+            this.lb_email.Location = new System.Drawing.Point(350, 128);
             this.lb_email.Name = "lb_email";
             this.lb_email.Size = new System.Drawing.Size(48, 13);
             this.lb_email.TabIndex = 24;
@@ -107,9 +110,9 @@
             // 
             this.tb_email.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tb_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_email.Location = new System.Drawing.Point(480, 144);
+            this.tb_email.Location = new System.Drawing.Point(353, 144);
             this.tb_email.Name = "tb_email";
-            this.tb_email.Size = new System.Drawing.Size(307, 21);
+            this.tb_email.Size = new System.Drawing.Size(320, 21);
             this.tb_email.TabIndex = 6;
             // 
             // lb_endereco
@@ -126,6 +129,7 @@
             // 
             this.lb_codigo.AutoSize = true;
             this.lb_codigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_codigo.ForeColor = System.Drawing.Color.Black;
             this.lb_codigo.Location = new System.Drawing.Point(8, 16);
             this.lb_codigo.Name = "lb_codigo";
             this.lb_codigo.Size = new System.Drawing.Size(21, 13);
@@ -146,9 +150,9 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsb_save,
             this.tsb_retirar,
-            this.tsb_ajuda,
             this.tsb_addImg,
-            this.tsb_removeImg});
+            this.tsb_removeImg,
+            this.tsb_ajuda});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(826, 25);
@@ -168,7 +172,7 @@
             // tsb_retirar
             // 
             this.tsb_retirar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_retirar.Image = global::AmigoDePapel.Properties.Resources.book_delete;
+            this.tsb_retirar.Image = global::AmigoDePapel.Properties.Resources.user_delete;
             this.tsb_retirar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsb_retirar.Name = "tsb_retirar";
             this.tsb_retirar.Size = new System.Drawing.Size(23, 22);
@@ -202,12 +206,13 @@
             this.tsb_removeImg.Name = "tsb_removeImg";
             this.tsb_removeImg.Size = new System.Drawing.Size(23, 22);
             this.tsb_removeImg.Text = "Remover Imagem";
+            this.tsb_removeImg.Click += new System.EventHandler(this.tsb_removeImg_Click);
             // 
             // tb_telefone
             // 
             this.tb_telefone.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.tb_telefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tb_telefone.Location = new System.Drawing.Point(8, 192);
+            this.tb_telefone.Location = new System.Drawing.Point(480, 53);
             this.tb_telefone.Name = "tb_telefone";
             this.tb_telefone.Size = new System.Drawing.Size(193, 21);
             this.tb_telefone.TabIndex = 7;
@@ -216,7 +221,7 @@
             // 
             this.lb_telefone.AutoSize = true;
             this.lb_telefone.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_telefone.Location = new System.Drawing.Point(8, 176);
+            this.lb_telefone.Location = new System.Drawing.Point(477, 37);
             this.lb_telefone.Name = "lb_telefone";
             this.lb_telefone.Size = new System.Drawing.Size(71, 13);
             this.lb_telefone.TabIndex = 11;
@@ -226,7 +231,7 @@
             // 
             this.lb_nascimento.AutoSize = true;
             this.lb_nascimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_nascimento.Location = new System.Drawing.Point(354, 128);
+            this.lb_nascimento.Location = new System.Drawing.Point(477, 76);
             this.lb_nascimento.Name = "lb_nascimento";
             this.lb_nascimento.Size = new System.Drawing.Size(44, 13);
             this.lb_nascimento.TabIndex = 9;
@@ -257,7 +262,7 @@
             this.tb_endereco.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_endereco.Location = new System.Drawing.Point(8, 92);
             this.tb_endereco.Name = "tb_endereco";
-            this.tb_endereco.Size = new System.Drawing.Size(779, 21);
+            this.tb_endereco.Size = new System.Drawing.Size(466, 21);
             this.tb_endereco.TabIndex = 2;
             // 
             // lb_nome_completo
@@ -276,12 +281,13 @@
             this.tb_nome.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tb_nome.Location = new System.Drawing.Point(8, 53);
             this.tb_nome.Name = "tb_nome";
-            this.tb_nome.Size = new System.Drawing.Size(780, 21);
+            this.tb_nome.Size = new System.Drawing.Size(466, 21);
             this.tb_nome.TabIndex = 0;
             // 
             // gb_cadastraUser
             // 
             this.gb_cadastraUser.BackColor = System.Drawing.Color.Transparent;
+            this.gb_cadastraUser.Controls.Add(this.pb_perfil);
             this.gb_cadastraUser.Controls.Add(this.lb_anos);
             this.gb_cadastraUser.Controls.Add(this.dt_nascimento);
             this.gb_cadastraUser.Controls.Add(this.tb_documento);
@@ -302,16 +308,28 @@
             this.gb_cadastraUser.Controls.Add(this.tb_nome);
             this.gb_cadastraUser.Location = new System.Drawing.Point(13, 28);
             this.gb_cadastraUser.Name = "gb_cadastraUser";
-            this.gb_cadastraUser.Size = new System.Drawing.Size(801, 230);
+            this.gb_cadastraUser.Size = new System.Drawing.Size(801, 187);
             this.gb_cadastraUser.TabIndex = 3;
             this.gb_cadastraUser.TabStop = false;
+            // 
+            // pb_perfil
+            // 
+            this.pb_perfil.ErrorImage = null;
+            this.pb_perfil.Image = ((System.Drawing.Image)(resources.GetObject("pb_perfil.Image")));
+            this.pb_perfil.InitialImage = ((System.Drawing.Image)(resources.GetObject("pb_perfil.InitialImage")));
+            this.pb_perfil.Location = new System.Drawing.Point(691, 44);
+            this.pb_perfil.Name = "pb_perfil";
+            this.pb_perfil.Size = new System.Drawing.Size(100, 122);
+            this.pb_perfil.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_perfil.TabIndex = 28;
+            this.pb_perfil.TabStop = false;
             // 
             // lb_anos
             // 
             this.lb_anos.AccessibleDescription = "Apenas considera o ANO de nascimento.";
             this.lb_anos.AutoSize = true;
             this.lb_anos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_anos.Location = new System.Drawing.Point(421, 128);
+            this.lb_anos.Location = new System.Drawing.Point(547, 76);
             this.lb_anos.Name = "lb_anos";
             this.lb_anos.Size = new System.Drawing.Size(53, 13);
             this.lb_anos.TabIndex = 27;
@@ -321,7 +339,7 @@
             // 
             this.dt_nascimento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dt_nascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dt_nascimento.Location = new System.Drawing.Point(354, 144);
+            this.dt_nascimento.Location = new System.Drawing.Point(480, 90);
             this.dt_nascimento.MaxDate = new System.DateTime(2150, 12, 31, 0, 0, 0, 0);
             this.dt_nascimento.MinDate = new System.DateTime(1935, 1, 1, 0, 0, 0, 0);
             this.dt_nascimento.Name = "dt_nascimento";
@@ -367,7 +385,8 @@
             "RG",
             "CNH",
             "CNPJ",
-            "PASSAPORTE"});
+            "PASSAPORTE",
+            "SEM DOCUMENTO"});
             this.cb_documento.Location = new System.Drawing.Point(8, 143);
             this.cb_documento.Name = "cb_documento";
             this.cb_documento.Size = new System.Drawing.Size(121, 23);
@@ -382,7 +401,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::AmigoDePapel.Properties.Resources.wallpaper;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(826, 420);
+            this.ClientSize = new System.Drawing.Size(826, 363);
             this.Controls.Add(this.gb_observacao);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.gb_cadastraUser);
@@ -396,6 +415,7 @@
             this.toolStrip1.PerformLayout();
             this.gb_cadastraUser.ResumeLayout(false);
             this.gb_cadastraUser.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_perfil)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -432,5 +452,6 @@
         private System.Windows.Forms.ToolStripButton tsb_addImg;
         private System.Windows.Forms.ToolStripButton tsb_removeImg;
         private System.Windows.Forms.OpenFileDialog ofd_user;
+        private System.Windows.Forms.PictureBox pb_perfil;
     }
 }

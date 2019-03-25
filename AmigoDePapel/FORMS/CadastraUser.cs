@@ -3,6 +3,7 @@ using AmigoDePapel.CLASS.conSql;
 using System.Windows.Forms;
 using System.Data.SqlServerCe;
 using AmigoDePapel.CLASS;
+using System.Drawing;
 
 namespace AmigoDePapel.FORMS
 {
@@ -45,7 +46,14 @@ namespace AmigoDePapel.FORMS
             {
                 MessageBox.Show(err.Message, "Puts!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
+            try
+            {
+                pb_perfil.Image = Image.FromFile(ctrlImg.GetUrl(lb_codigo.Text, "user"));
+            }
+            catch
+            {
+                tsb_removeImg.PerformClick();
+            }
         }
 
         private string ValidacoesBasicas()
@@ -119,7 +127,7 @@ namespace AmigoDePapel.FORMS
                 {
                     Connection sqlExecut = new Connection();
                     sqlExecut.LoadQuery(sql);
-                    this.Close();
+                    Close();
                 }
 
                 catch (Exception err)
@@ -132,21 +140,13 @@ namespace AmigoDePapel.FORMS
         private void cb_documento_TextChanged(object sender, EventArgs e)
         {
             if(cb_documento.Text == "CPF")
-            {
                 tb_documento.Mask = "###.###.###-##";
-            }
             else if(cb_documento.Text == "RG")
-            {
                 tb_documento.Mask = "##.###.###-#";
-            }
             else if (cb_documento.Text == "CNPJ")
-            {
                 tb_documento.Mask = "##.###.###/####-##";
-            }
             else
-            {
                 tb_documento.Mask = null;
-            }
         }
 
         private void cb_documento_SelectedIndexChanged(object sender, EventArgs e)
@@ -156,14 +156,13 @@ namespace AmigoDePapel.FORMS
 
         private void tsb_retirar_Click(object sender, EventArgs e)
         {
-            DialogResult dr = new DialogResult();
-            dr = MessageBox.Show("Deseja excluir o cadastro de nome '"+tb_nome+"'?", "Calma!!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dr = MessageBox.Show("Deseja excluir o cadastro de nome '"+tb_nome+"'?", "Calma!!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if(dr == DialogResult.Yes)
             {
                 Connection con = new Connection();
                 con.LoadQuery(querys.sql_deleteLogico_crm_cliente + lb_codigo.Text);
-                this.Close();
+                Close();
             }
         }
 
@@ -176,26 +175,38 @@ namespace AmigoDePapel.FORMS
 
         private void tsb_addImg_Click(object sender, EventArgs e)
         {
-            DialogResult dr = new DialogResult();
-            dr = ofd_user.ShowDialog();
-
-            if (dr == DialogResult.OK)
+            if(lb_codigo.Text == "00")
+                MessageBox.Show("Salve o cadastro antes de anexar uma foto.", "Ops!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
             {
-                try
+                DialogResult dr = ofd_user.ShowDialog();
+
+                if (dr == DialogResult.OK)
                 {
-                    if (ctrlImg.SalvaImagem(ofd_user.FileName.ToString(), lb_codigo.Text,"user"))
+                    try
                     {
-                        tsb_removeImg.Enabled = true;
-                        MessageBox.Show("Foto salva com sucesso.", "Uau!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        if (ctrlImg.SalvaImagem(ofd_user.FileName.ToString(), lb_codigo.Text, "user"))
+                        {
+                            tsb_removeImg.Enabled = true;
+                            MessageBox.Show("Foto salva com sucesso.", "Uau!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            pb_perfil.Image = Image.FromFile(ctrlImg.GetUrl(lb_codigo.Text, "user"));
+                        }
+                        else
+                            MessageBox.Show("Algo deu errado em salvar sua foto.", "Ops!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    else
-                        MessageBox.Show("Algo deu errado em salvar sua foto.", "Ops!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                catch (Exception err)
-                {
-                    MessageBox.Show(err.Message, "Caramba!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    catch (Exception err)
+                    {
+                        MessageBox.Show(err.Message, "Caramba!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
+
+        }
+
+        private void tsb_removeImg_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

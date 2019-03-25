@@ -26,7 +26,8 @@ namespace AmigoDePapel.CLASS.conSql
                     CreateTables();
 
                     MessageBox.Show(@"Nova base de dados foi criada e selecionada com sucesso. 
-                                    \n Seu aplicativo irá reinicializar. \n LOCAL DA BASE:"+ Application.StartupPath, 
+                                      Seu aplicativo irá reinicializar. 
+                                      LOCAL DA BASE:"+ Application.StartupPath, 
                                     "Oba!", 
                                     MessageBoxButtons.OK, 
                                     MessageBoxIcon.Information);

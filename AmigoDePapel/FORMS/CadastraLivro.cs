@@ -3,12 +3,13 @@ using AmigoDePapel.CLASS.conSql;
 using System.Windows.Forms;
 using System.Data.SqlServerCe;
 using AmigoDePapel.CLASS;
+using System.Drawing;
 
 namespace AmigoDePapel.FORMS
 {
     public partial class CadastraLivro : Form
     {
-        public string urlImg = String.Empty;
+        public string urlImg = string.Empty;
 
         ControleArquivo ctrlImg = new ControleArquivo();
         SqlQuery querys = new SqlQuery();
@@ -51,7 +52,7 @@ namespace AmigoDePapel.FORMS
                     tb_subtitulo.Text = dr.GetString(2);
                     tb_isbn.Text = dr.GetString(3);
                     tb_editora.Text = dr.GetString(4);
-                    tb_versao.Text = dr.GetString(5); ;
+                    tb_versao.Text = dr.GetString(5);
                     tb_ano.Text = String.Concat(dr.GetInt32(6), "");
                     tb_autor.Text = dr.GetString(7);
                     cb_tema.Text = dr.GetString(8);
@@ -64,6 +65,7 @@ namespace AmigoDePapel.FORMS
             {
                 MessageBox.Show(err.Message, "Caraca!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
             ValidacoesBasicas();
         }
 
@@ -102,8 +104,12 @@ namespace AmigoDePapel.FORMS
                 tsb_retirar.Enabled = true;
 
             //se tiver imagem - libera o botão de deletar img.
-            if (ctrlImg.ImgExist(lb_codigo.Text,"capa"))
+            if (ctrlImg.ImgExist(lb_codigo.Text, "capa"))
+            {
                 tsb_deleteimg.Enabled = true;
+                pb_livro.Image = Image.FromFile(ctrlImg.GetUrl(lb_codigo.Text, "capa"));
+            }
+                
         }
 
         private void tsb_retirar_Click(object sender, EventArgs e)
@@ -212,25 +218,30 @@ namespace AmigoDePapel.FORMS
 
         private void tsb_addimg_Click(object sender, EventArgs e)
         {
-            DialogResult dr = new DialogResult();
-            dr = ofd_capa.ShowDialog();
-
-            if(dr == DialogResult.OK)
+            if (lb_codigo.Text == "00")
             {
-                try
+                MessageBox.Show("Salve o cadastro antes de selecionar uma imagem.", "Ops!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                if (ofd_capa.ShowDialog() == DialogResult.OK)
                 {
-                    if(ctrlImg.SalvaImagem(ofd_capa.FileName.ToString(), lb_codigo.Text,"capa"))
+                    try
                     {
-                        tsb_deleteimg.Enabled = true;
-                        MessageBox.Show("Foto salva com sucesso.", "Uau!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }   
-                    else
-                        MessageBox.Show("Algo deu errado em salvar sua foto.", "Ops!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (ctrlImg.SalvaImagem(ofd_capa.FileName.ToString(), lb_codigo.Text, "capa"))
+                        {
+                            tsb_deleteimg.Enabled = true;
+                            MessageBox.Show("Foto salva com sucesso.", "Uau!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            pb_livro.Image = Image.FromFile(ctrlImg.GetUrl(lb_codigo.Text, "capa"));
+                        }
+                        else
+                            MessageBox.Show("Algo deu errado em salvar sua foto.", "Ops!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    catch (Exception err)
+                    {
+                        MessageBox.Show(err.Message, "Caramba!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-                catch(Exception err)
-                {
-                    MessageBox.Show(err.Message, "Caramba!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }                
             }
         }
 

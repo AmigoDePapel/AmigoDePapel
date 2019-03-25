@@ -66,13 +66,13 @@ namespace AmigoDePapel
         {
 
             ValidaInicializacao validacao = new ValidaInicializacao();
-            //VERIFICA OS ARQUIVOS BASICOS;
+            //VERIFICA OS ARQUIVOS BASICOS
             string[] txt = validacao.VerifinicaInicializacao();
 
             //BASE EXISTE?
             if (!File.Exists(txt[0]))
             {
-                tss_img.Image = global::AmigoDePapel.Properties.Resources.cancel;
+                tss_img.Image = Properties.Resources.cancel;
             }
             else
             {
@@ -117,7 +117,7 @@ namespace AmigoDePapel
         {
             try
             {
-                Point p = this.PointToClient(Cursor.Position);
+                Point p = PointToClient(Cursor.Position);
                 pb.Size = new Size(96, 139);
                 pb.Location = new Point(p.X - 20, p.Y - 45);
                 pb.Image = Image.FromFile(GetURLImg(id, tipo));
@@ -136,7 +136,7 @@ namespace AmigoDePapel
             Connection con = new Connection();
             string pesquisa = con.TrataQuery(tb_pesquisaLivro.Text);
 
-            if (pesquisa != null)
+            if (!string.IsNullOrEmpty(pesquisa))
             {
                 dg_livro.DataSource = null;
                 dg_livro.Rows.Clear();
@@ -188,7 +188,7 @@ namespace AmigoDePapel
         private void atualiza_FormClosing(object sender, FormClosingEventArgs e)
         {
             LoadGrids();
-            this.Focus();
+            Focus();
         }
 
         private void dg_livro_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -220,9 +220,7 @@ namespace AmigoDePapel
         private void tb_pesquisaLivro_KeyUp(object sender, KeyEventArgs e)
         {
             if(e.KeyCode == Keys.Enter)
-            {
                 RealizaPesquisa();
-            }
         }
         
         private void pb_cancelaPesquisa_Click(object sender, EventArgs e)
