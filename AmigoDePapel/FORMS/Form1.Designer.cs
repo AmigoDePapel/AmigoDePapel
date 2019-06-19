@@ -41,8 +41,8 @@
             this.tsb_add_livro = new System.Windows.Forms.ToolStripButton();
             this.tsb_add_userr = new System.Windows.Forms.ToolStripButton();
             this.tsb_report = new System.Windows.Forms.ToolStripButton();
-            this.tsb_help = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.tsb_help = new System.Windows.Forms.ToolStripButton();
             this.tc_main = new System.Windows.Forms.TabControl();
             this.tp_book = new System.Windows.Forms.TabPage();
             this.pb_cancelaPesquisa = new System.Windows.Forms.PictureBox();
@@ -57,6 +57,7 @@
             this.tb_pesquisa_user = new System.Windows.Forms.TextBox();
             this.pc_pesquisa_user = new System.Windows.Forms.PictureBox();
             this.tb_loan = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pb_pesquisa_emprestimo = new System.Windows.Forms.PictureBox();
             this.tb_emprestimo = new System.Windows.Forms.TextBox();
             this.dg_emprestimo = new System.Windows.Forms.DataGridView();
@@ -83,6 +84,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tb_pesquisaUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pc_pesquisa_user)).BeginInit();
             this.tb_loan.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_pesquisa_emprestimo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_emprestimo)).BeginInit();
             this.statusStrip1.SuspendLayout();
@@ -95,8 +97,8 @@
             this.tsb_add_livro,
             this.tsb_add_userr,
             this.tsb_report,
-            this.tsb_help,
-            this.toolStripButton1});
+            this.toolStripButton1,
+            this.tsb_help});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(887, 25);
@@ -142,15 +144,6 @@
             this.tsb_report.Size = new System.Drawing.Size(23, 22);
             this.tsb_report.Text = "Relátorios";
             // 
-            // tsb_help
-            // 
-            this.tsb_help.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsb_help.Image = global::AmigoDePapel.Properties.Resources.help;
-            this.tsb_help.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsb_help.Name = "tsb_help";
-            this.tsb_help.Size = new System.Drawing.Size(23, 22);
-            this.tsb_help.Text = "Ajuda";
-            // 
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -160,6 +153,15 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "Configurações";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            // 
+            // tsb_help
+            // 
+            this.tsb_help.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsb_help.Image = global::AmigoDePapel.Properties.Resources.help;
+            this.tsb_help.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsb_help.Name = "tsb_help";
+            this.tsb_help.Size = new System.Drawing.Size(23, 22);
+            this.tsb_help.Text = "Ajuda";
             // 
             // tc_main
             // 
@@ -301,7 +303,7 @@
             // 
             // pb_userFoto
             // 
-            this.pb_userFoto.Location = new System.Drawing.Point(847, 462);
+            this.pb_userFoto.Location = new System.Drawing.Point(848, 462);
             this.pb_userFoto.Name = "pb_userFoto";
             this.pb_userFoto.Size = new System.Drawing.Size(23, 16);
             this.pb_userFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -389,6 +391,7 @@
             // tb_loan
             // 
             this.tb_loan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.tb_loan.Controls.Add(this.pictureBox1);
             this.tb_loan.Controls.Add(this.pb_pesquisa_emprestimo);
             this.tb_loan.Controls.Add(this.tb_emprestimo);
             this.tb_loan.Controls.Add(this.dg_emprestimo);
@@ -400,6 +403,18 @@
             this.tb_loan.Size = new System.Drawing.Size(879, 484);
             this.tb_loan.TabIndex = 2;
             this.tb_loan.Text = "Empréstimos";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.BackColor = System.Drawing.Color.White;
+            this.pictureBox1.Image = global::AmigoDePapel.Properties.Resources.add;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 8);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(16, 16);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 12;
+            this.pictureBox1.TabStop = false;
             // 
             // pb_pesquisa_emprestimo
             // 
@@ -418,9 +433,9 @@
             this.tb_emprestimo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tb_emprestimo.Location = new System.Drawing.Point(233, 6);
+            this.tb_emprestimo.Location = new System.Drawing.Point(278, 6);
             this.tb_emprestimo.Name = "tb_emprestimo";
-            this.tb_emprestimo.Size = new System.Drawing.Size(638, 20);
+            this.tb_emprestimo.Size = new System.Drawing.Size(593, 20);
             this.tb_emprestimo.TabIndex = 8;
             // 
             // dg_emprestimo
@@ -464,7 +479,7 @@
             // cb_emdia
             // 
             this.cb_emdia.AutoSize = true;
-            this.cb_emdia.Location = new System.Drawing.Point(169, 8);
+            this.cb_emdia.Location = new System.Drawing.Point(219, 8);
             this.cb_emdia.Name = "cb_emdia";
             this.cb_emdia.Size = new System.Drawing.Size(58, 17);
             this.cb_emdia.TabIndex = 2;
@@ -474,7 +489,7 @@
             // cb_atrasados
             // 
             this.cb_atrasados.AutoSize = true;
-            this.cb_atrasados.Location = new System.Drawing.Point(90, 8);
+            this.cb_atrasados.Location = new System.Drawing.Point(140, 8);
             this.cb_atrasados.Name = "cb_atrasados";
             this.cb_atrasados.Size = new System.Drawing.Size(73, 17);
             this.cb_atrasados.TabIndex = 1;
@@ -484,7 +499,7 @@
             // cb_encerrados
             // 
             this.cb_encerrados.AutoSize = true;
-            this.cb_encerrados.Location = new System.Drawing.Point(4, 8);
+            this.cb_encerrados.Location = new System.Drawing.Point(54, 8);
             this.cb_encerrados.Name = "cb_encerrados";
             this.cb_encerrados.Size = new System.Drawing.Size(80, 17);
             this.cb_encerrados.TabIndex = 0;
@@ -507,8 +522,9 @@
             // tss_adp
             // 
             this.tss_adp.Name = "tss_adp";
-            this.tss_adp.Size = new System.Drawing.Size(227, 17);
-            this.tss_adp.Text = "Amigo de papel - 0.09.6v ALPHA RELEASE";
+            this.tss_adp.Size = new System.Drawing.Size(221, 17);
+            this.tss_adp.Text = "Amigo de papel - 0.10.0 ALPHA RELEASE";
+            this.tss_adp.Click += new System.EventHandler(this.Tss_adp_Click);
             // 
             // tss_status
             // 
@@ -564,6 +580,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pc_pesquisa_user)).EndInit();
             this.tb_loan.ResumeLayout(false);
             this.tb_loan.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_pesquisa_emprestimo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dg_emprestimo)).EndInit();
             this.statusStrip1.ResumeLayout(false);
@@ -609,6 +626,7 @@
         private System.Windows.Forms.PictureBox pb_cancelaPesquisa;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.PictureBox pb_userFoto;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

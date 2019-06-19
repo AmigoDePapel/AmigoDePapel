@@ -134,7 +134,7 @@ namespace AmigoDePapel
         {
             //para tratar a query 
             Connection con = new Connection();
-            string pesquisa = con.TrataQuery(tb_pesquisaLivro.Text);
+            string pesquisa = con.FormatQuery(tb_pesquisaLivro.Text);
 
             if (!string.IsNullOrEmpty(pesquisa))
             {
@@ -243,6 +243,11 @@ namespace AmigoDePapel
         {
             pb_userFoto.Visible = false;
             pb_userFoto.Image = null;
+        }
+
+        private void Tss_adp_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

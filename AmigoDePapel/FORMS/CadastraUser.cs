@@ -185,7 +185,7 @@ namespace AmigoDePapel.FORMS
                 {
                     try
                     {
-                        if (ctrlImg.SalvaImagem(ofd_user.FileName.ToString(), lb_codigo.Text, "user"))
+                        if (ctrlImg.ImgSave(ofd_user.FileName.ToString(), lb_codigo.Text, "user"))
                         {
                             tsb_removeImg.Enabled = true;
                             MessageBox.Show("Foto salva com sucesso.", "Uau!!", MessageBoxButtons.OK, MessageBoxIcon.Information);

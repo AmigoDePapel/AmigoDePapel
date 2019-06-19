@@ -9,16 +9,17 @@ namespace AmigoDePapel.FORMS
 {
     public partial class CadastraLivro : Form
     {
+        #region variables
         public string urlImg = string.Empty;
-
         ControleArquivo ctrlImg = new ControleArquivo();
         SqlQuery querys = new SqlQuery();
+        #endregion
 
+        #region constructor
         public CadastraLivro()
         {
             InitializeComponent();
         }
-
         public CadastraLivro(string codigo)
         {
             InitializeComponent();
@@ -28,7 +29,7 @@ namespace AmigoDePapel.FORMS
                 Connection sqlExecut = new Connection();
 
                 //colocar esse select na classe consql e utilizar interpolação pra adicionar o valor no codigo.
-                SqlCeDataReader dr = sqlExecut.ReturnQuery(@"SELECT 
+                SqlCeDataReader dr = sqlExecut.ReturnQuery($@"SELECT 
                                                                     ID,
                                                                     TITULO, 
                                                                     SUBTITULO,
@@ -42,8 +43,8 @@ namespace AmigoDePapel.FORMS
                                                                     PAGINAS,
                                                                     OBSERVACAO 
                                                                FROM STK_ITEM_LIVRO 
-                                                               WHERE ID = " + codigo +
-                                                               "AND ISDELETED = 0");
+                                                               WHERE ID = {codigo}
+                                                               AND ISDELETED = 0");
 
                 if (dr.Read())
                 {
@@ -68,7 +69,9 @@ namespace AmigoDePapel.FORMS
             
             ValidacoesBasicas();
         }
+        #endregion
 
+        #region customFunctions
         private string ValidaSalvamento()
         {
             string alerta = String.Empty;
@@ -95,7 +98,6 @@ namespace AmigoDePapel.FORMS
             }
             return alerta;
         }
-
         private void ValidacoesBasicas()
         {
             //VALIDAÇÕES BÁSICAS
@@ -111,7 +113,9 @@ namespace AmigoDePapel.FORMS
             }
                 
         }
+        #endregion
 
+        #region componentsFuncions
         private void tsb_retirar_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Deseja excluir o livro: '"+tb_titulo.Text+"'?",
@@ -132,7 +136,6 @@ namespace AmigoDePapel.FORMS
                 }
             }
         }
-
         private void tsb_save_Click(object sender, EventArgs e)
         {
             string alerta = ValidaSalvamento();
@@ -203,7 +206,7 @@ namespace AmigoDePapel.FORMS
                         SqlCeDataReader dr = sqlExecut.ReturnQuery("SELECT MAX(ID) FROM STK_ITEM_LIVRO");
                         if (dr.Read())
                         {
-                            ctrlImg.SalvaImagem(urlImg, String.Concat(dr.GetInt32(0),""),"capa");
+                            ctrlImg.ImgSave(urlImg, String.Concat(dr.GetInt32(0),""),"capa");
                         }
                 }
                     this.Close();
@@ -215,7 +218,6 @@ namespace AmigoDePapel.FORMS
                 }
             }
         }
-
         private void tsb_addimg_Click(object sender, EventArgs e)
         {
             if (lb_codigo.Text == "00")
@@ -228,7 +230,7 @@ namespace AmigoDePapel.FORMS
                 {
                     try
                     {
-                        if (ctrlImg.SalvaImagem(ofd_capa.FileName.ToString(), lb_codigo.Text, "capa"))
+                        if (ctrlImg.ImgSave(ofd_capa.FileName.ToString(), lb_codigo.Text, "capa"))
                         {
                             tsb_deleteimg.Enabled = true;
                             MessageBox.Show("Foto salva com sucesso.", "Uau!", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -244,7 +246,6 @@ namespace AmigoDePapel.FORMS
                 }
             }
         }
-
         private void tsb_deleteimg_Click(object sender, EventArgs e)
         {
             if(MessageBox.Show("Deseja remover a capa selecionada para esse livro?", 
@@ -261,7 +262,7 @@ namespace AmigoDePapel.FORMS
                 {
                     try
                     {
-                        ctrlImg.DeletaArquivo(lb_codigo.Text,"capa");
+                        ctrlImg.FileDel(lb_codigo.Text,"capa");
                         tsb_deleteimg.Enabled = false;
                     }
                     catch (Exception err)
@@ -271,11 +272,11 @@ namespace AmigoDePapel.FORMS
                 }
             }
         }
-
         private void lb_oservacao_Click(object sender, EventArgs e)
         {
             AdicionaInformacao ai = new AdicionaInformacao();
-            tb_titulo.Text = ai.GeraCod(cb_tema.Text, cb_subtema.Text);
+            tb_titulo.Text = ai.getNewID(cb_tema.Text, cb_subtema.Text);
         }
+        #endregion
     }
 }

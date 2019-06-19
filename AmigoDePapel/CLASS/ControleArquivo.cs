@@ -11,13 +11,12 @@ namespace AmigoDePapel.CLASS
             else
                 return false;
         }
-
-        public bool SalvaImagem(string url, string nome, string tipo)
+        public bool ImgSave(string url, string nome, string tipo)
         {
             string urlNovo = GetUrl(nome,tipo);
             try
             {
-                if(DeletaArquivo(nome, tipo))
+                if(FileDel(nome, tipo))
                     File.Copy(url, urlNovo);
                 return true;
             }
@@ -26,8 +25,7 @@ namespace AmigoDePapel.CLASS
                 return false;
             }
         }
-
-        public bool DeletaArquivo(string nome, string tipo)
+        public bool FileDel(string nome, string tipo)
         {
             try
             { 
@@ -46,7 +44,6 @@ namespace AmigoDePapel.CLASS
                 return false;
             }
         }
-
         public string GetUrl(string nome, string tipo)
         {
             return System.Environment.CurrentDirectory.ToString() + @"\img\"+tipo+@"\" + nome + ".jpg";

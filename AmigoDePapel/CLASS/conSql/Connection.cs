@@ -25,9 +25,8 @@ namespace AmigoDePapel.CLASS.conSql
                     eng.CreateDatabase();
                     CreateTables();
 
-                    MessageBox.Show(@"Nova base de dados foi criada e selecionada com sucesso. 
-                                      Seu aplicativo irá reinicializar. 
-                                      LOCAL DA BASE:"+ Application.StartupPath, 
+                    MessageBox.Show("Nova base de dados foi criada e selecionada com sucesso. Seu aplicativo irá reinicializar. "+
+                                    "\n LOCAL DA BASE: "+ Application.StartupPath, 
                                     "Oba!", 
                                     MessageBoxButtons.OK, 
                                     MessageBoxIcon.Information);
@@ -46,17 +45,18 @@ namespace AmigoDePapel.CLASS.conSql
             }
             catch(Exception err)
             {
-                MessageBox.Show(err.Message, "Puts!", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(err.Message, 
+                                "Puts!", 
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
             }
         }
-
         public SqlCeConnection OpenCon()
         {
             SqlCeConnection con = new SqlCeConnection(urlCon);
             con.Open();
             return con;
         }
-
         private void CreateTables()
         {
             try
@@ -87,7 +87,6 @@ namespace AmigoDePapel.CLASS.conSql
                 MessageBox.Show(err.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
         public void LoadQuery(string sqlExecut)
         {
             try
@@ -102,8 +101,7 @@ namespace AmigoDePapel.CLASS.conSql
                 MessageBox.Show(err.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        public string TrataQuery(string sql)
+        public string FormatQuery(string sql)
         {
             /* verifica se está vazio, em caso de retorno null faça a tratativa na chamada. 
              verifica se tem aspas simples.
@@ -117,7 +115,6 @@ namespace AmigoDePapel.CLASS.conSql
 
             return sql;
         }
-
         public SqlCeDataReader ReturnQuery(string sqlExecut)
         {
             try
@@ -130,9 +127,11 @@ namespace AmigoDePapel.CLASS.conSql
             }
             catch(Exception err)
             {
-                //SE DER ERRO VOLTE UM SQLCDR VAZIO, E VALIDE NA CHAMADA. 
                 SqlCeDataReader dr = null;
-                MessageBox.Show(err.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(err.Message,
+                                "Erro!", 
+                                MessageBoxButtons.OK, 
+                                MessageBoxIcon.Error);
 
                 return dr;
             }
