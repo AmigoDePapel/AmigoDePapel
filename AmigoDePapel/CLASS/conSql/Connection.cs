@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AmigoDePapel.LIB;
+using System;
 using System.Data.SqlServerCe;
 using System.IO;
 using System.Windows.Forms;
@@ -10,16 +11,17 @@ namespace AmigoDePapel.CLASS.conSql
         //variaveis globais 
         public static string urlCon = "Data Source=" +
                             Application.StartupPath +
-                            @"\DB_AMIGODEPAPEL.sdf";
+                            ConstantADP.fileBase;
 
         //instanciamentos globais 
         ValidaInicializacao valid = new ValidaInicializacao();
+        MessageSrvc msg = new MessageSrvc();
 
         public void CreateDB()
         {
             try
             {
-                if (!File.Exists(Application.StartupPath + @"\DB_AMIGODEPAPEL.sdf"))
+                if (!File.Exists(Application.StartupPath + ConstantADP.fileBase))
                 {
                     SqlCeEngine eng = new SqlCeEngine(urlCon);
                     eng.CreateDatabase();
@@ -31,7 +33,7 @@ namespace AmigoDePapel.CLASS.conSql
                                     MessageBoxButtons.OK, 
                                     MessageBoxIcon.Information);
 
-                    valid.AtualizaTXT(Application.StartupPath + @"\DB_AMIGODEPAPEL.sdf", "05");
+                    valid.AtualizaTXT(Application.StartupPath + ConstantADP.fileBase, "05");
                     System.Diagnostics.Process.Start(Application.StartupPath+ @"\AmigoDePapel.exe");
                     Application.Exit();
                 }
@@ -98,7 +100,7 @@ namespace AmigoDePapel.CLASS.conSql
             }
             catch (Exception err)
             {
-                MessageBox.Show(err.Message, "Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                msg.Erro("Não foi possivel realizar a operação no banco de dados.", "Erro", err);
             }
         }
         public string FormatQuery(string sql)

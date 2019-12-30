@@ -148,10 +148,12 @@ namespace AmigoDePapel.FORMS
             { 
                 //INICIA O SALVAMENTO DAS INFORMAÇÕES
                 //SE O ID FOR 00 É UM NOVO REGISTRO, SE NÃO, É UMA ALTERAÇÃO
-                string sql = String.Empty;
-                if(lb_codigo.Text == "00")
+                string sql = string.Empty;
+                string campos = string.Empty;
+
+                if (lb_codigo.Text == "00")
                 {
-                    sql = @"INSERT INTO STK_ITEM_LIVRO (ISDELETED,
+                    sql = $@"INSERT INTO STK_ITEM_LIVRO (ISDELETED,
                                                         TITULO,
                                                         SUBTITULO,
                                                         ISBN,
@@ -163,18 +165,18 @@ namespace AmigoDePapel.FORMS
                                                         SUBTEMA,
                                                         PAGINAS,
                                                         OBSERVACAO)
-                                             VALUES   (0,'"
-                                                        + tb_titulo.Text + "','" 
-                                                        + tb_subtitulo.Text + "','"
-                                                        + tb_isbn.Text + "','"
-                                                        + tb_editora.Text + "','"
-                                                        + tb_versao.Text + "',"
-                                                        + tb_ano.Text + ",'"
-                                                        + tb_autor.Text + "','"
-                                                        + cb_tema.Text + "','"
-                                                        + cb_subtema.Text + "',"
-                                                        + tb_pagina.Text + ",'"
-                                                        + tb_obs.Text + "')";
+                                             VALUES   (0,
+                                                       '{tb_titulo.Text}',
+                                                       '{tb_subtitulo.Text}', 
+                                                       '{tb_isbn.Text}',
+                                                       '{tb_editora.Text}', 
+                                                       '{tb_versao.Text}',
+                                                       '{tb_ano.Text}', 
+                                                       '{tb_autor.Text}', 
+                                                       '{cb_tema.Text}', 
+                                                       '{cb_subtema.Text}', 
+                                                       '{tb_pagina.Text}',
+                                                       '{tb_obs.Text}')";
                 }
                 else
                 {

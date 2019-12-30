@@ -128,6 +128,8 @@
     <Compile Include="FORMS\RestauraItens.Designer.cs">
       <DependentUpon>RestauraItens.cs</DependentUpon>
     </Compile>
+    <Compile Include="LIB\ConstantADP.cs" />
+    <Compile Include="LIB\MessageSrvc.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FORMS\CadastraLivro.resx">

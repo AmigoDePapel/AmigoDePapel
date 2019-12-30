@@ -2,10 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\AmigoDePapel",
-    "\\AmigoDePapel\\bin\\Debug",
     "\\AmigoDePapel\\CLASS",
-    "\\AmigoDePapel\\CLASS\\conSql"
+    "\\AmigoDePapel\\obj"
   ],
-  "SelectedNode": "\\AmigoDePapel\\CLASS\\conSql\\SqlQuery.cs",
   "PreviewInSolutionExplorer": false
 }
